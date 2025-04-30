@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Money stack -->
+  <rect x="40" y="100" width="120" height="60" rx="5" fill="#4ade80" />
+  <rect x="40" y="90" width="120" height="60" rx="5" fill="#22c55e" />
+  <rect x="40" y="80" width="120" height="60" rx="5" fill="#16a34a" />
+  
+  <!-- White band -->
+  <rect x="80" y="100" width="40" height="60" fill="#f8fafc" />
+  <rect x="80" y="90" width="40" height="60" fill="#f1f5f9" />
+  <rect x="80" y="80" width="40" height="60" fill="#e2e8f0" />
+  
+  <!-- Coin -->
+  <circle cx="150" cy="50" r="30" fill="#fcd34d" />
+  <circle cx="150" cy="50" r="25" fill="#fbbf24" />
+  <path d="M150 30 L150 70 M140 40 L160 40 M140 60 L160 60" stroke="#f59e0b" stroke-width="3" />
+  
+  <!-- Gem -->
+  <path d="M50 40 L70 30 L90 40 L70 70 Z" fill="#93c5fd" />
+  <path d="M50 40 L70 30 L90 40 L70 70 Z" fill="#60a5fa" stroke="#3b82f6" stroke-width="2" />
+</svg>

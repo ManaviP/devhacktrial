@@ -1,0 +1,70 @@
+@import '../common/SectionStyles.css';
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #F3F4F6;
+}
+
+.dark .hero-section {
+  background-color: #111827;
+}
+
+.hero-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3rem;
+  width: 100%;
+  background-color: #E5E7EB;
+  z-index: 10;
+}
+
+.dark .hero-header {
+  background-color: #0F172A;
+}
+
+.hero-title {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #374151;
+}
+
+.dark .hero-title {
+  color: #F9FAFB;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  composes: text-secondary;
+  margin-top: 1rem;
+}
+
+.register-button {
+  padding: 1rem 2rem;
+  background-color: #3B82F6;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #2563EB;
+}
+
+.dark .register-button {
+  background-color: #111827;
+}
+
+.dark .register-button:hover {
+  background-color: #1F2937;
+}
+
+.keyboard-canvas-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+}

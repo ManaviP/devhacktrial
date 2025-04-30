@@ -1,0 +1,42 @@
+@import '../common/SectionStyles.css';
+
+.overview-section {
+  position: relative;
+  min-height: 100vh;
+}
+
+.overview-content {
+  width: 50%;
+  padding-left: 3rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: rgba(229, 231, 235, 0.8);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.dark .overview-content {
+  background-color: rgba(31, 41, 55, 0.8);
+}
+
+.overview-title {
+  composes: section-title;
+  margin-bottom: 2rem;
+}
+
+.overview-text {
+  font-size: 1.125rem;
+  composes: text-primary;
+}
+
+.overview-highlight {
+  composes: text-highlight;
+}
+
+.keyboard-canvas-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+}

@@ -1,0 +1,9 @@
+@import '../common/SectionStyles.css';
+
+.tracks-section {
+  composes: section-container;
+}
+
+.tracks-title {
+  composes: section-title;
+}

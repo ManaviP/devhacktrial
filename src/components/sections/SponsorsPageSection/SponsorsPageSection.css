@@ -1,0 +1,9 @@
+@import '../common/SectionStyles.css';
+
+.sponsors-section {
+  composes: section-container;
+}
+
+.sponsors-title {
+  composes: section-title;
+}
