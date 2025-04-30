@@ -30,7 +30,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           {isLoading ? (
-            <LoadingPage onComplete={handleLoadingComplete} loadingTime={1250} />
+            <LoadingPage onComplete={handleLoadingComplete} loadingTime={1000} />
           ) : (
             <BrowserRouter>
               <Routes>
