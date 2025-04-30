@@ -4,29 +4,113 @@ import './SponsorsPageSection.css';
 interface Sponsor {
   name: string;
   logo: string;
-  tag: string;
-  type: 'gold' | 'silver';
+  logoUrl: string;
+  type: 'track' | 'gold' | 'silver' | 'community';
   bgColor?: string;
+  animation?: string;
 }
 
 export const SponsorsPageSection = () => {
   const [hoveredSponsor, setHoveredSponsor] = useState<number | null>(null);
 
   const sponsors: Sponsor[] = [
-    { name: "Pyth", logo: "PYTH", tag: "[P]", type: "gold" },
-    { name: "Uni", logo: "UNI", tag: "[P]", type: "gold" },
-    { name: "Wormhole", logo: "WORMHOLE", tag: "[P]", type: "gold" },
-    { name: "Exponential Win", logo: "e^win", tag: "[P]", type: "silver" },
-    { name: "Navi", logo: "NAVI", tag: "[P]", type: "silver" },
-    { name: "Scallop", logo: "Scallop", tag: "[P]", type: "silver" },
-    { name: "Bucket", logo: "Bucket", tag: "[P]", type: "silver" },
-    { name: "Alibaba Cloud", logo: "Alibaba Cloud", tag: "[P]", type: "silver" },
-    { name: "Hippo", logo: "HIPPO", tag: "[P]", type: "silver" },
-    { name: "Dubhe", logo: "DUBHE", tag: "[P]", type: "silver", bgColor: "bg-yellow-500" },
+    // Track Sponsor
+    {
+      name: "Tezos India",
+      logo: "Tezos India",
+      logoUrl: "/sponsors/tezos.png",
+      type: "track",
+      animation: "float 6s ease-in-out infinite"
+    },
+
+    // Gold Sponsors
+    {
+      name: "Verbwire",
+      logo: "Verbwire",
+      logoUrl: "/sponsors/verbwire.svg",
+      type: "gold",
+      animation: "float 5s ease-in-out infinite"
+    },
+    {
+      name: "Devfolio",
+      logo: "Devfolio",
+      logoUrl: "/sponsors/Devfolio_Logo-White.png",
+      type: "gold",
+      animation: "float 5.5s ease-in-out infinite"
+    },
+    {
+      name: "Polygon",
+      logo: "Polygon",
+      logoUrl: "/sponsors/Polygon_Logo-White@2x.png",
+      type: "gold",
+      animation: "float 6.5s ease-in-out infinite"
+    },
+    {
+      name: "Aptos",
+      logo: "Aptos",
+      logoUrl: "/sponsors/Aptos.png",
+      type: "gold",
+      animation: "float 7s ease-in-out infinite"
+    },
+
+    // Silver Sponsors
+    {
+      name: "AIC DSU Innovation Foundation",
+      logo: "AIC DSU",
+      logoUrl: "/sponsors/aic-dsu.png",
+      type: "silver",
+      animation: "float 4s ease-in-out infinite"
+    },
+    {
+      name: "ETHIndia",
+      logo: "ETHIndia",
+      logoUrl: "/sponsors/ethindia-light.png",
+      type: "silver",
+      animation: "float 4.5s ease-in-out infinite"
+    },
+    {
+      name: "Axure",
+      logo: "Axure",
+      logoUrl: "/sponsors/axure.png",
+      type: "silver",
+      animation: "float 5s ease-in-out infinite"
+    },
+    {
+      name: ".XYZ",
+      logo: ".XYZ",
+      logoUrl: "/sponsors/xyz-white-logo.svg",
+      type: "silver",
+      animation: "float 5.5s ease-in-out infinite"
+    },
+    {
+      name: "Beeceptor",
+      logo: "Beeceptor",
+      logoUrl: "/sponsors/beeceptor-white.svg",
+      type: "silver",
+      animation: "float 6s ease-in-out infinite"
+    },
+
+    // Community Partners
+    {
+      name: "AoPS - Art of Problem Solving",
+      logo: "AoPS",
+      logoUrl: "/sponsors/AoPS_Logo.png",
+      type: "community",
+      animation: "float 5s ease-in-out infinite"
+    },
+    {
+      name: "UrBuddy by OSCode",
+      logo: "UrBuddy",
+      logoUrl: "/sponsors/urBuddy.png",
+      type: "community",
+      animation: "float 5.5s ease-in-out infinite"
+    },
   ];
 
+  const trackSponsors = sponsors.filter(s => s.type === 'track');
   const goldSponsors = sponsors.filter(s => s.type === 'gold');
   const silverSponsors = sponsors.filter(s => s.type === 'silver');
+  const communityPartners = sponsors.filter(s => s.type === 'community');
 
   return (
     <section id="sponsors" className="sponsors-section">
@@ -36,34 +120,44 @@ export const SponsorsPageSection = () => {
         </h2>
 
         <div className="py-8">
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-8 text-center">Gold Sponsors</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
-              {goldSponsors.map((sponsor, idx) => (
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold mb-8 text-center category-title">Track Sponsor</h3>
+            <div className="grid grid-cols-1 gap-6">
+              {trackSponsors.map((sponsor, idx) => (
                 <div
                   key={idx}
-                  className="relative overflow-hidden group cursor-pointer"
+                  className="relative overflow-hidden group cursor-pointer sponsor-card track-sponsor float-animation-1"
                   onMouseEnter={() => setHoveredSponsor(idx)}
                   onMouseLeave={() => setHoveredSponsor(null)}
                 >
-                  <div className={`bg-hackathon-navy border border-gray-800 h-64 p-4 flex flex-col transition-all duration-300 ${hoveredSponsor === idx ? 'bg-hackathon-navy/80 border-blue-500' : ''}`}>
-                    <div className="text-gray-400 text-sm mb-4">
-                      {sponsor.name} {sponsor.tag}
+                  <div className="p-6 flex flex-col h-64">
+                    <div className="text-gray-300 text-lg mb-4 sponsor-name">
+                      {sponsor.name}
                     </div>
-                    <div className="flex-1 flex items-center justify-center">
-                      <div className={`text-4xl font-bold transform transition-transform duration-500 ${hoveredSponsor === idx ? 'scale-110' : ''}`}>
-                        {sponsor.logo}
-                      </div>
+                    <div className="flex-1 flex items-center justify-center logo-container">
+                      {sponsor.logoUrl ? (
+                        <img
+                          src={sponsor.logoUrl}
+                          alt={sponsor.name}
+                          className="logo-image"
+                        />
+                      ) : (
+                        <div className="text-4xl font-bold text-amber-500">
+                          {sponsor.logo}
+                        </div>
+                      )}
                     </div>
                   </div>
+
+                  {/* Hover overlay */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 transition-opacity duration-300 ${hoveredSponsor === idx ? 'opacity-100' : ''}`}
+                    className={`absolute inset-0 bg-gradient-to-r from-amber-500/10 to-orange-500/10 opacity-0 transition-opacity duration-300 ${hoveredSponsor === idx ? 'opacity-100' : ''}`}
                   ></div>
 
-                  {/* Custom cursor indicator */}
-                  <div className="absolute top-4 right-4 bg-blue-500 text-white w-8 h-8 flex items-center justify-center rounded-full opacity-0 transform scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M15 12L9 18M15 12L9 6M15 12H3M21 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  {/* Animated corner badge */}
+                  <div className="absolute top-4 right-4 bg-amber-500 text-white w-10 h-10 flex items-center justify-center rounded-full opacity-0 transform scale-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 shadow-lg">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 4L14.5 9.5L20 10L16 14L17.5 20L12 17L6.5 20L8 14L4 10L9.5 9.5L12 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                 </div>
@@ -71,34 +165,89 @@ export const SponsorsPageSection = () => {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-2xl font-bold mb-8 text-center">Silver Sponsors</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-1">
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold mb-8 text-center category-title">Gold Sponsors</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {goldSponsors.map((sponsor, idx) => (
+                <div
+                  key={idx}
+                  className={`relative overflow-hidden group cursor-pointer sponsor-card gold-sponsor ${idx % 2 === 0 ? 'float-animation-3' : ''}`}
+                  onMouseEnter={() => setHoveredSponsor(idx + trackSponsors.length)}
+                  onMouseLeave={() => setHoveredSponsor(null)}
+                >
+                  <div className="p-6 flex flex-col h-56">
+                    <div className="text-gray-300 text-lg mb-4 sponsor-name">
+                      {sponsor.name}
+                    </div>
+                    <div className="flex-1 flex items-center justify-center logo-container">
+                      {sponsor.logoUrl ? (
+                        <img
+                          src={sponsor.logoUrl}
+                          alt={sponsor.name}
+                          className="logo-image"
+                        />
+                      ) : (
+                        <div className="text-3xl font-bold text-yellow-500">
+                          {sponsor.logo}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Hover overlay */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-amber-500/10 opacity-0 transition-opacity duration-300 ${hoveredSponsor === idx + trackSponsors.length ? 'opacity-100' : ''}`}
+                  ></div>
+
+                  {/* Animated corner badge */}
+                  <div className="absolute top-4 right-4 bg-yellow-500 text-white w-8 h-8 flex items-center justify-center rounded-full opacity-0 transform scale-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 shadow-lg">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 15.713L18.01 19.213L16.597 12.43L21.856 7.76666L14.945 7.16999L12 0.786987L9.05501 7.16999L2.14401 7.76666L7.40401 12.43L5.99001 19.213L12 15.713Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold mb-8 text-center category-title">Silver Sponsors</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               {silverSponsors.map((sponsor, idx) => (
                 <div
                   key={idx}
-                  className="relative overflow-hidden group cursor-pointer"
-                  onMouseEnter={() => setHoveredSponsor(idx + goldSponsors.length)}
+                  className="relative overflow-hidden group cursor-pointer sponsor-card silver-sponsor"
+                  onMouseEnter={() => setHoveredSponsor(idx + trackSponsors.length + goldSponsors.length)}
                   onMouseLeave={() => setHoveredSponsor(null)}
                 >
-                  <div className={`${sponsor.bgColor || 'bg-hackathon-navy'} border border-gray-800 h-32 p-4 flex flex-col transition-all duration-300 ${hoveredSponsor === idx + goldSponsors.length ? 'border-blue-500' : ''}`}>
-                    <div className="text-gray-400 text-xs mb-2">
+                  <div className="p-4 flex flex-col h-40">
+                    <div className="text-gray-300 text-sm mb-2 sponsor-name">
                       {sponsor.name}
                     </div>
-                    <div className="flex-1 flex items-center justify-center">
-                      <div className={`text-lg font-medium transform transition-transform duration-500 ${hoveredSponsor === idx + goldSponsors.length ? 'scale-110' : ''}`}>
-                        {sponsor.logo}
-                      </div>
+                    <div className="flex-1 flex items-center justify-center logo-container">
+                      {sponsor.logoUrl ? (
+                        <img
+                          src={sponsor.logoUrl}
+                          alt={sponsor.name}
+                          className="logo-image"
+                        />
+                      ) : (
+                        <div className="text-xl font-medium text-slate-400">
+                          {sponsor.logo}
+                        </div>
+                      )}
                     </div>
                   </div>
+
+                  {/* Hover overlay */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 transition-opacity duration-300 ${hoveredSponsor === idx + goldSponsors.length ? 'opacity-100' : ''}`}
+                    className={`absolute inset-0 bg-gradient-to-r from-slate-400/10 to-slate-500/10 opacity-0 transition-opacity duration-300 ${hoveredSponsor === idx + trackSponsors.length + goldSponsors.length ? 'opacity-100' : ''}`}
                   ></div>
 
-                  {/* Custom cursor indicator */}
-                  <div className="absolute top-2 right-2 bg-blue-500 text-white w-6 h-6 flex items-center justify-center rounded-full opacity-0 transform scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100">
+                  {/* Animated corner badge */}
+                  <div className="absolute top-2 right-2 bg-slate-400 text-white w-6 h-6 flex items-center justify-center rounded-full opacity-0 transform scale-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 shadow-lg">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M15 12L9 18M15 12L9 6M15 12H3M21 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                 </div>
@@ -106,13 +255,59 @@ export const SponsorsPageSection = () => {
             </div>
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold mb-8 text-center category-title">Community Partners</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {communityPartners.map((sponsor, idx) => (
+                <div
+                  key={idx}
+                  className="relative overflow-hidden group cursor-pointer sponsor-card community-partner"
+                  onMouseEnter={() => setHoveredSponsor(idx + trackSponsors.length + goldSponsors.length + silverSponsors.length)}
+                  onMouseLeave={() => setHoveredSponsor(null)}
+                >
+                  <div className="p-4 flex flex-col h-40">
+                    <div className="text-gray-300 text-sm mb-2 sponsor-name">
+                      {sponsor.name}
+                    </div>
+                    <div className="flex-1 flex items-center justify-center logo-container">
+                      {sponsor.logoUrl ? (
+                        <img
+                          src={sponsor.logoUrl}
+                          alt={sponsor.name}
+                          className="logo-image"
+                        />
+                      ) : (
+                        <div className="text-xl font-medium text-purple-400">
+                          {sponsor.logo}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Hover overlay */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 opacity-0 transition-opacity duration-300 ${hoveredSponsor === idx + trackSponsors.length + goldSponsors.length + silverSponsors.length ? 'opacity-100' : ''}`}
+                  ></div>
+
+                  {/* Animated corner badge */}
+                  <div className="absolute top-2 right-2 bg-purple-500 text-white w-6 h-6 flex items-center justify-center rounded-full opacity-0 transform scale-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 shadow-lg">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M12 16V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M12 8H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
             <button
               type="button"
-              className="px-8 py-4 bg-transparent border border-gray-700 hover:bg-gray-800 hover:border-blue-500 transition-all duration-300 text-white font-medium group relative overflow-hidden"
+              className="sponsor-button group"
             >
-              <span className="relative z-10">Become a sponsor</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-all duration-300"></span>
+              <span className="relative z-10">Become a Sponsor</span>
             </button>
           </div>
         </div>

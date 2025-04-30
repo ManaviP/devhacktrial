@@ -1,9 +1,0 @@
-@import '../common/SectionStyles.css';
-
-.timeline-section {
-  composes: section-container;
-}
-
-.timeline-title {
-  composes: section-title;
-}

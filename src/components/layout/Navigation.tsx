@@ -79,27 +79,49 @@ export const Navigation = () => {
 
   return (
     <>
-      <header className={`w-full fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-hackathon-navy/95 backdrop-blur-md shadow-lg' : 'bg-hackathon-navy'}`}>
-        <div className="flex justify-between items-center px-4 py-3 border-b border-gray-800">
-          <Link to="/" className="text-white font-bold text-xl flex items-center">
-            <span className="text-blue-400 mr-1">&lt;</span>
+      <header className="w-full fixed top-0 z-50">
+        {/* Mobile date bar - only visible on small screens */}
+        <div className="md:hidden bg-[#001529] text-white flex justify-center items-center px-4 py-2">
+          <div className="text-[#4FB3FF]">
+            <span>&lt;date&gt;</span> July-September, 2025 <span>&lt;/date&gt;</span>
+          </div>
+        </div>
+
+        {/* Main header with title on left and date (desktop) / menu button (mobile) on right */}
+        <div className="bg-[#001529] text-white flex justify-between items-center px-4 py-3 border-b border-gray-800">
+          <Link to="/" className="text-white font-bold text-xl">
             DevHacks '25
-            <span className="text-blue-400 ml-1">/&gt;</span>
           </Link>
 
-          <div className="hidden md:block">
-            <div className="text-blue-400">
-              <span>&lt;date&gt;</span> February-May, 2025 <span>&lt;/date&gt;</span>
+          <div className="flex items-center">
+            {/* Date - only visible on desktop */}
+            <div className="hidden md:block text-[#4FB3FF] mr-4">
+              <span>&lt;date&gt;</span> July-September, 2025 <span>&lt;/date&gt;</span>
             </div>
-          </div>
 
-          <div className="md:hidden">
+            {/* Mobile menu button - only visible on small screens */}
             <button
+              type="button"
               onClick={toggleMobileMenu}
-              className="text-gray-400 hover:text-white"
+              className="md:hidden text-gray-300 hover:text-white mr-2"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
+
+            {/* Dots menu button - always visible */}
+            <div className="bg-[#4FB3FF] w-10 h-10 flex items-center justify-center cursor-pointer">
+              <div className="grid grid-cols-3 gap-1">
+                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -109,6 +131,7 @@ export const Navigation = () => {
             <nav className="flex flex-col">
               {navItems.map((item) => (
                 <button
+                  type="button"
                   key={item.name}
                   onClick={() => handleNavClick(item)}
                   className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white text-left transition-all ${
@@ -130,12 +153,13 @@ export const Navigation = () => {
         )}
       </header>
 
-      {/* Fixed bottom navigation */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-gray-800 bg-hackathon-navy/95 backdrop-blur-md shadow-lg">
+      {/* Fixed bottom navigation - only visible on small screens */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t border-gray-800 bg-hackathon-navy/95 backdrop-blur-md shadow-lg">
         <div className="flex overflow-x-auto">
           {navItems.map((item) => (
             item.path === '/' && item.sectionId ? (
               <button
+                type="button"
                 key={item.name}
                 onClick={() => handleNavClick(item)}
                 className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${
@@ -166,6 +190,8 @@ export const Navigation = () => {
           <div className="px-4 py-3 text-blue-400">⌘</div>
         </div>
       </div>
+
+
     </>
   );
 };

@@ -11,6 +11,7 @@ import { Sponsors } from "./pages/Sponsors";
 import { Tracks } from "./pages/Tracks";
 import { NewFaq } from "./pages/NewFaq";
 import { Insights } from "./pages/Insights";
+import { HeaderDemo } from "./pages/HeaderDemo";
 import NotFound from "./pages/NotFound";
 import { LoadingPage } from "./components/LoadingPage";
 
@@ -40,6 +41,7 @@ const App = () => {
                 <Route path="/tracks" element={<Tracks />} />
                 <Route path="/faq" element={<NewFaq />} />
                 <Route path="/insights" element={<Insights />} />
+                <Route path="/header-demo" element={<HeaderDemo />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
