@@ -8,6 +8,7 @@ interface Track {
   color: string;
   description: string;
   sponsor: string;
+  prize?: string;
   bgClass: string;
   icon: string;
 }
@@ -18,50 +19,55 @@ export const TracksSection = () => {
 
   const tracks: Track[] = [
     {
-      name: "DeFi",
-      color: "purple",
-      description: "Build next-gen DeFi apps with a special focus on BTCFi & novel uses for BTC bridging.",
-      sponsor: "PYTH",
-      bgClass: "bg-purple-900/20",
+      name: "Tezos",
+      color: "blue",
+      description: "Build innovative applications on the Tezos blockchain platform.",
+      sponsor: "Tezos India",
+      prize: "$500",
+      bgClass: "bg-blue-900/20",
       icon: "💰"
     },
     {
-      name: "Infra & Tooling",
-      color: "pink",
-      description: "Develop building blocks and dev tooling for greater scalability, composability, and interoperability.",
-      sponsor: "UNI",
-      bgClass: "bg-pink-600/20",
+      name: "Verbwire API",
+      color: "purple",
+      description: "Create projects that leverage the Verbwire API for blockchain applications.",
+      sponsor: "Verbwire",
+      prize: "5000 credits",
+      bgClass: "bg-purple-600/20",
       icon: "🛠️"
     },
     {
-      name: "AI",
-      color: "green",
-      description: "Leverage blockchain to build agents and apps at the intersection of AI and decentralized technology.",
-      sponsor: "Alibaba Cloud",
-      bgClass: "bg-green-900/20",
+      name: "Aptos",
+      color: "cyan",
+      description: "Develop applications on the Aptos blockchain platform.",
+      sponsor: "Aptos",
+      prize: "$250",
+      bgClass: "bg-cyan-900/20",
       icon: "🤖"
     },
     {
-      name: "Cryptography",
-      color: "yellow",
-      description: "Explore cryptographic innovations and applications on the platform.",
-      sponsor: "Wormhole",
-      bgClass: "bg-yellow-500/20",
+      name: "Polygon",
+      color: "indigo",
+      description: "Build scalable applications on the Polygon network.",
+      sponsor: "Polygon",
+      prize: "$200",
+      bgClass: "bg-indigo-500/20",
       icon: "🔐"
     },
     {
-      name: "Degen",
-      color: "cyan",
-      description: "Create engaging degen content, games, and experiences for the ecosystem.",
-      sponsor: "Scallop",
-      bgClass: "bg-cyan-500/20",
+      name: "Ethereum",
+      color: "green",
+      description: "Create innovative solutions on the Ethereum blockchain.",
+      sponsor: "ETH",
+      prize: "$100",
+      bgClass: "bg-green-500/20",
       icon: "🎮"
     },
     {
-      name: "Gaming",
+      name: "Open Innovation",
       color: "orange",
-      description: "Build immersive gaming experiences using blockchain technology.",
-      sponsor: "GameFi",
+      description: "Build any innovative project using blockchain technology.",
+      sponsor: "DevHacks",
       bgClass: "bg-orange-500/20",
       icon: "🎯"
     },
@@ -167,9 +173,17 @@ export const TracksSection = () => {
                     >
                       <h3 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white">{tracks[activeTrack].name}</h3>
                       <p className="text-base sm:text-xl text-gray-100 mb-6 sm:mb-8">{tracks[activeTrack].description}</p>
-                      <div className="flex items-center">
-                        <span className="mr-3 text-gray-300">Track sponsor:</span>
-                        <span className={`text-${tracks[activeTrack].color}-300 font-bold text-xl`}>{tracks[activeTrack].sponsor}</span>
+                      <div className="flex flex-col gap-2">
+                        <div className="flex items-center">
+                          <span className="mr-3 text-gray-300">Track sponsor:</span>
+                          <span className={`text-${tracks[activeTrack].color}-300 font-bold text-xl`}>{tracks[activeTrack].sponsor}</span>
+                        </div>
+                        {tracks[activeTrack].prize && (
+                          <div className="flex items-center">
+                            <span className="mr-3 text-gray-300">Prize:</span>
+                            <span className={`text-${tracks[activeTrack].color}-300 font-bold text-xl`}>{tracks[activeTrack].prize}</span>
+                          </div>
+                        )}
                       </div>
                     </motion.div>
                   </div>
@@ -192,11 +206,18 @@ export const TracksSection = () => {
                   scale: activeTrack === index ? 1.05 : 1,
                 }}
               >
-                <div className="flex items-center">
-                  <div className={`${track.bgClass} h-8 w-8 sm:h-10 sm:w-10 rounded-lg flex items-center justify-center text-lg sm:text-xl mr-2 sm:mr-3`}>
-                    {track.icon}
+                <div className="flex flex-col">
+                  <div className="flex items-center">
+                    <div className={`${track.bgClass} h-8 w-8 sm:h-10 sm:w-10 rounded-lg flex items-center justify-center text-lg sm:text-xl mr-2 sm:mr-3`}>
+                      {track.icon}
+                    </div>
+                    <h4 className="text-base sm:text-lg font-medium truncate">{track.name}</h4>
                   </div>
-                  <h4 className="text-base sm:text-lg font-medium truncate">{track.name}</h4>
+                  {track.prize && (
+                    <div className="mt-2 ml-12 text-sm text-gray-400">
+                      Prize: <span className={`text-${track.color}-400 font-medium`}>{track.prize}</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

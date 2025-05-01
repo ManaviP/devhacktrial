@@ -6,8 +6,6 @@ import { TracksSection } from '../components/sections/TracksSection';
 import { PrizesSection } from '../components/sections/PrizesSection';
 import { TimelineSection } from '../components/sections/TimelineSection';
 import { SponsorsPageSection } from '../components/sections/SponsorsPageSection';
-import { JudgesMentorsPageSection } from '../components/sections/JudgesMentorsPageSection';
-import { TeamPageSection } from '../components/sections/TeamPageSection';
 import { FAQPageSection } from '../components/sections/FAQPageSection';
 import { Footer } from '../components/layout/Footer';
 import { ThemeSwitcher } from '../components/ThemeSwitcher';
@@ -35,8 +33,6 @@ export const Home = () => {
         <PrizesSection />
         <TimelineSection />
         <SponsorsPageSection />
-        <JudgesMentorsPageSection />
-        <TeamPageSection />
         <FAQPageSection />
 
         <Footer />

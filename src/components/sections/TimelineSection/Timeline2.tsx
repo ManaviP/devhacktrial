@@ -46,7 +46,7 @@ useEffect(() => {
       transition={{ duration: 0.8 }}
     >
       <div className="timeline flex justify-center items-center mx-auto">
-        <div>
+        <div className="relative w-full">
           <motion.div
             className="outer flex flex-col items-center m-5"
             initial={{ opacity: 0, y: 20 }}

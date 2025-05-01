@@ -50,7 +50,7 @@
 .prizes-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
@@ -72,15 +72,25 @@
   border: 1px solid #e2e8f0;
   background-color: #f8f9fa;
   overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 300px;
+}
+
+.prize-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .dark .prize-card {
   border-color: #374151;
   background-color: #1f2937;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
 }
 
 .prize-header {
-  padding: 0.5rem;
+  padding: 1rem;
   background-color: #e9ecef;
   border-bottom: 1px solid #e2e8f0;
   background-image: repeating-linear-gradient(
@@ -90,6 +100,8 @@
     #dee2e6 10px,
     #dee2e6 20px
   );
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .dark .prize-header {
@@ -108,23 +120,27 @@
   display: flex;
   align-items: center;
   font-family: monospace;
+  font-size: 1.1rem;
 }
 
 .prize-hash {
   color: #10b981;
   margin-right: 0.25rem;
   font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .prize-place {
   color: #f59e0b;
   margin-right: 0.25rem;
   font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .prize-bracket {
   color: #3b82f6;
   font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .prize-content {
@@ -132,9 +148,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 2.5rem;
   background-color: #f8f9fa;
-  min-height: 150px;
+  min-height: 180px;
 }
 
 .dark .prize-content {
@@ -143,12 +159,22 @@
 
 .prize-image {
   max-width: 100%;
-  max-height: 120px;
+  max-height: 140px;
   object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.prize-card:hover .prize-image {
+  transform: scale(1.1);
+}
+
+.dark .prize-image {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
 }
 
 .prize-footer {
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: #ffffff;
   border-top: 1px solid #e2e8f0;
   text-align: center;
@@ -160,37 +186,242 @@
 }
 
 .prize-amount {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #111827;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .dark .prize-amount {
   color: #f8f9fa;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.awards-section {
+.track-prizes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.track-prize-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  height: 100%;
+  min-height: 320px;
+}
+
+.track-prize-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .track-prize-card {
+  border-color: #374151;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+}
+
+.track-prize-header {
+  padding: 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dark .track-prize-header {
+  border-bottom-color: #374151;
+}
+
+.track-prize-sponsor {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.dark .track-prize-sponsor {
+  color: #9ca3af;
+}
+
+.track-prize-content {
+  padding: 2rem;
+  background-color: #ffffff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.dark .track-prize-content {
+  background-color: #1f2937;
+}
+
+.track-prize-logo-container {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.track-prize-logo {
+  max-width: 80%;
+  max-height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.dark .track-prize-logo {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+}
+
+.track-prize-card:hover .track-prize-logo {
+  transform: scale(1.1);
+}
+
+.track-prize-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.dark .track-prize-name {
+  color: #f8f9fa;
+}
+
+.track-prize-amount {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* Benefits Section */
+.benefits-section {
   margin-top: 2rem;
 }
 
-.awards-heading {
+.benefits-heading {
   font-size: 1.5rem;
   font-weight: 600;
   color: #111827;
   margin-bottom: 0.5rem;
 }
 
-.dark .awards-heading {
+.dark .benefits-heading {
   color: #f8f9fa;
 }
 
-.awards-subheading {
+.benefits-subheading {
   color: #6b7280;
   font-size: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.dark .awards-subheading {
+.dark .benefits-subheading {
   color: #9ca3af;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-card {
+  padding: 2rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 280px;
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .benefit-card {
+  border-color: #374151;
+  background-color: #1f2937;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+}
+
+.benefit-logo-container {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.benefit-logo {
+  max-width: 70%;
+  max-height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.dark .benefit-logo {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+}
+
+.benefit-card:hover .benefit-logo {
+  transform: scale(1.1);
+}
+
+.benefit-provider {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.benefit-description {
+  color: #111827;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  flex-grow: 1;
+}
+
+.dark .benefit-description {
+  color: #f8f9fa;
+}
+
+.benefit-eligibility {
+  font-size: 0.95rem;
+  color: #6b7280;
+  width: 100%;
+  padding-top: 1rem;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.dark .benefit-eligibility {
+  color: #9ca3af;
+  border-top-color: #374151;
+}
+
+.eligibility-label {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.dark .eligibility-label {
+  color: #d1d5db;
 }
 
 /* Fixed navigation bar */
