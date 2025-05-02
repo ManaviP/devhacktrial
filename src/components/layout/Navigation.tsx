@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import './Navigation.css';
 
 const navItems = [
   { name: 'Overview', path: '/', sectionId: 'overview' },
@@ -134,7 +135,7 @@ export const Navigation = () => {
                   type="button"
                   key={item.name}
                   onClick={() => handleNavClick(item)}
-                  className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white text-left transition-all ${
+                  className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white text-left transition-all ${
                     isActivePath(item) ? 'bg-gray-800 text-white border-l-4 border-blue-500' : ''
                   }`}
                 >
@@ -143,7 +144,7 @@ export const Navigation = () => {
               ))}
               <Link
                 to="/register"
-                className="px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
+                className="nav-item px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Register
@@ -162,7 +163,7 @@ export const Navigation = () => {
                 type="button"
                 key={item.name}
                 onClick={() => handleNavClick(item)}
-                className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${
+                className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${
                   isActivePath(item) ? 'bg-blue-600 text-white' : ''
                 }`}
               >
@@ -172,7 +173,7 @@ export const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${
+                className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${
                   item.path === location.pathname ? 'bg-blue-600 text-white' : ''
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
@@ -183,7 +184,7 @@ export const Navigation = () => {
           ))}
           <Link
             to="/register"
-            className="ml-auto px-6 py-3 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors whitespace-nowrap"
+            className="nav-item ml-auto px-6 py-3 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors whitespace-nowrap"
           >
             Register
           </Link>

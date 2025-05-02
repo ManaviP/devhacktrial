@@ -1,0 +1,54 @@
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #0f172a;
+  color: #ffffff;
+  z-index: 50;
+  border-bottom: 1px solid #1e293b;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.header-date {
+  color: #4FB3FF;
+  font-size: 0.875rem;
+}
+
+.date-tag {
+  opacity: 0.7;
+}
+
+/* Dark mode styles */
+.dark .top-header {
+  background-color: #0f172a;
+  border-bottom-color: #1e293b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0.75rem 1rem;
+  }
+  
+  .header-title {
+    font-size: 1.125rem;
+  }
+  
+  .header-date {
+    font-size: 0.75rem;
+  }
+}

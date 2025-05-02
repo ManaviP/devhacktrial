@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { Navigation } from './Navigation';
+import { TopHeader } from './TopHeader';
+import { BottomNavbar } from './BottomNavbar';
 import { ThreeBackground } from '../three/ThreeBackground';
 import { useTheme } from '../../lib/theme-context';
 import { ThemeSwitcher } from '../ThemeSwitcher';
@@ -16,13 +17,14 @@ export const MainLayout = ({ children, showBackground = true, backgroundVariant 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300">
       {showBackground && <ThreeBackground variant={theme === 'dark' ? 'dark' : 'light'} />}
-      <Navigation />
+      <TopHeader />
       <div className="fixed top-20 right-4 z-50">
         <ThemeSwitcher />
       </div>
-      <main className="relative z-10">
+      <main className="relative z-10 pt-16 pb-16">
         {children}
       </main>
+      <BottomNavbar />
     </div>
   );
 };

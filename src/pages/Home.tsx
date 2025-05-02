@@ -5,7 +5,7 @@ import { OverviewSection } from '../components/sections/OverviewSection';
 import { TracksSection } from '../components/sections/TracksSection';
 import { PrizesSection } from '../components/sections/PrizesSection';
 import { TimelineSection } from '../components/sections/TimelineSection';
-import { SponsorsPageSection } from '../components/sections/SponsorsPageSection';
+import { NewSponsorsSection } from '../components/sections/NewSponsorsSection';
 import { FAQPageSection } from '../components/sections/FAQPageSection';
 import { Footer } from '../components/layout/Footer';
 import { ThemeSwitcher } from '../components/ThemeSwitcher';
@@ -32,12 +32,10 @@ export const Home = () => {
         <TracksSection />
         <PrizesSection />
         <TimelineSection />
-        <SponsorsPageSection />
+        <NewSponsorsSection />
         <FAQPageSection />
 
         <Footer />
-        {/* Add padding at the bottom to prevent content from being hidden behind the fixed navbar */}
-        <div className="pb-16"></div>
       </div>
     </MainLayout>
   );
