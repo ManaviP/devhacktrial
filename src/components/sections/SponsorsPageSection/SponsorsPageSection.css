@@ -110,7 +110,7 @@
   height: 100%;
   background: radial-gradient(circle at 50% 50%, rgba(96, 165, 250, 0.1), transparent 70%);
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: none;
   z-index: -1;
 }
 
@@ -125,13 +125,13 @@
   justify-content: center;
   padding: 1.5rem;
   height: 100%;
-  transition: all 0.3s ease;
+  transition: none;
   background-color: rgba(15, 23, 42, 0.4);
   border-radius: 8px;
 }
 
 .sponsor-card:hover .logo-container {
-  transform: scale(1.05);
+  transform: none;
   background-color: rgba(15, 23, 42, 0.6);
 }
 
@@ -148,12 +148,12 @@
   max-width: 80%;
   max-height: 80%;
   object-fit: contain;
-  transition: transform 0.5s ease;
+  transition: none;
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
 }
 
 .sponsor-card:hover .logo-image {
-  transform: scale(1.1);
+  transform: none;
 }
 
 .light .logo-image {
@@ -163,7 +163,7 @@
 /* Sponsor name styling */
 .sponsor-name {
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: none;
   position: relative;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -330,7 +330,7 @@
   font-weight: 600;
   padding: 1rem 2rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: none;
   z-index: 1;
 }
 
@@ -342,7 +342,7 @@
   width: 0%;
   height: 100%;
   background: linear-gradient(90deg, #60A5FA, #A78BFA);
-  transition: all 0.5s ease;
+  transition: none;
   z-index: -1;
 }
 
@@ -355,43 +355,19 @@
   width: 100%;
 }
 
-/* Animation keyframes */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px); /* Reduced movement for subtler effect */
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-/* Hover animation keyframes */
-@keyframes hover-glow {
-  0% {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(0);
-  }
-  100% {
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
-    transform: translateY(-8px);
-  }
-}
+/* Removed animation keyframes */
 
 /* Animation classes - only applying to select sponsors */
 .float-animation-1 {
-  animation: float 8s ease-in-out infinite; /* Slower animation */
+  animation: none; /* Removed animation */
 }
 
 .float-animation-3 {
-  animation: float 9s ease-in-out infinite; /* Slower animation */
+  animation: none; /* Removed animation */
 }
 
-/* Enhanced hover effect for sponsor cards */
+/* Enhanced hover effect for sponsor cards - removed animation */
 .sponsor-card:hover {
-  animation: hover-glow 0.3s forwards;
   border-color: rgba(59, 130, 246, 0.6);
 }
 
@@ -416,17 +392,7 @@
   box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(96, 165, 250, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
-  }
-}
+/* Removed pulse animation */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
