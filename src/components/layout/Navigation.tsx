@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -24,12 +23,7 @@ export const Navigation = () => {
 
   const handleNavClick = (item: { path: string, sectionId: string | null }) => {
     setMobileMenuOpen(false);
-
-    if (location.pathname !== item.path) {
-      // Will navigate to a different page
-      return;
-    }
-
+    if (location.pathname !== item.path) return;
     if (item.sectionId) {
       const element = document.getElementById(item.sectionId);
       if (element) {
@@ -55,17 +49,13 @@ export const Navigation = () => {
           return false;
         });
 
-        if (current) {
-          setActiveSection(current);
-        }
-
+        if (current) setActiveSection(current);
         setScrolled(window.scrollY > 20);
       };
 
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     } else {
-      // Set scrolled to true for non-home pages
       setScrolled(true);
     }
   }, [location.pathname]);
@@ -80,26 +70,22 @@ export const Navigation = () => {
   return (
     <>
       <header className="w-full fixed top-0 z-50">
-        {/* Mobile date bar - only visible on small screens */}
         <div className="md:hidden bg-[#001529] text-white flex justify-center items-center px-4 py-2">
           <div className="text-[#4FB3FF]">
             <span>&lt;date&gt;</span> July-September, 2025 <span>&lt;/date&gt;</span>
           </div>
         </div>
 
-        {/* Main header with title on left and date (desktop) / menu button (mobile) on right */}
         <div className="bg-[#001529] text-white flex justify-between items-center px-4 py-3 border-b border-gray-800">
           <Link to="/" className="text-white font-bold text-xl">
             DevHacks '25
           </Link>
 
           <div className="flex items-center">
-            {/* Date - only visible on desktop */}
             <div className="hidden md:block text-[#4FB3FF] mr-4">
               <span>&lt;date&gt;</span> July-September, 2025 <span>&lt;/date&gt;</span>
             </div>
 
-            {/* Mobile menu button - only visible on small screens */}
             <button
               type="button"
               onClick={toggleMobileMenu}
@@ -108,24 +94,16 @@ export const Navigation = () => {
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-            {/* Dots menu button - always visible */}
             <div className="bg-[#4FB3FF] w-10 h-10 flex items-center justify-center cursor-pointer">
               <div className="grid grid-cols-3 gap-1">
-                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-[#001529] rounded-full"></div>
+                {Array.from({ length: 9 }).map((_, i) => (
+                  <div key={i} className="w-1.5 h-1.5 bg-[#001529] rounded-full" />
+                ))}
               </div>
             </div>
           </div>
         </div>
 
-        {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-hackathon-darkBlue/95 backdrop-blur-md animate-fade-in fixed w-full z-50">
             <nav className="flex flex-col">
@@ -134,9 +112,8 @@ export const Navigation = () => {
                   type="button"
                   key={item.name}
                   onClick={() => handleNavClick(item)}
-                  className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white text-left transition-all ${
-                    isActivePath(item) ? 'bg-gray-800 text-white border-l-4 border-blue-500' : ''
-                  }`}
+                  className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white text-left transition-all ${isActivePath(item) ? 'bg-gray-800 text-white border-l-4 border-blue-500' : ''
+                    }`}
                 >
                   {item.name}
                 </button>
@@ -153,18 +130,16 @@ export const Navigation = () => {
         )}
       </header>
 
-      {/* Fixed bottom navigation - only visible on small screens */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t border-gray-800 bg-hackathon-navy/95 backdrop-blur-md shadow-lg">
         <div className="flex overflow-x-auto">
-          {navItems.map((item) => (
+          {navItems.map((item) =>
             item.path === '/' && item.sectionId ? (
               <button
                 type="button"
                 key={item.name}
                 onClick={() => handleNavClick(item)}
-                className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${
-                  isActivePath(item) ? 'bg-blue-600 text-white' : ''
-                }`}
+                className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${isActivePath(item) ? 'bg-blue-600 text-white' : ''
+                  }`}
               >
                 {item.name}
               </button>
@@ -172,15 +147,14 @@ export const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${
-                  item.path === location.pathname ? 'bg-blue-600 text-white' : ''
-                }`}
+                className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${item.path === location.pathname ? 'bg-blue-600 text-white' : ''
+                  }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             )
-          ))}
+          )}
           <Link
             to="/register"
             className="ml-auto px-6 py-3 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors whitespace-nowrap"
@@ -190,8 +164,6 @@ export const Navigation = () => {
           <div className="px-4 py-3 text-blue-400">⌘</div>
         </div>
       </div>
-
-
     </>
   );
 };

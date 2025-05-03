@@ -37,8 +37,12 @@
 
 .hero-subtitle {
   font-size: 1.25rem;
-  composes: text-secondary;
   margin-top: 1rem;
+  color: #6B7280;
+}
+
+.dark .hero-subtitle {
+  color: #D1D5DB;
 }
 
 .register-button {
@@ -67,4 +71,13 @@
   top: 0;
   width: 50%;
   height: 100%;
+}
+
+.hero-container-box {
+  background-color: white;
+  overflow: hidden;
+}
+
+.dark .hero-container-box {
+  background-color: #1F2937;
 }

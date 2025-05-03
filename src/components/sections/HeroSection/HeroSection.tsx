@@ -12,7 +12,7 @@ export const HeroSection = ({ theme }: HeroSectionProps) => {
     <section id="hero" className="hero-section">
       <div className="hero-header">
         <div className="container mx-auto px-4 h-full flex items-center justify-between">
-          <div className="text-gray-800 dark:text-white font-medium">Sui Overflow '25</div>
+          <div className="text-gray-800 dark:text-white font-medium">Dev Hacks '25</div>
           <div className="text-blue-500 dark:text-blue-400">
             <span className="text-blue-500 dark:text-blue-400">&lt;date&gt;</span> February-May, 2025 <span className="text-blue-500 dark:text-blue-400">&lt;/date&gt;</span>
           </div>
@@ -27,16 +27,16 @@ export const HeroSection = ({ theme }: HeroSectionProps) => {
           className="mb-8"
         >
           <h1 className="hero-title">
-            Sui
+            Dev
           </h1>
           <h1 className="hero-title">
-            Overflow
+            Hacks
           </h1>
           <h1 className="hero-title">
             2025
           </h1>
           <p className="hero-subtitle">
-            February-May, 2025
+            July-September, 2025
           </p>
         </motion.div>
 
