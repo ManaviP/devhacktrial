@@ -110,9 +110,9 @@ export const TimeCapsuleSection = () => {
             className="time-capsule-image"
           />
           <div className="time-capsule-content">
-            <h3 className="time-capsule-year">2020-2024</h3>
+            <h3 className="time-capsule-year">2024</h3>
             <p className="time-capsule-description">
-              Explore the history of DSU DevHack through the years. Click to open the time capsule and journey through our past events.
+              Explore the history of DSU DevHack . Click to open the time capsule and journey through our past events.
             </p>
             <button type="button" className="time-capsule-button">
               Open Time Capsule <span className="time-capsule-button-arrow">→</span>
