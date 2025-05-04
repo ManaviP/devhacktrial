@@ -5,6 +5,7 @@ import { OverviewSection } from '../components/sections/OverviewSection';
 import { TracksSection } from '../components/sections/TracksSection';
 import { PrizesSection } from '../components/sections/PrizesSection';
 import { TimelineSection } from '../components/sections/TimelineSection';
+import { TimeCapsuleSection } from '../components/sections/TimeCapsuleSection';
 import { NewSponsorsSection } from '../components/sections/NewSponsorsSection';
 import { FAQPageSection } from '../components/sections/FAQPageSection';
 import { Footer } from '../components/layout/Footer';
@@ -19,14 +20,14 @@ export const Home = () => {
       {/* Sections with KeyboardCanvas */}
       <div className="relative">
         <HeroSection theme={theme} />
-        <OverviewSection theme={theme} />
       </div>
 
       {/* All other sections without KeyboardCanvas */}
       <div className="relative w-full">
-       
+        
+        <TimeCapsuleSection />
         <PrizesSection />
-       <TracksSection />
+        <Themes />
         <TimelineSection />
         <NewSponsorsSection />
         <FAQPageSection />

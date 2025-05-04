@@ -46,7 +46,12 @@ export const NewNavbar = () => {
           <span className="code">&lt;/date&gt;</span>
         </div>
         <div className="mobile-header-main">
-          <div className="mobile-header-title">DSU DEVHACK</div>
+          <div className="card-image">
+            <img src="/images/hb-logo.png" alt="DSU Logo" />
+          </div>
+          <div className="mobile-header-title">
+            <span>DSU DEVHACK</span>
+          </div>
           <div
             className={`mobile-menu-dots ${mobileMenuOpen ? 'mobile-menu-dots-active' : ''}`}
             onClick={toggleMobileMenu}
@@ -117,6 +122,9 @@ export const NewNavbar = () => {
         {/* Desktop header - only visible on larger screens */}
         <div className="desktop-navbar">
           <div className="desktop-navbar-content">
+            <div className="card-image">
+              <img src="/images/hb-logo.png" alt="DSU Logo" />
+            </div>
             <div className="desktop-navbar-left">
               <span className="desktop-title">DSU DEVHACK</span>
             </div>
