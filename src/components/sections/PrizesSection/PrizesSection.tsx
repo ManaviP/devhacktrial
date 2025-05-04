@@ -1,4 +1,6 @@
 import './PrizesSection.css';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 type PrizeCard = {
   place: string;
@@ -13,6 +15,7 @@ type TrackPrize = {
   prize: string;
   color: string;
   logoUrl: string;
+  bgColor: string;
 };
 
 type Benefit = {
@@ -51,79 +54,63 @@ export const PrizesSection = () => {
     },
   ];
 
-  const trackPrizes: TrackPrize[] = [
+  const trackPrizes = [
     {
-      name: "Best Tezos India Project",
-      sponsor: "Tezos India",
-      prize: "₹50,000",
-      color: "yellow",
-      logoUrl: "/sponsors/tezos.png"
+      label: 'Top 3 Tezos Projects',
+      description: '$300 prize pool divided as follows: 1st - $150, 2nd - $100, 3rd - $50.',
+      img: 'images/prizes/download.png',
+      bgColor: '#f5f3ff',
     },
     {
-      name: "Best Verbwire API Project",
-      sponsor: "Verbwire",
-      prize: "₹25,000",
-      color: "blue",
-      logoUrl: "/sponsors/verbwire.svg"
+      label: 'Non-top 3 Tezos/Etherlink',
+      description: '$200 prize pool shared among non-top 3 Tezos/Etherlink projects, with a max of $40 per project.',
+      img: 'images/prizes/verbwire.png',
+      bgColor: '#e0f2fe',
     },
     {
-      name: "Best Aptos Project",
-      sponsor: "Aptos",
-      prize: "₹25,000",
-      color: "cyan",
-      logoUrl: "/sponsors/Aptos.png"
+      label: 'Best use of AI & Verbwire API',
+      description: 'Up to $4000 in API Credits, for up to 15 teams',
+      img: 'images/prizes/aptos.png',
+      bgColor: '#fff7ed',
     },
     {
-      name: "Best Polygon Project",
-      sponsor: "Polygon",
-      prize: "₹25,000",
-      color: "indigo",
-      logoUrl: "/sponsors/Polygon_Logo-White@2x.png"
+      label: 'Most innovative use of Verbwire API',
+      description: 'Up to $1000 in API Credits, for up to 5 teams',
+      img: 'images/prizes/polygon.png',
+      bgColor: '#f3e8ff',
     },
     {
-      name: "Best Hack Built on Ethereum",
-      sponsor: "ETH",
-      prize: "₹25,000",
-      color: "green",
-      logoUrl: "/sponsors/ethindia-light.png"
-    }
+      label: 'Unique/Best dapp built on Aptos',
+      description: '1 prize: $250. Winner of this track receives $100 in prizes from ETHIndia.',
+      img: 'images/prizes/eth.png',
+      bgColor: '#f0fdfa',
+    },
   ];
 
   const benefits: Benefit[] = [
     {
       provider: "Beeceptor",
-      description: "Free 1-year Team Plan subscription valued at $240",
+      description: "Beeceptor will provide the winning team with a free 1-year Team Plan subscription valued at $240. Participants get a $25 credit towards the Team Plan to speed up their projects.",
       eligibility: "Winning team",
       logoUrl: "/sponsors/beeceptor-white.svg"
     },
     {
-      provider: "Beeceptor",
-      description: "$25 credit towards the Team Plan to speed up projects",
-      eligibility: "All participants",
-      logoUrl: "/sponsors/beeceptor-white.svg"
-    },
-    {
       provider: "Axure",
-      description: "Free 1-year subscription licenses of Axure RP Team Edition, valid for one user each valued at $504 each",
+      description: "Prize: Top 3 participants will receive certificates that can be redeemed for Free 1-year subscription licenses of Axure RP Team Edition, valid for one user each valued at $504 each",
       eligibility: "Top 3 participants",
       logoUrl: "/sponsors/axure.png"
     },
     {
       provider: "XYZ",
-      description: "Free domain for 1-year validity",
-      eligibility: "Top 300 participants",
-      logoUrl: "/sponsors/xyz-white-logo.svg"
-    },
-    {
-      provider: "XYZ",
-      description: "$25 coupons",
-      eligibility: "Top 6 participants",
+      description: "Free domain for 1-year validity and $25 coupons",
+      eligibility: "Top 300 participants / Top 6 participants",
       logoUrl: "/sponsors/xyz-white-logo.svg"
     },
     {
       provider: "DSU DevHacks",
-      description: "Certificates of participation",
-      eligibility: "All participants"
+      description: "All participants will get DSU DevHacks certificates and more benefits coming soon!",
+      eligibility: "Participants",
+      logoUrl: "/images/prizes/money.svg"
     }
   ];
 
@@ -152,14 +139,22 @@ export const PrizesSection = () => {
 
           <div className="prizes-grid">
             {prizes.map((prize, index) => {
-              // Determine place class
+              const ref = useRef(null);
+              const isInView = useInView(ref, { once: false, amount: 0.2 });
               let placeClass = '';
               if (prize.place.startsWith('1st')) placeClass = 'place-1';
               else if (prize.place.startsWith('2nd')) placeClass = 'place-2';
               else if (prize.place.startsWith('3rd')) placeClass = 'place-3';
               else if (prize.place.startsWith('4th')) placeClass = 'place-4';
               return (
-                <div key={index} className="prize-card">
+                <motion.div
+                  ref={ref}
+                  className={`prize-card`}
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+                  transition={{ duration: 0.8, delay: index * 0.08, ease: 'easeOut' }}
+                  key={index}
+                >
                   <div className={`prize-header ${placeClass}`}>
                     <span className="prize-header-group">
                       <span className="prize-hash">#</span>
@@ -177,7 +172,7 @@ export const PrizesSection = () => {
                   <div className="prize-footer">
                     <div className="prize-amount">{prize.amount}</div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -190,27 +185,33 @@ export const PrizesSection = () => {
 
           <div className="track-prizes-screenshot-grid">
             {trackPrizes.map((trackPrize, index) => {
-              // Unique color classes for each card
-              const colorClass = `track-prize-screenshot-card-color${index + 1}`;
+              const ref = useRef(null);
+              const isInView = useInView(ref, { once: false, amount: 0.2 });
               return (
-                <div key={index} className={`track-prize-screenshot-card ${colorClass}`}>
-                  <div className="track-prize-screenshot-top">
-                    <div className="track-prize-screenshot-label-bg">
-                      <span className="track-prize-screenshot-label">{trackPrize.name}</span>
+                <motion.div
+                  ref={ref}
+                  className="track-prize-screenshot-card"
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+                  transition={{ duration: 0.8, delay: index * 0.08, ease: 'easeOut' }}
+                  key={index}
+                >
+                  <div className="track-prize-rect-top" style={{ backgroundColor: trackPrize.bgColor }}>
+                    <div className="track-prize-label-tilechain">
+                      <div className="track-prize-label-tilebox">
+                        <span className="track-prize-label-text">{trackPrize.label}</span>
+                      </div>
                     </div>
-                    <div className="track-prize-screenshot-image">
-                      <img
-                        src={trackPrize.logoUrl}
-                        alt={trackPrize.sponsor}
-                        className="track-prize-screenshot-logo"
-                      />
+                    <div className="track-prize-svg-placeholder">
+                      {trackPrize.img && (
+                        <img src={trackPrize.img} alt="Prize illustration" />
+                      )}
                     </div>
                   </div>
-                  <div className="track-prize-screenshot-bottom">
-                    <div className="track-prize-screenshot-prize">{trackPrize.prize}</div>
-                    <div className="track-prize-screenshot-desc">{trackPrize.sponsor ? `Awarded by ${trackPrize.sponsor}` : ''}</div>
+                  <div className="track-prize-rect-bottom">
+                    <div className="track-prize-desc">{trackPrize.description}</div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -222,24 +223,41 @@ export const PrizesSection = () => {
             <p className="benefits-subheading">Additional perks for participants and winners</p>
 
             <div className="benefits-grid">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="benefit-card">
-                  {benefit.logoUrl && (
-                    <div className="benefit-logo-container">
-                      <img
-                        src={benefit.logoUrl}
-                        alt={benefit.provider}
-                        className="benefit-logo"
-                      />
+              {benefits.map((benefit, index) => {
+                const ref = useRef(null);
+                const isInView = useInView(ref, { once: false, amount: 0.2 });
+                return (
+                  <motion.div
+                    ref={ref}
+                    className="benefit-card"
+                    initial={{ opacity: 0, y: 60 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+                    transition={{ duration: 0.8, delay: index * 0.08, ease: 'easeOut' }}
+                    key={index}
+                  >
+                    <div className="benefit-content-box">
+                      <div className="benefit-title-box">
+                        {benefit.logoUrl && (
+                          <div className="benefit-logo-container">
+                            <img
+                              src={benefit.logoUrl}
+                              alt={benefit.provider}
+                              className="benefit-logo"
+                            />
+                          </div>
+                        )}
+                        <div className="benefit-provider">{benefit.provider}</div>
+                      </div>
+                      <div className="benefit-desc-box">
+                        <div className="benefit-description">{benefit.description}</div>
+                        <div className="benefit-eligibility">
+                          <span className="eligibility-label">Eligibility:</span> {benefit.eligibility}
+                        </div>
+                      </div>
                     </div>
-                  )}
-                  <div className="benefit-provider">{benefit.provider}</div>
-                  <div className="benefit-description">{benefit.description}</div>
-                  <div className="benefit-eligibility">
-                    <span className="eligibility-label">Eligibility:</span> {benefit.eligibility}
-                  </div>
-                </div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
@@ -248,7 +266,20 @@ export const PrizesSection = () => {
         </div>
       </section>
 
-
+      {/* Fixed navigation bar */}
+      <div className="fixed-nav">
+        <div className="nav-links">
+          <a href="#overview" className="nav-link">Overview</a>
+          <a href="#tracks" className="nav-link active">Tracks & Prizes</a>
+          <a href="#sponsors" className="nav-link">Sponsors</a>
+          <a href="#events" className="nav-link">Events</a>
+          <a href="#faq" className="nav-link">FAQ</a>
+          <a href="#handbook" className="nav-link">Participant Handbook</a>
+          <a href="#discord" className="nav-link">Discord</a>
+          <a href="#register" className="nav-link register">Register</a>
+        </div>
+      </div>
     </>
   );
 };
+
