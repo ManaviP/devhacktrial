@@ -26,7 +26,7 @@
 
 /* Individual timeline columns */
 .timeline-column {
-  width: 30%;
+  width: 22%; /* Changed from 30% to 22% to fit 4 columns */
   position: relative;
   background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
@@ -49,6 +49,10 @@
 
 .new-timeline-grid .timeline-column:nth-child(3) {
   margin-top: 50px;
+}
+
+.new-timeline-grid .timeline-column:nth-child(4) {
+  margin-top: 75px;
 }
 
 /* ID badges (01, 02, 03) */
@@ -173,6 +177,11 @@
   background-color: #f97316; /* Orange */
 }
 
+.new-timeline-grid:nth-child(2) .timeline-column:nth-child(4) .timeline-id,
+.new-timeline-grid:nth-child(2) .timeline-column:nth-child(4) .timeline-arrow {
+  background-color: #10b981; /* Green */
+}
+
 /* Second row */
 .new-timeline-grid:nth-child(3) .timeline-column:nth-child(1) .timeline-id,
 .new-timeline-grid:nth-child(3) .timeline-column:nth-child(1) .timeline-arrow {
@@ -189,6 +198,11 @@
   background-color: #f97316; /* Orange */
 }
 
+.new-timeline-grid:nth-child(3) .timeline-column:nth-child(4) .timeline-id,
+.new-timeline-grid:nth-child(3) .timeline-column:nth-child(4) .timeline-arrow {
+  background-color: #10b981; /* Green */
+}
+
 /* Third row */
 .new-timeline-grid:nth-child(4) .timeline-column:nth-child(1) .timeline-id,
 .new-timeline-grid:nth-child(4) .timeline-column:nth-child(1) .timeline-arrow {
@@ -198,6 +212,16 @@
 .new-timeline-grid:nth-child(4) .timeline-column:nth-child(2) .timeline-id,
 .new-timeline-grid:nth-child(4) .timeline-column:nth-child(2) .timeline-arrow {
   background-color: #3b82f6; /* Blue */
+}
+
+.new-timeline-grid:nth-child(4) .timeline-column:nth-child(3) .timeline-id,
+.new-timeline-grid:nth-child(4) .timeline-column:nth-child(3) .timeline-arrow {
+  background-color: #f97316; /* Orange */
+}
+
+.new-timeline-grid:nth-child(4) .timeline-column:nth-child(4) .timeline-id,
+.new-timeline-grid:nth-child(4) .timeline-column:nth-child(4) .timeline-arrow {
+  background-color: #10b981; /* Green */
 }
 
 /* Additional spacing */
@@ -251,6 +275,11 @@
 
   .new-timeline-grid .timeline-column:nth-child(3) {
     margin-left: 40px;
+    margin-top: 0;
+  }
+
+  .new-timeline-grid .timeline-column:nth-child(4) {
+    margin-left: 60px;
     margin-top: 0;
   }
 

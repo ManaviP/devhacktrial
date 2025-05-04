@@ -72,9 +72,7 @@ export const NewTimeline: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="new-timeline-grid mt-8">
         {/* Column 4 */}
         <div className="timeline-column">
           <div className="timeline-id">
@@ -91,12 +89,14 @@ export const NewTimeline: React.FC = () => {
 
           <div className="timeline-items">
             <div className="timeline-item">
-              <div className="timeline-label">Announcing the shortlisted teams for the final round of Hackathon!</div>
+              <div className="timeline-label">Announcing the shortlisted teams for the final round!</div>
               <div className="timeline-date">September (tentative)</div>
             </div>
           </div>
         </div>
+      </div>
 
+      <div className="new-timeline-grid mt-8">
         {/* Column 5 */}
         <div className="timeline-column">
           <div className="timeline-id">
@@ -140,9 +140,7 @@ export const NewTimeline: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="new-timeline-grid mt-8">
         {/* Column 7 */}
         <div className="timeline-column">
           <div className="timeline-id">
@@ -186,10 +184,9 @@ export const NewTimeline: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Empty column to maintain grid layout */}
-        <div className="timeline-column invisible"></div>
       </div>
+
+
     </div>
   );
 };

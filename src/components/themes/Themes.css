@@ -76,7 +76,7 @@
   right: 0;
   bottom: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1; /* Changed from 0 to -1 to position grid below content */
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -157,6 +157,7 @@
   position: relative;
   margin: 20px 20px 5px 20px;
   width: calc(100% - 40px); /* Adjust width to account for left margin */
+  z-index: 1; /* Added z-index to ensure header appears above grid */
 }
 
 .theme-icon-container {
@@ -194,12 +195,16 @@
   overflow: hidden;
   margin: 20px 5px 5px 10px;
   width: calc(100% - 40px); /* Adjust width to account for left margin */
+  position: relative;
+  z-index: 1; /* Added z-index to ensure content appears above grid */
 }
 
 .theme-illustration {
   max-width: 60%;
   max-height: 60%;
   object-fit: contain;
+  position: relative;
+  z-index: 2; /* Added z-index to ensure image appears above everything */
 }
 
 .theme-footer {
