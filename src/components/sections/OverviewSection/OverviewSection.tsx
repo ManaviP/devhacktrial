@@ -12,24 +12,17 @@ export const OverviewSection = ({ theme }: OverviewSectionProps) => {
         <h2 className="overview-title">
           Event Overview
         </h2>
-        <div className="space-y-8">
+        <div className="space-y-6">
           <p className="overview-text">
-            Sui Overflow 2025 is the second edition of our global virtual hackathon, uniting builders and developers worldwide to redefine innovation, performance, and ownership.
+            <span className="hello">DSU DEVHACK 2025</span> is a national-level hackathon pushing the boundaries of innovation in AI, ML, IoT, Blockchain, Cybersecurity, and Cloud Computing at DSU Harohalli, Banglore, Karnataka. 🛠️
           </p>
           <p className="overview-highlight">
-            With over $500,000 USD in prizes across 9 project tracks,
+            This event gathers brilliant minds nationwide to create revolutionary solutions. It provides a platform for developers, designers, and enthusiasts to transform ideas, showcase skills, and network. 🤝
           </p>
           <p className="overview-text">
-            take this opportunity to shape the future on Web3's most powerful and composable platform.
-          </p>
-          <p className="overview-text">
-            Hackathon winners also have the chance to be invited to
-            <span className="overview-highlight"> exclusive developer initiatives</span>, offering tailored support and access to a high-quality network of builders.
+            Your keyboard is your sword, your idea is your challenge, code is your vision, and DSU DevHacks is your stage! 🚨See you all in the hackathon!🔍💻  
           </p>
         </div>
-      </div>
-      <div className="keyboard-canvas-container">
-        <KeyboardCanvas theme={theme} />
       </div>
     </section>
   );

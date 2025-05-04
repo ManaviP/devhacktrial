@@ -105,7 +105,6 @@ export const Navigation = () => {
           </div>
         </div>
 
-<<<<<<< HEAD
         {mobileMenuOpen && (
           <div className="md:hidden bg-hackathon-darkBlue/95 backdrop-blur-md animate-fade-in fixed w-full z-50">
             <nav className="flex flex-col">
@@ -114,11 +113,7 @@ export const Navigation = () => {
                   type="button"
                   key={item.name}
                   onClick={() => handleNavClick(item)}
-
-                  className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white text-left transition-all ${isActivePath(item) ? 'bg-gray-800 text-white border-l-4 border-blue-500' : ''
-                    }`}
-                  className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white text-left transition-all ${isActivePath(item) ? 'bg-gray-800 text-white border-l-4 border-blue-500' : ''
-                    }`}
+                  className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white text-left transition-all ${isActivePath(item) ? 'bg-gray-800 text-white border-l-4 border-blue-500' : ''}`}
                 >
                   {item.name}
                 </button>
@@ -143,10 +138,7 @@ export const Navigation = () => {
                 type="button"
                 key={item.name}
                 onClick={() => handleNavClick(item)}
-                className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${isActivePath(item) ? 'bg-blue-600 text-white' : ''
-                  }`}
-                className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${isActivePath(item) ? 'bg-blue-600 text-white' : ''
-                  }`}
+                className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${isActivePath(item) ? 'bg-blue-600 text-white' : ''}`}
               >
                 {item.name}
               </button>
@@ -154,10 +146,7 @@ export const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${item.path === location.pathname ? 'bg-blue-600 text-white' : ''
-                  }`}
-                className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${item.path === location.pathname ? 'bg-blue-600 text-white' : ''
-                  }`}
+                className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${item.path === location.pathname ? 'bg-blue-600 text-white' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
@@ -173,15 +162,6 @@ export const Navigation = () => {
           <div className="px-4 py-3 text-blue-400">⌘</div>
         </div>
       </div>
-=======
-        
-      </header>
-
-      
-        
-
-
->>>>>>> 9b144e392dd4abef26815ea4974b7fd062e969b4
     </>
   );
 };
