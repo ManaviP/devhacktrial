@@ -27,25 +27,25 @@ export const PrizesSection = () => {
   const prizes: PrizeCard[] = [
     {
       place: "1st place",
-      amount: "$70,000",
+      amount: "₹70,000",
       color: "yellow",
       image: "/images/prizes/money-coin.svg"
     },
     {
       place: "2nd place",
-      amount: "$40,000",
+      amount: "₹40,000",
       color: "blue",
       image: "/images/prizes/gems.svg"
     },
     {
       place: "3rd place",
-      amount: "$20,000",
+      amount: "₹20,000",
       color: "cyan",
       image: "/images/prizes/coins.svg"
     },
     {
-      place: "Best Online Team",
-      amount: "$20,000",
+      place: "4th place",
+      amount: "₹20,000",
       color: "green",
       image: "/images/prizes/money.svg"
     },
@@ -55,35 +55,35 @@ export const PrizesSection = () => {
     {
       name: "Best Tezos India Project",
       sponsor: "Tezos India",
-      prize: "$500",
-      color: "blue",
+      prize: "₹50,000",
+      color: "yellow",
       logoUrl: "/sponsors/tezos.png"
     },
     {
       name: "Best Verbwire API Project",
       sponsor: "Verbwire",
-      prize: "5000 credits",
-      color: "purple",
+      prize: "₹25,000",
+      color: "blue",
       logoUrl: "/sponsors/verbwire.svg"
     },
     {
       name: "Best Aptos Project",
       sponsor: "Aptos",
-      prize: "$250",
+      prize: "₹25,000",
       color: "cyan",
       logoUrl: "/sponsors/Aptos.png"
     },
     {
       name: "Best Polygon Project",
       sponsor: "Polygon",
-      prize: "$200",
+      prize: "₹25,000",
       color: "indigo",
       logoUrl: "/sponsors/Polygon_Logo-White@2x.png"
     },
     {
       name: "Best Hack Built on Ethereum",
       sponsor: "ETH",
-      prize: "$100",
+      prize: "₹25,000",
       color: "green",
       logoUrl: "/sponsors/ethindia-light.png"
     }
@@ -148,31 +148,38 @@ export const PrizesSection = () => {
           <div className="divider"></div>
 
           <h2 className="track-prizes-heading">
-            Track prizes
           </h2>
 
           <div className="prizes-grid">
-            {prizes.map((prize, index) => (
-              <div key={index} className="prize-card">
-                <div className="prize-header">
-                  <div className="prize-label">
-                    <span className="prize-hash">#</span>
-                    <span className="prize-place">{prize.place}</span>
-                    <span className="prize-bracket">{'}'}</span>
+            {prizes.map((prize, index) => {
+              // Determine place class
+              let placeClass = '';
+              if (prize.place.startsWith('1st')) placeClass = 'place-1';
+              else if (prize.place.startsWith('2nd')) placeClass = 'place-2';
+              else if (prize.place.startsWith('3rd')) placeClass = 'place-3';
+              else if (prize.place.startsWith('4th')) placeClass = 'place-4';
+              return (
+                <div key={index} className="prize-card">
+                  <div className={`prize-header ${placeClass}`}>
+                    <span className="prize-header-group">
+                      <span className="prize-hash">#</span>
+                      <span className={`prize-place ${placeClass}`}>{prize.place}</span>
+                      <span className="prize-bracket">{' }'}</span>
+                    </span>
+                  </div>
+                  <div className="prize-content">
+                    <img
+                      src={prize.image}
+                      alt={prize.place}
+                      className="prize-image"
+                    />
+                  </div>
+                  <div className="prize-footer">
+                    <div className="prize-amount">{prize.amount}</div>
                   </div>
                 </div>
-                <div className="prize-content">
-                  <img
-                    src={prize.image}
-                    alt={prize.place}
-                    className="prize-image"
-                  />
-                </div>
-                <div className="prize-footer">
-                  <div className="prize-amount">{prize.amount}</div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="divider"></div>
@@ -181,25 +188,31 @@ export const PrizesSection = () => {
             Track Prizes
           </h2>
 
-          <div className="track-prizes-grid">
-            {trackPrizes.map((trackPrize, index) => (
-              <div key={index} className="track-prize-card">
-                <div className={`track-prize-header bg-${trackPrize.color}-900/20`}>
-                  <div className="track-prize-sponsor">{trackPrize.sponsor}</div>
-                </div>
-                <div className="track-prize-content">
-                  <div className="track-prize-logo-container">
-                    <img
-                      src={trackPrize.logoUrl}
-                      alt={trackPrize.sponsor}
-                      className="track-prize-logo"
-                    />
+          <div className="track-prizes-screenshot-grid">
+            {trackPrizes.map((trackPrize, index) => {
+              // Unique color classes for each card
+              const colorClass = `track-prize-screenshot-card-color${index + 1}`;
+              return (
+                <div key={index} className={`track-prize-screenshot-card ${colorClass}`}>
+                  <div className="track-prize-screenshot-top">
+                    <div className="track-prize-screenshot-label-bg">
+                      <span className="track-prize-screenshot-label">{trackPrize.name}</span>
+                    </div>
+                    <div className="track-prize-screenshot-image">
+                      <img
+                        src={trackPrize.logoUrl}
+                        alt={trackPrize.sponsor}
+                        className="track-prize-screenshot-logo"
+                      />
+                    </div>
                   </div>
-                  <h3 className="track-prize-name">{trackPrize.name}</h3>
-                  <div className={`track-prize-amount text-${trackPrize.color}-500`}>{trackPrize.prize}</div>
+                  <div className="track-prize-screenshot-bottom">
+                    <div className="track-prize-screenshot-prize">{trackPrize.prize}</div>
+                    <div className="track-prize-screenshot-desc">{trackPrize.sponsor ? `Awarded by ${trackPrize.sponsor}` : ''}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="divider"></div>

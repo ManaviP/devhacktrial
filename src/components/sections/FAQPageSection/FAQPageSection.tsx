@@ -3,52 +3,52 @@ import './FAQPageSection.css';
 
 interface FAQItem {
   question: string;
-  answer: string;
+  answer: string | JSX.Element;
 }
 
 export const FAQPageSection = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const faqItems: FAQItem[] = [
     {
-      question: "What is Sui Overflow 2025?",
-      answer: "Sui Overflow 2025 is a global virtual hackathon, uniting builders and developers worldwide to redefine innovation, performance, and ownership on the Sui blockchain platform."
+      question: "What is DSU Dev Hacks 2024?",
+      answer: "DSU Dev Hacks is a national-level hackathon initiative of a private university in India to help various departments and private organizations find solutions to their pressing problems through students. Participants will have the chance to build innovative projects while competing for prizes, mentorship, and exclusive developer opportunities."
     },
     {
-      question: "Why should I participate in Sui Overflow 2025?",
-      answer: "You'll get to work on cutting-edge blockchain technology, compete for over $500,000 in prizes, and network with industry leaders and like-minded developers."
+      question: "At which level is this hackathon conducted?",
+      answer: "The DSU Dev Hacks Hackathon is conducted at the national level."
     },
     {
-      question: "Who can participate in Sui Overflow 2025?",
-      answer: "Anyone with an interest in blockchain technology and innovation can participate. Whether you're a student, professional developer, designer, or entrepreneur, there's a place for you."
+      question: "How many members can participate in a team?",
+      answer: "A team can have only 3 members."
     },
     {
-      question: "Where can I ask technical questions during the hackathon?",
-      answer: "You can ask technical questions on our Discord server, where mentors and sponsors will be available to provide guidance and support."
+      question: "What is the qualification to participate?",
+      answer: "Participants must be currently enrolled in an undergraduate Engineering program."
     },
     {
-      question: "When can I register for Sui Overflow 2025?",
-      answer: "Registration opens on February 15, 2025, and will remain open until the start of the hackathon in April."
+      question: "Can participants attend online?",
+      answer: "Yes, participants can attend online as the hackathon is conducted in both online and offline modes."
     },
     {
-      question: "Do I need to attend any in-person events or demo days to be eligible?",
-      answer: "No, Sui Overflow 2025 is entirely virtual. All activities, including demo days, will be conducted online."
+      question: "What is the participation fee?",
+      answer: "The participation in DSU Dev Hacks 2024 is completely free!"
     },
     {
-      question: "How can I find a team to join?",
-      answer: "You can use our team formation platform on Discord or attend our virtual team-building sessions before the hackathon begins."
+      question: "Is this online hackathon or offline hackathon?",
+      answer: "It is a hybrid hackathon and preferred offline."
     },
     {
-      question: "How can I learn about Sui and Move to prepare for Sui Overflow?",
-      answer: "We'll provide comprehensive resources, tutorials, and workshops leading up to the event to help you prepare for building on the Sui blockchain."
+      question: "What are the restrictions on team formation for the event?",
+      answer: "All team members must belong to the same university or college, and a team can have exactly 3 members."
     },
     {
-      question: "When can I start working on my project for it to be considered as a valid submission?",
-      answer: "You can start working on your project as soon as the hackathon officially begins. Projects started before the official start date will not be eligible for prizes."
+      question: "What are the perks and benefits of participating in the hackathon?",
+      answer: "Participants gain exposure to real-world problems, networking opportunities, and potential internships or job offers. Winners also receive cash prizes and certificates."
     },
     {
-      question: "What if my project fits into multiple tracks?",
-      answer: "You can submit your project to multiple tracks if it fits the criteria. However, you'll need to specify a primary track for judging purposes."
+      question: "I have a question related to the hackathon which is not listed above. What should I do?",
+      answer: "Feel free to reach out to us. Just drop a mail to <a href='mailto:dsudevhack@dsu.edu.in'>dsudevhack@dsu.edu.in</a>. You can also contact the student coordinator at <strong>+91-8154852286</strong>."
     },
   ];
 
@@ -66,9 +66,9 @@ export const FAQPageSection = () => {
       {/* Header bar */}
       <div className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 py-3 z-50">
         <div className="container mx-auto flex justify-between items-center px-4">
-          <div className="text-gray-900 dark:text-white font-medium">Sui Overflow '25</div>
+          <div className="text-gray-900 dark:text-white font-medium">DSU Dev Hacks 2024</div>
           <div className="text-blue-500 dark:text-blue-400">
-            <span className="text-blue-500 dark:text-blue-400">&lt;date&gt;</span> February-May, 2025 <span className="text-blue-500 dark:text-blue-400">&lt;/date&gt;</span>
+            <span className="text-blue-500 dark:text-blue-400">&lt;date&gt;</span> March-April, 2024 <span className="text-blue-500 dark:text-blue-400">&lt;/date&gt;</span>
           </div>
         </div>
       </div>
@@ -100,27 +100,26 @@ export const FAQPageSection = () => {
                   </button>
 
                   <div className={`faq-answer ${activeIndex === index ? 'active' : ''}`}>
-                    <p>{item.answer}</p>
+                    <p dangerouslySetInnerHTML={{ __html: typeof item.answer === 'string' ? item.answer : '' }}></p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 text-center text-gray-600">
-            <p>If you have additional questions, please contact devrel@sui.io.</p>
-          </div>
+
+
 
           {/* Navigation bar at bottom */}
           <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-3 z-50">
             <div className="container mx-auto flex justify-between overflow-x-auto">
-              <a href="#overview" className="nav-link">Overview</a>
-              <a href="#tracks" className="nav-link">Tracks & Prizes</a>
+              <a href="#home" className="nav-link">Home</a>
+              <a href="#about" className="nav-link">About</a>
+              <a href="#timeline" className="nav-link">Timeline</a>
+              <a href="#prizes" className="nav-link">Prizes</a>
               <a href="#sponsors" className="nav-link">Sponsors</a>
-              <a href="#events" className="nav-link">Events</a>
               <a href="#faq" className="nav-link active">FAQ</a>
-              <a href="#handbook" className="nav-link">Participant Handbook</a>
-              <a href="https://discord.gg/sui" target="_blank" rel="noopener noreferrer" className="nav-link">Discord</a>
+              <a href="#contact" className="nav-link">Contact</a>
               <a href="/register" className="nav-link register">Register</a>
             </div>
           </div>

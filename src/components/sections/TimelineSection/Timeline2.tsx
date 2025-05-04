@@ -94,9 +94,9 @@ const TimelineCard = ({ item, index, active, activeCard, theme }: any) => {
       }
     },
     hover: {
-      y: -5,
+      y: 0,
       transition: {
-        duration: 0.3
+        duration: 0
       }
     }
   };
@@ -126,9 +126,9 @@ const TimelineCard = ({ item, index, active, activeCard, theme }: any) => {
       }
     },
     hover: {
-      scale: 1.03,
-      boxShadow: "0 8px 32px rgba(217, 70, 239, 0.2)",
-      transition: { duration: 0.2 }
+      scale: 1,
+      boxShadow: "none",
+      transition: { duration: 0 }
     }
   };
 
@@ -142,7 +142,6 @@ const TimelineCard = ({ item, index, active, activeCard, theme }: any) => {
       variants={cardVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      whileHover="hover"
     >
       <motion.div
         className="dot-animation"
@@ -157,7 +156,6 @@ const TimelineCard = ({ item, index, active, activeCard, theme }: any) => {
           variants={infoVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          whileHover="hover"
         >
           <motion.h3
             className="title md:text-lg text-md"

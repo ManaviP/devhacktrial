@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaTwitter, FaDiscord, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaTwitter, FaDiscord, FaInstagram, FaGithub } from 'react-icons/fa';
 
 export const Footer = () => {
   return (
@@ -18,17 +18,17 @@ export const Footer = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-white">Follow Us</h3>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition duration-300">
+              <a href="#" className="text-gray-400 hover:text-cyan-400" aria-label="Twitter" title="Twitter">
                 <FaTwitter size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-indigo-400 transition duration-300">
+              <a href="#" className="text-gray-400 hover:text-indigo-400" aria-label="Discord" title="Discord">
                 <FaDiscord size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-pink-400 transition duration-300">
+              <a href="#" className="text-gray-400 hover:text-pink-400" aria-label="Instagram" title="Instagram">
                 <FaInstagram size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition duration-300">
-                <FaLinkedin size={24} />
+              <a href="#" className="text-gray-400 hover:text-blue-400" aria-label="GitHub" title="GitHub">
+                <FaGithub size={24} />
               </a>
             </div>
           </div>
@@ -38,17 +38,17 @@ export const Footer = () => {
             <h3 className="text-2xl font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/code-of-conduct" className="text-gray-400 hover:text-white transition duration-300">
+                <Link to="/code-of-conduct" className="text-gray-400 hover:text-white">
                   Code of Conduct
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition duration-300">
+                <Link to="/privacy-policy" className="text-gray-400 hover:text-white">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms-of-service" className="text-gray-400 hover:text-white transition duration-300">
+                <Link to="/terms-of-service" className="text-gray-400 hover:text-white">
                   Terms of Service
                 </Link>
               </li>
