@@ -105,6 +105,7 @@ export const Navigation = () => {
           </div>
         </div>
 
+<<<<<<< HEAD
         {mobileMenuOpen && (
           <div className="md:hidden bg-hackathon-darkBlue/95 backdrop-blur-md animate-fade-in fixed w-full z-50">
             <nav className="flex flex-col">
@@ -172,6 +173,15 @@ export const Navigation = () => {
           <div className="px-4 py-3 text-blue-400">⌘</div>
         </div>
       </div>
+=======
+        
+      </header>
+
+      
+        
+
+
+>>>>>>> 9b144e392dd4abef26815ea4974b7fd062e969b4
     </>
   );
 };

@@ -357,6 +357,70 @@
 
 /* Removed animation keyframes */
 
+/* SPONSORS */
+[data-sponsor-el]{
+  transition: transform 0.45s cubic-bezier(0.15, 0.5, 0.05, 1);
+  display: inline-block;
+  position: relative;
+}
+
+.sponsors-grid__item:hover .sponsors-top{
+  color: #fff;
+  transition: color 0.2s ease;
+}
+
+.sponsors-grid__item:hover [data-sponsor-el="left"]{
+  transform: translate(-40%, 0px);
+}
+
+.sponsors-grid__item:hover [data-sponsor-el="right"]{
+  transform: translate(75%, 0px);
+}
+
+.sponsors-grid__item:hover [data-sponsor-el="arrow"]{
+  transform: translate(35%, -25%);
+}
+
+/* Enhanced hover effects for sponsor grid items */
+.sponsors-grid__item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-width: 2px;
+}
+
+/* Paper-like transition effect */
+.sponsors-grid__item {
+  transform-origin: center bottom;
+  will-change: transform, box-shadow;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.sponsors-grid__item:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 5%;
+  width: 90%;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  filter: blur(5px);
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.45s cubic-bezier(0.15, 0.5, 0.05, 1);
+}
+
+/* Row-based hover effects for paper-like movement */
+.sponsors-grid__item:hover {
+  transform: translateY(-5px);
+  background-color: rgba(15, 25, 45, 0.95);
+}
+
+.second-grid .sponsors-grid__item:hover {
+  transform: translateY(-5px);
+  background-color: rgba(15, 25, 45, 0.95);
+}
+
 /* Animation classes - only applying to select sponsors */
 .float-animation-1 {
   animation: none; /* Removed animation */
@@ -364,6 +428,27 @@
 
 .float-animation-3 {
   animation: none; /* Removed animation */
+}
+
+/* Tier-specific hover effects for dark theme */
+.sponsors-grid__item:nth-child(1):hover {
+  background-color: rgba(15, 25, 45, 0.95);
+  border-color: rgba(30, 41, 59, 0.5);
+}
+
+.sponsors-grid__item:nth-child(2):hover {
+  background-color: rgba(15, 25, 45, 0.95);
+  border-color: rgba(30, 41, 59, 0.5);
+}
+
+.sponsors-grid__item:nth-child(3):hover {
+  background-color: rgba(15, 25, 45, 0.95);
+  border-color: rgba(30, 41, 59, 0.5);
+}
+
+.second-grid .sponsors-grid__item:hover {
+  background-color: rgba(15, 25, 45, 0.95);
+  border-color: rgba(30, 41, 59, 0.5);
 }
 
 /* Enhanced hover effect for sponsor cards - removed animation */
@@ -403,4 +488,236 @@
   .sponsor-card {
     margin-bottom: 1rem;
   }
+}
+
+/* New Sponsors Grid Styles */
+.container.v-pad-regular {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.title-row {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.h-large {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.w-layout-vflex {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-bottom: 40px;
+  perspective: 1000px;
+  border: 1px solid rgba(30, 41, 59, 0.5);
+}
+
+.sponsors-grid__item {
+  position: relative;
+  background-color: rgba(10, 15, 30, 0.95);
+  border-radius: 0;
+  overflow: hidden;
+  transition: all 0.45s cubic-bezier(0.15, 0.5, 0.05, 1);
+  border: 1px solid rgba(30, 41, 59, 0.5);
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 250px;
+  cursor: pointer;
+  padding-top: 50px;
+}
+
+.sponsors-grid__item.wide {
+  grid-column: span 3;
+  min-height: 250px;
+}
+
+.second-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 40px;
+}
+
+.second-grid__item {
+  height: 250px;
+}
+
+.sponsors-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.sponsors-grid__item:hover .sponsors-logo {
+  transform: scale(1.05);
+}
+
+.sponsors-logo.is-250 {
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.sponsors-logo.is-140 {
+  max-width: 140px;
+  margin: 0 auto;
+}
+
+.sponsors-logo.is-120 {
+  max-width: 120px;
+  margin: 0 auto;
+}
+
+.sponsors-logo.is-100 {
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.sponsors-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(10, 15, 30, 0.8);
+  z-index: 1;
+}
+
+.eyebrow {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: monospace;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.grid-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: -1;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive adjustments for new sponsors grid */
+@media (max-width: 768px) {
+  .sponsors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsors-grid__item.wide {
+    grid-column: span 1;
+  }
+
+  .second-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .h-large {
+    font-size: 2.5rem;
+  }
+
+  .sponsors-logo.is-250,
+  .sponsors-logo.is-140,
+  .sponsors-logo.is-120,
+  .sponsors-logo.is-100 {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sponsors-grid__item.wide {
+    grid-column: span 2;
+  }
+
+  .second-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Light theme styles for new sponsors grid */
+.light .sponsors-grid__item {
+  background-color: rgba(10, 15, 30, 0.95);
+  border: 1px solid rgba(30, 41, 59, 0.5);
+}
+
+.light .sponsors-grid__item:hover {
+  background-color: rgba(15, 25, 45, 0.95);
+}
+
+.light .eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.light .sponsors-top {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(10, 15, 30, 0.8);
+}
+
+.light .grid-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+}
+
+.light .h-large {
+  color: #ffffff;
+}
+
+/* Tier-specific hover effects for light theme */
+.light .sponsors-grid__item:nth-child(1):hover {
+  background-color: rgba(15, 25, 45, 0.95);
+  border-color: rgba(30, 41, 59, 0.5);
+}
+
+.light .sponsors-grid__item:nth-child(2):hover {
+  background-color: rgba(15, 25, 45, 0.95);
+  border-color: rgba(30, 41, 59, 0.5);
+}
+
+.light .sponsors-grid__item:nth-child(3):hover {
+  background-color: rgba(15, 25, 45, 0.95);
+  border-color: rgba(30, 41, 59, 0.5);
+}
+
+.light .second-grid .sponsors-grid__item:hover {
+  background-color: rgba(15, 25, 45, 0.95);
+  border-color: rgba(30, 41, 59, 0.5);
 }

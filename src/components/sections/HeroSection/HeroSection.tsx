@@ -10,6 +10,7 @@ interface HeroSectionProps {
 export const HeroSection = ({ theme }: HeroSectionProps) => {
   return (
     <section id="hero" className="hero-section">
+<<<<<<< HEAD
       <div className="hero-header">
         <div className="container mx-auto px-4 h-full flex items-center justify-between">
           <div className="text-gray-800 dark:text-white font-medium">Dev Hacks '25</div>
@@ -18,6 +19,9 @@ export const HeroSection = ({ theme }: HeroSectionProps) => {
           </div>
         </div>
       </div>
+=======
+     
+>>>>>>> 9b144e392dd4abef26815ea4974b7fd062e969b4
 
       <div className="w-1/2 pl-12 pt-32 pb-24">
         <motion.div
