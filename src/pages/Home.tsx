@@ -26,7 +26,7 @@ export const Home = () => {
       <div className="relative w-full">
        
         <PrizesSection />
-        <Themes />
+       <TracksSection />
         <TimelineSection />
         <NewSponsorsSection />
         <FAQPageSection />
