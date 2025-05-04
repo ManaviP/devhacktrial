@@ -193,24 +193,39 @@ export const HeroSection = (_props: HeroSectionProps) => {
       });
     }
 
+    // Ensure all content sections are visible initially
+    const allContentSections = gsap.utils.toArray('.hero-content-section');
+    gsap.set(allContentSections, { clearProps: "all" });
+
+    // Make sure the about section and why section are visible
+    gsap.set('.about-section', { opacity: 1, visibility: 'visible' });
+    gsap.set('.why-section', { opacity: 1, visibility: 'visible' });
+
     // Animate the content sections as they scroll
     const contentSections = gsap.utils.toArray('.hero-content-section');
-    contentSections.forEach((section: any) => {
-      gsap.fromTo(section,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            end: "top 30%",
-            scrub: 0.5,
-            toggleActions: "play none none reverse"
-          }
+    contentSections.forEach((section: any, index: number) => {
+      // Set initial state for all sections except the first one
+      if (index > 0) {
+        gsap.set(section, { opacity: 0.7, y: 30 }); // Less dramatic initial state
+      }
+
+      gsap.to(section, {
+        opacity: 1,
+        y: 0,
+        duration: 0.3, // Faster animation
+        scrollTrigger: {
+          trigger: section,
+          start: "top 90%", // Trigger earlier
+          end: "top 40%",
+          toggleActions: "play none none reverse",
+          once: false, // Animation will play each time the section enters the viewport
+          markers: false, // Set to true for debugging
         }
-      );
+      });
     });
+
+    // Force a refresh of ScrollTrigger to ensure proper initialization
+    ScrollTrigger.refresh();
 
     return () => {
       // Clean up all ScrollTriggers when component unmounts
@@ -321,7 +336,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
                     This event gathers brilliant minds nationwide to create revolutionary solutions. It provides a platform for developers, designers, and enthusiasts to transform ideas, showcase skills, and network. 🤝
                   </p>
                 </div>
-                <img src="/images/images.jpeg" alt="DSU Campus" className="section-image" />
+                <img src="/images/hb-logo.png" alt="DSU Campus" className="section-image" />
               </div>
 
               {/* Third scroll indicator at bottom of second card */}
@@ -346,7 +361,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
                     <li>Build solutions that address real-world challenges</li>
                   </ul>
                 </div>
-                <img src="/images/images.jpeg" alt="DSU Campus" className="section-image" />
+                <img src="/images/hb-logo.png" alt="DSU Campus" className="section-image" />
               </div>
             </div>
           </div>

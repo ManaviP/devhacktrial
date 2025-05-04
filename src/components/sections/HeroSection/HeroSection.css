@@ -2,7 +2,7 @@
 
 .hero-section {
   position: relative;
-  min-height: 200vh; /* Taller to allow for scrolling */
+  min-height: 250vh; /* Increased to ensure all cards are visible */
   background-color: #ffffff;
   overflow: hidden;
 }
@@ -39,12 +39,14 @@
 .hero-content-wrap {
   position: relative;
   width: 50%;
-  padding: 3rem 4rem 3rem 5rem; /* Increased padding, especially on the left */
+  padding: 1rem 4rem 3rem 5rem; /* Reduced top padding to show more content */
   z-index: 2;
   overflow-y: auto;
   height: 100vh;
+  max-height: 100vh; /* Ensure it doesn't exceed viewport height */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  scroll-padding: 2rem; /* Add padding for scroll snap */
 }
 
 .hero-content-wrap::-webkit-scrollbar {
@@ -64,24 +66,29 @@
   justify-content: center;
   padding: 2rem 0;
   scroll-snap-align: start;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem; /* Increased margin to ensure separation between cards */
+  position: relative; /* Ensure proper stacking */
 }
 
-/* Make the first section slightly taller */
+/* Make the first section taller to ensure all content is visible */
 .first-section {
-  min-height: 85vh;
+  min-height: 100vh; /* Full viewport height to ensure all content is visible */
+  padding-top: 2rem; /* Add padding at the top */
 }
 
 /* Make the about and why sections shorter to ensure they're visible */
 .about-section, .why-section {
   min-height: 70vh;
+  opacity: 1; /* Ensure visibility */
+  visibility: visible; /* Explicitly set visibility */
 }
 
 /* Add scroll snap for smoother scrolling */
 .hero-content-wrap {
-  scroll-snap-type: y proximity; /* Changed from mandatory to proximity for smoother scrolling */
+  scroll-snap-type: y mandatory; /* Changed to mandatory for better card snapping */
   scroll-behavior: smooth;
-  padding-bottom: 2rem; /* Add padding at the bottom to ensure last card is fully visible */
+  padding-bottom: 5rem; /* Increased padding at the bottom to ensure last card is fully visible */
+  overscroll-behavior: contain; /* Prevent scroll chaining */
 }
 
 /* First section with title and register button */
@@ -92,6 +99,9 @@
 /* About and Why sections */
 .about-section, .why-section {
   z-index: 1;
+  display: flex !important; /* Force display */
+  opacity: 1 !important; /* Force visibility */
+  position: relative; /* Ensure proper stacking */
 }
 
 /* Keyboard wrap for pinning */
@@ -109,7 +119,7 @@
 /* Left side text container */
 .hero-text-container {
   max-width: 600px;
-  padding: 2rem;
+  padding: 1.5rem; /* Reduced padding */
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
@@ -155,7 +165,8 @@
 .university-details-container {
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Reduced margin to save space */
+  margin-top: 0; /* Ensure no top margin */
 }
 
 .university-logo {
@@ -257,7 +268,7 @@
 .countdown-timer {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Reduced margin */
   max-width: 400px;
 }
 
@@ -267,8 +278,8 @@
   align-items: center;
   background: linear-gradient(135deg, #7B61FF, #00D2FF);
   border-radius: 8px;
-  padding: 0.75rem 1rem;
-  min-width: 80px;
+  padding: 0.6rem 0.8rem; /* Reduced padding */
+  min-width: 75px; /* Slightly reduced width */
   color: white;
 }
 
@@ -288,7 +299,8 @@
 .logo-title-container {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem; /* Reduced margin */
+  margin-top: 0; /* Ensure no top margin */
 }
 
 .hero-logo {
@@ -310,9 +322,9 @@
 }
 
 .hero-title {
-  font-size: 5rem;
+  font-size: 4.5rem; /* Slightly reduced size */
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1;
   margin: 0;
   color: #000000;
 }
@@ -326,9 +338,9 @@
 
 .hero-subtitle {
   font-size: 1.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Reduced margin */
   color: #333333;
-  line-height: 1.5;
+  line-height: 1.4; /* Slightly reduced line height */
 }
 
 .register-button {
@@ -385,7 +397,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 1rem; /* Reduced margin */
   opacity: 0.7;
   transition: opacity 0.3s ease;
   animation: pulse 2s infinite;
@@ -445,12 +457,13 @@
 /* Right side keyboard grid */
 .keyboard-grid {
   position: relative;
-  width: 50%;
+  width: 100%;
   height: 600px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Changed from center to flex-start */
   align-items: center;
   z-index: 1;
+  margin-left: -20%; /* Move the entire grid to the left */
 }
 
 /* Keyboard keys */
@@ -472,49 +485,49 @@
 
 .keyboard-key-0 { /* D */
   top: 120px;
-  left: 300px;
+  left: 150px; /* Moved left from 300px */
   transform: rotate(-8deg);
   background-color: #FF6B00; /* Orange */
 }
 
 .keyboard-key-1 { /* E */
   top: 180px;
-  left: 400px;
+  left: 250px; /* Moved left from 400px */
   transform: rotate(5deg);
   background-color: #7B61FF; /* Purple */
 }
 
 .keyboard-key-2 { /* V */
   top: 120px;
-  left: 550px;
+  left: 400px; /* Moved left from 550px */
   transform: rotate(-5deg);
   background-color: #E5CBFF; /* Light Purple */
 }
 
 .keyboard-key-3 { /* H */
   top: 280px;
-  left: 550px;
+  left: 400px; /* Moved left from 550px */
   transform: rotate(8deg);
   background-color: #FFD600; /* Yellow */
 }
 
 .keyboard-key-4 { /* A */
   top: 350px;
-  left: 400px;
+  left: 250px; /* Moved left from 400px */
   transform: rotate(-5deg);
   background-color: #FF6B00; /* Orange */
 }
 
 .keyboard-key-5 { /* C */
   top: 200px;
-  left: 700px;
+  left: 550px; /* Moved left from 700px */
   transform: rotate(5deg);
   background-color: #00D2FF; /* Blue */
 }
 
 .keyboard-key-6 { /* K */
   top: 350px;
-  left: 700px;
+  left: 550px; /* Moved left from 700px */
   transform: rotate(-5deg);
   background-color: #E5CBFF; /* Light Purple */
 }
@@ -545,7 +558,7 @@
 .cursor-svg {
   position: absolute;
   top: 20%;
-  left: 40%;
+  left: 25%; /* Moved left from 40% */
   transform: translate(-50%, -50%);
   z-index: 10;
   filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
@@ -560,7 +573,7 @@
 .message-circle {
   position: absolute;
   bottom: 90px;
-  right: 30px;
+  right: 150px; /* Moved left from 30px */
   z-index: 5;
   /* Prevent overlap with other elements */
   pointer-events: none;
@@ -791,7 +804,7 @@
     height: 400px; /* Match the keyboard-wrap height */
     transform: scale(0.85); /* Slightly reduced scale */
     transform-origin: left center; /* Scale from left side */
-    margin-left: -5%; /* Move left */
+    margin-left: -15%; /* Increased left margin to move animation more to the left */
   }
 
   /* Adjust key sizes for mobile */
@@ -850,7 +863,7 @@
   /* Further adjust for tablets */
   .keyboard-grid {
     transform: scale(0.8); /* Slightly smaller scale */
-    margin-left: -5%; /* Adjusted left margin */
+    margin-left: -20%; /* Increased left margin to move animation more to the left */
   }
 
   .keyboard-key {
@@ -923,7 +936,7 @@
   .keyboard-grid {
     height: 360px; /* Slightly increased height */
     transform: scale(0.7); /* Increased scale a bit */
-    margin-left: -5%; /* Adjusted left margin */
+    margin-left: -25%; /* Increased left margin to move animation more to the left */
     transform-origin: left center;
   }
 
@@ -941,48 +954,49 @@
   /* Compact layout for small screens - adjusted for padding */
   .keyboard-key-0 { /* D */
     top: 60px;
-    left: 80px;
+    left: 50px; /* Moved left from 80px */
   }
 
   .keyboard-key-1 { /* E */
     top: 120px;
-    left: 160px;
+    left: 130px; /* Moved left from 160px */
   }
 
   .keyboard-key-2 { /* V */
     top: 60px;
-    left: 240px;
+    left: 210px; /* Moved left from 240px */
   }
 
   .keyboard-key-3 { /* H */
     top: 180px;
-    left: 240px;
+    left: 210px; /* Moved left from 240px */
   }
 
   .keyboard-key-4 { /* A */
     top: 240px;
-    left: 160px;
+    left: 130px; /* Moved left from 160px */
   }
 
   .keyboard-key-5 { /* C */
     top: 120px;
-    left: 320px;
+    left: 290px; /* Moved left from 320px */
   }
 
   .keyboard-key-6 { /* K */
     top: 240px;
-    left: 320px;
+    left: 290px; /* Moved left from 320px */
   }
 
   /* Adjust cursor and message circle for small screens */
   .cursor-svg {
     width: 40px;
     height: 40px;
+    left: 20%; /* Moved left to match new key positions */
   }
 
   .message-circle {
     bottom: 10px;
-    right: 55px;
+    right: 85px; /* Moved left from 55px */
     transform: scale(0.65);
   }
 
