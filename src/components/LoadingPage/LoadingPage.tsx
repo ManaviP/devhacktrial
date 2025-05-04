@@ -15,24 +15,27 @@ export const LoadingPage = ({
   const [progress, setProgress] = useState(initialProgress);
   const [isVisible, setIsVisible] = useState(true);
 
+  const [exitAnimation, setExitAnimation] = useState(false);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress(prev => {
-        const newProgress = prev + 5;
+        const newProgress = prev + 10; // Increased from 5 to 10 for faster progress
         if (newProgress >= 100) {
           clearInterval(interval);
 
-          // Add a small delay before calling onComplete
-          setTimeout(() => {
-            setIsVisible(false);
-            onComplete();
-          }, 500);
+          // Start exit animation and immediately complete
+          setExitAnimation(true);
+
+          // No delay - immediately complete
+          setIsVisible(false);
+          onComplete();
 
           return 100;
         }
         return newProgress;
       });
-    }, loadingTime / 20);
+    }, loadingTime / 40); // Reduced from loadingTime/20 to loadingTime/40 for faster updates
 
     return () => clearInterval(interval);
   }, [loadingTime, onComplete]);
@@ -41,20 +44,20 @@ export const LoadingPage = ({
     return "August-September";
   };
 
-  // Create an array of 20 segments for the progress bar
-  const segments = Array.from({ length: 20 }, (_, i) => {
-    const segmentProgress = (i + 1) * 5;
+  // Create an array of 10 segments for the progress bar (changed from 20 to match the new increment of 10)
+  const segments = Array.from({ length: 10 }, (_, i) => {
+    const segmentProgress = (i + 1) * 10;
     return {
       filled: progress >= segmentProgress,
-      active: progress >= segmentProgress - 5 && progress < segmentProgress
+      active: progress >= segmentProgress - 10 && progress < segmentProgress
     };
   });
 
   if (!isVisible) return null;
 
   return (
-    <div className="loading-page-container">
-      <div className="loading-modal">
+    <div className={`loading-page-container ${exitAnimation ? 'exit' : ''}`}>
+      <div className={`loading-modal ${exitAnimation ? 'exit' : ''}`}>
         <div className="loading-header">
           <div className="loading-date">
             <span className="loading-date-tag">&lt;date&gt;</span> {getCurrentDate()} <span className="loading-date-tag">&lt;/date&gt;</span>

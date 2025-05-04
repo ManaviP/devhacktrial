@@ -40,6 +40,35 @@
   flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.8s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Hover effect for timeline columns */
+.timeline-column:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Timeline column base styles */
+.timeline-column {
+  position: relative;
+  overflow: hidden;
+  will-change: transform, opacity;
 }
 
 /* Terrace step effect within rows */
@@ -83,6 +112,13 @@
   right: calc(100% - 65px);
   z-index: 2;
   background-color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for arrow badge */
+.timeline-column:hover .timeline-arrow {
+  transform: scale(1.1);
+  animation: none;
 }
 
 /* Icon in arrow badge */
@@ -90,6 +126,29 @@
   width: 30px;
   height: 30px;
   opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for arrow icon */
+.timeline-column:hover .timeline-icon {
+  transform: translateX(3px);
+}
+
+/* No CSS animations - using GSAP instead */
+
+/* Glow element for arrows */
+.timeline-arrow::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Title boxes */
@@ -103,12 +162,35 @@
   display: flex;
   align-items: center;
   width: calc(100% - 65px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #7c3aed);
+  transition: width 0.3s ease;
+}
+
+.timeline-column:hover .timeline-title::after {
+  width: 100%;
 }
 
 .timeline-title h3 {
   font-size: 1.025rem;
   font-weight: 500;
   margin: 0;
+  transition: transform 0.3s ease;
+}
+
+.timeline-column:hover .timeline-title h3 {
+  transform: translateX(5px);
 }
 
 /* Timeline items */
@@ -138,6 +220,12 @@
   box-sizing: border-box;
   border-right: 1px solid rgba(0, 0, 0, 0.05);
   font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.timeline-column:hover .timeline-label {
+  background-color: #f8f9fa;
+  color: #1e40af;
 }
 
 /* Date text */
@@ -153,6 +241,13 @@
   background-color: #0a1525; /* Match the section background color */
   position: relative;
   z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.timeline-column:hover .timeline-date {
+  color: #60a5fa;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* Last item in each column should not have a border */
