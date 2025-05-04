@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { NewNavbar } from './NewNavbar';
 import { ThreeBackground } from '../three/ThreeBackground';
 import { useTheme } from '../../lib/theme-context';
 
@@ -15,7 +14,6 @@ export const MainLayout = ({ children, showBackground = true, backgroundVariant 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-700 w-full overflow-x-hidden">
       {showBackground && <ThreeBackground variant="light" />}
-      <NewNavbar />
       <main className="relative z-10 pt-24 pb-24 w-full">
         {children}
       </main>

@@ -1,9 +1,209 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './NewTimeline.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 export const NewTimeline: React.FC = () => {
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!timelineRef.current) return;
+
+    // Get all timeline columns
+    const columns = timelineRef.current.querySelectorAll('.timeline-column');
+
+    // Add pulse animation to arrows
+    const arrows = timelineRef.current.querySelectorAll('.timeline-arrow');
+    arrows.forEach((arrow) => {
+      // Create a repeating pulse animation
+      gsap.to(arrow, {
+        scale: 1.1,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut'
+      });
+    });
+
+    // Simple scroll animation for columns
+    columns.forEach((column, i) => {
+      // Simple fade-in and slide-up animation on scroll
+      gsap.fromTo(
+        column,
+        {
+          y: 30,
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: column,
+            start: 'top 85%',
+            end: 'bottom 15%',
+            toggleActions: 'play none none reverse',
+          },
+          delay: i * 0.1 // Slight stagger effect
+        }
+      );
+
+      // Simple hover animations for text elements
+      const title = column.querySelector('.timeline-title h3');
+      const arrow = column.querySelector('.timeline-arrow');
+      const icon = column.querySelector('.timeline-icon');
+      const label = column.querySelector('.timeline-label');
+      const date = column.querySelector('.timeline-date');
+
+      // Create hover animations
+      column.addEventListener('mouseenter', () => {
+        // Animate title
+        if (title) {
+          gsap.to(title, {
+            x: 5,
+            color: '#3b82f6',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
+
+        // Animate arrow - pause the pulse and set a specific scale
+        if (arrow) {
+          // Pause any existing animations
+          gsap.killTweensOf(arrow);
+
+          // Set a specific hover state
+          gsap.to(arrow, {
+            scale: 1.2,
+            backgroundColor: '#4f46e5',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
+
+        // Animate icon
+        if (icon) {
+          gsap.to(icon, {
+            x: 3,
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
+
+        // Animate label
+        if (label) {
+          gsap.to(label, {
+            color: '#1e40af',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
+
+        // Animate date
+        if (date) {
+          gsap.to(date, {
+            color: '#60a5fa',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
+      });
+
+      // Reset on mouse leave
+      column.addEventListener('mouseleave', () => {
+        // Reset title
+        if (title) {
+          gsap.to(title, {
+            x: 0,
+            color: '#0a192f',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
+
+        // Reset arrow and restart pulse animation
+        if (arrow) {
+          // First reset to normal state
+          gsap.to(arrow, {
+            scale: 1,
+            backgroundColor: '#333',
+            duration: 0.3,
+            ease: 'power1.out',
+            onComplete: () => {
+              // Then restart the pulse animation
+              gsap.to(arrow, {
+                scale: 1.1,
+                duration: 1,
+                repeat: -1,
+                yoyo: true,
+                ease: 'power1.inOut'
+              });
+            }
+          });
+        }
+
+        // Reset icon
+        if (icon) {
+          gsap.to(icon, {
+            x: 0,
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
+
+        // Reset label
+        if (label) {
+          gsap.to(label, {
+            color: '#0a192f',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
+
+        // Reset date
+        if (date) {
+          gsap.to(date, {
+            color: 'white',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
+      });
+    });
+
+    return () => {
+      // Clean up
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+      // Remove event listeners
+      columns.forEach((column) => {
+        column.removeEventListener('mouseenter', () => {});
+        column.removeEventListener('mouseleave', () => {});
+      });
+
+      // Kill any running GSAP animations
+      columns.forEach((column) => {
+        gsap.killTweensOf(column);
+        gsap.killTweensOf(column.querySelector('.timeline-title h3'));
+        gsap.killTweensOf(column.querySelector('.timeline-arrow'));
+        gsap.killTweensOf(column.querySelector('.timeline-icon'));
+        gsap.killTweensOf(column.querySelector('.timeline-label'));
+        gsap.killTweensOf(column.querySelector('.timeline-date'));
+      });
+
+      // Kill arrow pulse animations
+      arrows.forEach((arrow) => {
+        gsap.killTweensOf(arrow);
+      });
+    };
+  }, []);
+
   return (
-    <div className="new-timeline-container">
+    <div className="new-timeline-container" ref={timelineRef}>
       <h2 className="new-timeline-heading">Timeline</h2>
 
       <div className="new-timeline-grid">

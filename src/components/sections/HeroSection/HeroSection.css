@@ -3,11 +3,12 @@
 .hero-section {
   position: relative;
   min-height: 100vh;
-  background-color: #F3F4F6;
+  background-color: #0A1525;
+  overflow: hidden;
 }
 
 .dark .hero-section {
-  background-color: #111827;
+  background-color: #0A1525;
 }
 
 .hero-header {
@@ -38,7 +39,7 @@
 .hero-subtitle {
   font-size: 1.25rem;
   margin-top: 1rem;
-  color: #6B7280;
+  color: #ffffff;
 }
 
 .dark .hero-subtitle {
@@ -80,4 +81,15 @@
 
 .dark .hero-container-box {
   background-color: #1F2937;
+}
+
+.hero-section canvas {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform-style: preserve-3d;
 }

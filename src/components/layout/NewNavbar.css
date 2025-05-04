@@ -522,7 +522,7 @@ body {
     margin: 0;
     gap: 5px;
     box-sizing: border-box;
-    border-bottom: 2px solid #000; /* Added border to match the new style */
+    border-bottom: 4px solid #000; /* Increased from 2px to 4px for a thicker border */
     height: 40px; /* Set a fixed height */
   }
 
@@ -541,7 +541,7 @@ body {
     background-color: white;
     padding: 0; /* Removed padding */
     width: 100%;
-    border-bottom: 2px solid #000; /* Changed from 1px to 2px and color to #000 */
+    border-bottom: 4px solid #000; /* Increased from 2px to 4px for a thicker border */
     height: 60px; /* Set a fixed height */
   }
 
@@ -619,7 +619,7 @@ body {
     overflow-y: auto;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    border: 2px solid #000; /* Added border to the entire grid */
+    border: 4px solid #000; /* Increased from 2px to 4px for a thicker border */
     border-top: none; /* Remove top border as it's handled by the first row */
   }
 
@@ -630,7 +630,7 @@ body {
   .mobile-menu-row {
     display: flex;
     width: 100%;
-    border-bottom: 2px solid #000; /* Added border to separate rows */
+    border-bottom: 4px solid #000; /* Increased from 2px to 4px for a thicker border */
   }
 
   .mobile-menu-row:last-child {
@@ -646,17 +646,17 @@ body {
     text-decoration: none;
     color: #0f172a;
     font-weight: 500;
-    border: 2px solid #000; /* Increased from 1px to 2px */
+    border: 4px solid #000; /* Increased from 2px to 4px for a thicker border */
     border-top: none;
     border-right: none;
   }
 
   .mobile-menu-row:first-child .mobile-menu-item {
-    border-top: 2px solid #000; /* Increased from 1px to 2px */
+    border-top: 4px solid #000; /* Increased from 2px to 4px for a thicker border */
   }
 
   .mobile-menu-item:last-child {
-    border-right: 2px solid #000; /* Increased from 1px to 2px */
+    border-right: 4px solid #000; /* Increased from 2px to 4px for a thicker border */
   }
 
   .mobile-menu-item.register {

@@ -266,19 +266,7 @@ export const PrizesSection = () => {
         </div>
       </section>
 
-      {/* Fixed navigation bar */}
-      <div className="fixed-nav">
-        <div className="nav-links">
-          <a href="#overview" className="nav-link">Overview</a>
-          <a href="#tracks" className="nav-link active">Tracks & Prizes</a>
-          <a href="#sponsors" className="nav-link">Sponsors</a>
-          <a href="#events" className="nav-link">Events</a>
-          <a href="#faq" className="nav-link">FAQ</a>
-          <a href="#handbook" className="nav-link">Participant Handbook</a>
-          <a href="#discord" className="nav-link">Discord</a>
-          <a href="#register" className="nav-link register">Register</a>
-        </div>
-      </div>
+      
     </>
   );
 };

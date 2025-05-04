@@ -8,11 +8,11 @@ export const NewNavbar = () => {
 
   const navItems = [
     { name: 'Overview', path: '/', sectionId: 'overview' },
-    { name: 'Tracks & Prizes', path: '/', sectionId: 'tracks' },
+    { name: 'Prizes', path: '/', sectionId: 'tracks' },
     { name: 'Sponsors', path: '/', sectionId: 'sponsors' },
     { name: 'Brochure', path: '/', sectionId: 'events' },
     { name: 'FAQ', path: '/', sectionId: 'faq' },
-    { name: 'Archives', path: '/archives', sectionId: 'archives' },
+    { name: 'Archives', path: 'https://dsudevhack.tech/', sectionId: 'archives' },
     { name: 'Discord', path: '/discord', sectionId: 'discord' }
   ];
 
@@ -83,7 +83,7 @@ export const NewNavbar = () => {
                   Overview
                 </Link>
                 <Link to="/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'tracks' })}>
-                  Tracks & Prizes
+                Prizes
                 </Link>
               </div>
               <div className="mobile-menu-row">
@@ -95,10 +95,10 @@ export const NewNavbar = () => {
                 </Link>
               </div>
               <div className="mobile-menu-row">
-                <Link to="/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'faq' })}>
+                <Link to="https://dsudevhack.tech/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'faq' })}>
                   FAQ
                 </Link>
-                <Link to="/archives" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/archives', sectionId: 'archives' })}>
+                <Link to="https://dsudevhack.tech/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/archives', sectionId: 'archives' })}>
                   Archives
                 </Link>
               </div>

@@ -13,6 +13,62 @@
   background-image: linear-gradient(#e6f0ff 1px, transparent 1px),
                     linear-gradient(90deg, #e6f0ff 1px, transparent 1px);
   background-size: 40px 40px;
+  transition: all 0.5s ease;
+}
+
+/* Bhoom wrap center collapse transition animations */
+@keyframes bhoomWrapOut {
+  0% {
+    transform: perspective(1200px) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+  30% {
+    transform: perspective(1200px) scale(0.9);
+    opacity: 0.9;
+    filter: blur(2px);
+  }
+  60% {
+    transform: perspective(1200px) scale(0.6);
+    opacity: 0.6;
+    filter: blur(10px);
+  }
+  100% {
+    transform: perspective(1200px) scale(0.1);
+    opacity: 0;
+    filter: blur(20px);
+  }
+}
+
+.loading-page-container.exit {
+  animation: bhoomWrapOut 0.1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards; /* Reduced from 0.6s to 0.1s for immediate transition */
+  transform-origin: center center;
+  backface-visibility: hidden;
+}
+
+.loading-modal.exit {
+  animation: modalCollapse 0.1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards; /* Reduced from 0.6s to 0.1s for immediate transition */
+  transform-origin: center center;
+  backface-visibility: hidden;
+}
+
+@keyframes modalCollapse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
 }
 
 .loading-modal {
@@ -219,7 +275,7 @@
 }
 
 .loading-progress-bar-segment.active {
-  animation: pulse 1s infinite;
+  animation: pulse 0.5s infinite; /* Reduced from 1s to 0.5s for faster pulsing */
 }
 
 @media (max-width: 600px) {

@@ -24,7 +24,7 @@ export const Home = () => {
 
       {/* All other sections without KeyboardCanvas */}
       <div className="relative w-full">
-        <TracksSection />
+       
         <PrizesSection />
         <Themes />
         <TimelineSection />
