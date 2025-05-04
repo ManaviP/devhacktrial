@@ -1,30 +1,24 @@
 import { ReactNode } from 'react';
-import { TopHeader } from './TopHeader';
-import { BottomNavbar } from './BottomNavbar';
+import { NewNavbar } from './NewNavbar';
 import { ThreeBackground } from '../three/ThreeBackground';
 import { useTheme } from '../../lib/theme-context';
-import { ThemeSwitcher } from '../ThemeSwitcher';
 
 interface MainLayoutProps {
   children: ReactNode;
   showBackground?: boolean;
-  backgroundVariant?: 'default' | 'light' | 'dark';
+  backgroundVariant?: 'default' | 'light';
 }
 
 export const MainLayout = ({ children, showBackground = true, backgroundVariant = 'default' }: MainLayoutProps) => {
   const { theme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300">
-      {showBackground && <ThreeBackground variant={theme === 'dark' ? 'dark' : 'light'} />}
-      <TopHeader />
-      <div className="fixed top-20 right-4 z-50">
-        <ThemeSwitcher />
-      </div>
-      <main className="relative z-10 pt-16 pb-16">
+    <div className="min-h-screen bg-gray-100 text-gray-700 w-full overflow-x-hidden">
+      {showBackground && <ThreeBackground variant="light" />}
+      <NewNavbar />
+      <main className="relative z-10 pt-24 pb-24 w-full">
         {children}
       </main>
-      <BottomNavbar />
     </div>
   );
 };

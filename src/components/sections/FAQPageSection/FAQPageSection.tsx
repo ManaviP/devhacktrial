@@ -100,7 +100,11 @@ export const FAQPageSection = () => {
                   </button>
 
                   <div className={`faq-answer ${activeIndex === index ? 'active' : ''}`}>
-                    <p dangerouslySetInnerHTML={{ __html: typeof item.answer === 'string' ? item.answer : '' }}></p>
+                    {typeof item.answer === 'string' ? (
+                      <p dangerouslySetInnerHTML={{ __html: item.answer }}></p>
+                    ) : (
+                      <p>{item.answer}</p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -110,19 +114,7 @@ export const FAQPageSection = () => {
 
 
 
-          {/* Navigation bar at bottom */}
-          <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-3 z-50">
-            <div className="container mx-auto flex justify-between overflow-x-auto">
-              <a href="#home" className="nav-link">Home</a>
-              <a href="#about" className="nav-link">About</a>
-              <a href="#timeline" className="nav-link">Timeline</a>
-              <a href="#prizes" className="nav-link">Prizes</a>
-              <a href="#sponsors" className="nav-link">Sponsors</a>
-              <a href="#faq" className="nav-link active">FAQ</a>
-              <a href="#contact" className="nav-link">Contact</a>
-              <a href="/register" className="nav-link register">Register</a>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

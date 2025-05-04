@@ -126,71 +126,11 @@ export const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-hackathon-darkBlue/95 backdrop-blur-md animate-fade-in fixed w-full z-50">
-            <nav className="flex flex-col">
-              {navItems.map((item) => (
-                <button
-                  type="button"
-                  key={item.name}
-                  onClick={() => handleNavClick(item)}
-                  className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white text-left transition-all ${
-                    isActivePath(item) ? 'bg-gray-800 text-white border-l-4 border-blue-500' : ''
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
-              <Link
-                to="/register"
-                className="nav-item px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Register
-              </Link>
-            </nav>
-          </div>
-        )}
+        
       </header>
 
-      {/* Fixed bottom navigation - only visible on small screens */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t border-gray-800 bg-hackathon-navy/95 backdrop-blur-md shadow-lg">
-        <div className="flex overflow-x-auto">
-          {navItems.map((item) => (
-            item.path === '/' && item.sectionId ? (
-              <button
-                type="button"
-                key={item.name}
-                onClick={() => handleNavClick(item)}
-                className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${
-                  isActivePath(item) ? 'bg-blue-600 text-white' : ''
-                }`}
-              >
-                {item.name}
-              </button>
-            ) : (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`nav-item px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap ${
-                  item.path === location.pathname ? 'bg-blue-600 text-white' : ''
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            )
-          ))}
-          <Link
-            to="/register"
-            className="nav-item ml-auto px-6 py-3 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors whitespace-nowrap"
-          >
-            Register
-          </Link>
-          <div className="px-4 py-3 text-blue-400">⌘</div>
-        </div>
-      </div>
+      
+        
 
 
     </>

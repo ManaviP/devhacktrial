@@ -49,10 +49,10 @@ const CubesCluster = () => {
   return (
     <>
       {positions.map((position, index) => (
-        <Float 
-          key={index} 
-          speed={1} 
-          rotationIntensity={1} 
+        <Float
+          key={index}
+          speed={1}
+          rotationIntensity={1}
           floatIntensity={2}
         >
           <Cube
@@ -72,10 +72,10 @@ const CubesCluster = () => {
 };
 
 type ThreeBackgroundProps = {
-  variant?: 'default' | 'light' | 'dark';
+  variant?: 'default' | 'light';
 };
 
-export const ThreeBackground = ({ variant = 'default' }: ThreeBackgroundProps) => {
+export const ThreeBackground = ({ variant = 'light' }: ThreeBackgroundProps) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -84,15 +84,9 @@ export const ThreeBackground = ({ variant = 'default' }: ThreeBackgroundProps) =
 
   if (!isClient) return null;
 
+  // Always use light variant
   const getBgOpacity = () => {
-    switch (variant) {
-      case 'light':
-        return 'opacity-50 bg-hackathon-navy';
-      case 'dark':
-        return 'opacity-30 bg-hackathon-cream';
-      default:
-        return 'opacity-50';
-    }
+    return 'opacity-50 bg-hackathon-navy';
   };
 
   return (

@@ -10,14 +10,7 @@ interface HeroSectionProps {
 export const HeroSection = ({ theme }: HeroSectionProps) => {
   return (
     <section id="hero" className="hero-section">
-      <div className="hero-header">
-        <div className="container mx-auto px-4 h-full flex items-center justify-between">
-          <div className="text-gray-800 dark:text-white font-medium">Sui Overflow '25</div>
-          <div className="text-blue-500 dark:text-blue-400">
-            <span className="text-blue-500 dark:text-blue-400">&lt;date&gt;</span> February-May, 2025 <span className="text-blue-500 dark:text-blue-400">&lt;/date&gt;</span>
-          </div>
-        </div>
-      </div>
+     
 
       <div className="w-1/2 pl-12 pt-32 pb-24">
         <motion.div

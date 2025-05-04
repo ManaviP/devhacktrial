@@ -107,19 +107,7 @@ export const Faq = () => {
               <p>If you have additional questions, please contact devrel@sui.io.</p>
             </div>
 
-            {/* Navigation bar at bottom */}
-            <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-3 z-50">
-              <div className="container mx-auto flex justify-between overflow-x-auto">
-                <a href="#overview" className="nav-link">Overview</a>
-                <a href="#tracks" className="nav-link">Tracks & Prizes</a>
-                <a href="#sponsors" className="nav-link">Sponsors</a>
-                <a href="#events" className="nav-link">Events</a>
-                <a href="#faq" className="nav-link active">FAQ</a>
-                <a href="#handbook" className="nav-link">Participant Handbook</a>
-                <a href="https://discord.gg/sui" target="_blank" rel="noopener noreferrer" className="nav-link">Discord</a>
-                <a href="/register" className="nav-link register">Register</a>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>

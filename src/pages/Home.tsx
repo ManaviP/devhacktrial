@@ -8,19 +8,14 @@ import { TimelineSection } from '../components/sections/TimelineSection';
 import { NewSponsorsSection } from '../components/sections/NewSponsorsSection';
 import { FAQPageSection } from '../components/sections/FAQPageSection';
 import { Footer } from '../components/layout/Footer';
-import { ThemeSwitcher } from '../components/ThemeSwitcher';
 import { useTheme } from '../lib/theme-context';
+import Themes from '../components/themes';
 
 export const Home = () => {
   const { theme } = useTheme();
 
   return (
     <MainLayout>
-      {/* Theme Switcher Button */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeSwitcher />
-      </div>
-
       {/* Sections with KeyboardCanvas */}
       <div className="relative">
         <HeroSection theme={theme} />
@@ -31,6 +26,7 @@ export const Home = () => {
       <div className="relative w-full">
         <TracksSection />
         <PrizesSection />
+        <Themes />
         <TimelineSection />
         <NewSponsorsSection />
         <FAQPageSection />
