@@ -92,9 +92,11 @@ export const FAQPageSection = () => {
                     <span>{item.question}</span>
                     <div className={`faq-toggle ${activeIndex === index ? 'active' : ''}`}>
                       <div className="dots-container">
-                        <div className="dot"></div>
-                        <div className="dot"></div>
-                        <div className="dot"></div>
+                        <div className="dot top"></div>
+                        <div className="dot left"></div>
+                        <div className="dot center"></div>
+                        <div className="dot right"></div>
+                        <div className="dot bottom"></div>
                       </div>
                     </div>
                   </button>
