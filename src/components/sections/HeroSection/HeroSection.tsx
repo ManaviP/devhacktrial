@@ -76,14 +76,14 @@ export const HeroSection = (_props: HeroSectionProps) => {
       const padding = 20; // 20px padding from edges
       // Limit horizontal movement to prevent going to the right end
       const maxX = Math.min(parentRect.width * 0.8, 800) - cursorRect.width;
-      // Limit vertical movement to top 50% of the container to stay above keys
-      const maxY = (parentRect.height * 0.5) - cursorRect.height;
+      // Limit vertical movement to top 40% of the container to stay above keys
+      const maxY = (parentRect.height * 0.4) - cursorRect.height;
 
       targetX = Math.max(padding, Math.min(targetX, maxX));
       targetY = Math.max(padding, Math.min(targetY, maxY));
 
       // Add a slight offset to ensure cursor points at the key letter
-      targetY = targetY - 5;
+      targetY = targetY - 8;
 
       gsap.to(cursor, {
         x: targetX,
@@ -109,7 +109,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
     // Start the animation after a short delay to ensure all refs are set
     const timer = setTimeout(() => {
       // Initialize cursor position to top-left area (near the D key) but higher up
-      gsap.set(cursor, { x: "30%", y: "15%" });
+      gsap.set(cursor, { x: "30%", y: "10%" });
       animateCursorToKey();
     }, 1000);
 
@@ -254,7 +254,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
   };
 
   // Create keyboard keys for DEVHACK
-  const keyboardLetters = ['D', 'E', 'V', 'H', 'A', 'C', 'K'];
+  const keyboardLetters = ['D', 'E', 'V', 'A', 'H', 'C', 'K'];
 
   return (
     <section id="hero" className="hero-section" ref={sectionRef}>
@@ -377,15 +377,18 @@ export const HeroSection = (_props: HeroSectionProps) => {
             <svg
               ref={cursorRef}
               className="cursor-svg"
-              width="60"
-              height="60"
-              viewBox="0 0 60 60"
+              width="64"
+              height="64"
+              viewBox="0 0 24.00 24.00"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12,12 L24,42 L30,30 L42,36 L12,12"
-                fill="#FFFFFF"
-                stroke="#000000"
-                strokeWidth="2"
+                d="M3.1,4.46l7.21,15.92A1.17,1.17,0,0,0,12.5,20l1.26-6.23L20,12.5a1.17,1.17,0,0,0,.39-2.19L4.46,3.1A1,1,0,0,0,3.1,4.46Z"
+                style={{ fill: '#ffffff', strokeWidth: 2 }}
+              />
+              <path
+                d="M3.1,4.46l7.21,15.92A1.17,1.17,0,0,0,12.5,20l1.26-6.23L20,12.5a1.17,1.17,0,0,0,.39-2.19L4.46,3.1A1,1,0,0,0,3.1,4.46Z"
+                style={{ fill: 'none', stroke: '#000000', strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2 }}
               />
             </svg>
 

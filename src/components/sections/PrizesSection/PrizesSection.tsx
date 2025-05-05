@@ -32,19 +32,19 @@ export const PrizesSection = () => {
       place: "1st place",
       amount: "₹1,00,000",
       color: "yellow",
-      image: "/images/prizes/money-coin.svg"
+      image: "/images/prizes/1st.png"
     },
     {
       place: "2nd place",
       amount: "₹40,000",
       color: "blue",
-      image: "/images/prizes/gems.svg"
+      image: "/images/prizes/2nd (2).png"
     },
     {
       place: "3rd place",
       amount: "₹20,000",
       color: "cyan",
-      image: "/images/prizes/coins.svg"
+      image: "/images/prizes/3rd.png"
     },
   ];
 
@@ -104,7 +104,7 @@ export const PrizesSection = () => {
       provider: "DSU DevHacks",
       description: "All participants will get DSU DevHacks certificates and more benefits coming soon!",
       eligibility: "Participants",
-      logoUrl: "/images/prizes/money.svg"
+      logoUrl: "/images/images/hb-logo."
     }
   ];
 

@@ -242,10 +242,10 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin: 20px 5px 5px 10px;
-  width: calc(100% - 40px); /* Adjust width to account for left margin */
+  margin: 20px 5px 5px 20px;
+  width: calc(100% - 40px);
   position: relative;
-  z-index: 1; /* Added z-index to ensure content appears above grid */
+  z-index: 1;
   transition: all 0.5s ease;
 }
 
@@ -418,5 +418,12 @@
 
   .themes-section {
     padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-illustration {
+    max-width: 90%;
+    max-height: 90%;
   }
 }
