@@ -2,7 +2,7 @@
 
 .hero-section {
   position: relative;
-  min-height: 250vh; /* Increased to ensure all cards are visible */
+  min-height: 60vh; /* Increased to ensure all cards are visible */
   background-color: #ffffff;
   overflow: hidden;
 }

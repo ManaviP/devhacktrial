@@ -30,7 +30,7 @@ export const PrizesSection = () => {
   const prizes: PrizeCard[] = [
     {
       place: "1st place",
-      amount: "₹70,000",
+      amount: "₹1,00,000",
       color: "yellow",
       image: "/images/prizes/money-coin.svg"
     },
@@ -45,12 +45,6 @@ export const PrizesSection = () => {
       amount: "₹20,000",
       color: "cyan",
       image: "/images/prizes/coins.svg"
-    },
-    {
-      place: "4th place",
-      amount: "₹20,000",
-      color: "green",
-      image: "/images/prizes/money.svg"
     },
   ];
 

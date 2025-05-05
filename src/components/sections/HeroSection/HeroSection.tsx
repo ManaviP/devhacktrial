@@ -22,12 +22,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
   const contentWrapRef = useRef<HTMLDivElement>(null);
 
   // Countdown timer state
-  const [timeLeft, setTimeLeft] = useState({
-    days: 30,
-    hours: 12,
-    minutes: 45,
-    seconds: 0
-  });
+  const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number }>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   // Animation for cursor pointing to different keys
   useEffect(() => {
@@ -148,26 +143,29 @@ export const HeroSection = (_props: HeroSectionProps) => {
 
   // Countdown timer effect
   useEffect(() => {
-    // Set the target date (example: 2 months from now)
-    const targetDate = new Date();
-    targetDate.setMonth(targetDate.getMonth() + 2);
-
-    const interval = setInterval(() => {
+    const calculateTimeLeft = () => {
+      const targetDate = new Date('2025-09-12T00:00:00');
       const now = new Date();
       const difference = targetDate.getTime() - now.getTime();
 
       if (difference <= 0) {
-        clearInterval(interval);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        return;
+        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
       }
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      return {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((difference % (1000 * 60)) / 1000)
+      };
+    };
 
-      setTimeLeft({ days, hours, minutes, seconds });
+    // Initial calculation
+    setTimeLeft(calculateTimeLeft());
+
+    // Update every second
+    const interval = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
 
     return () => clearInterval(interval);
@@ -271,15 +269,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
           {/* First content section - Initial view with title and register button */}
           <div className="hero-content-section first-section">
             <div className="hero-text-container">
-              {/* University details with logo */}
-              <div className="university-details-container">
-                <img src="/images/dsu.png" alt="DSU Logo" className="university-logo" />
-                <div className="university-details">
-                  <div className="university-name">Dayananda Sagar University</div>
-                  <div className="department-name">Department of Computer Science & Engineering</div>
-                  <div className="location">Harohalli, Bengaluru</div>
-                </div>
-              </div>
+             
 
               <div className="logo-title-container">
                 <img src="/images/hb-logo.png" alt="DSU DevHack Logo" className="hero-logo" />
