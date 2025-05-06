@@ -2,44 +2,40 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './TimeCapsuleSection.css';
 
-// Sample data for the time capsule items
 const timeCapsuleItems = [
   {
     id: 1,
-    year: '2020',
     title: 'First DSU DevHack',
     description: 'The inaugural hackathon that started it all.',
-    imageUrl: '/images/time-capsule/devhack-2020.jpg'
+    imageUrl: '/images/s1.jpg'
   },
   {
     id: 2,
-    year: '2021',
-    title: 'Virtual Edition',
-    description: 'Our first fully online hackathon during the pandemic.',
-    imageUrl: '/images/time-capsule/devhack-2021.jpg'
+    title: 'Strong Reach',
+    description: 'Attracted 2000+ Registrations and 300+ Onground Hackers.',
+    imageUrl: '/images/s2.jpg'
   },
   {
     id: 3,
-    year: '2022',
     title: 'Hybrid Format',
-    description: 'Combining in-person and virtual participation.',
-    imageUrl: '/images/time-capsule/devhack-2022.jpg'
+    description: '36 Hours of energetic coding',
+    imageUrl: '/images/s3.jpg'
   },
   {
     id: 4,
-    year: '2023',
-    title: 'Innovation Summit',
-    description: 'Expanded with industry workshops and mentorship.',
-    imageUrl: '/images/time-capsule/devhack-2023.jpg'
+    title: 'Multiple Domains ⚡',
+    description: '6 different domains including IOT & Web3 for all varieties of hackers.',
+    imageUrl: '/images/s4.jpg'
   },
   {
     id: 5,
-    year: '2024',
-    title: 'Global Reach',
-    description: 'Our first hackathon with international participants.',
-    imageUrl: '/images/time-capsule/devhack-2024.jpg'
+    title: 'Industrial Experts as Jury',
+    description: 'Exceptional Judgement Rounds by experts from Top Industries',
+    imageUrl: '/images/s5.jpg'
   }
 ];
+
+
 
 export const TimeCapsuleSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,7 +101,7 @@ export const TimeCapsuleSection = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
         >
           <img
-            src="/images/time-capsule/devhack-history.jpg"
+            src="/images/images.jpeg"
             alt="DevHack History"
             className="time-capsule-image"
           />
@@ -140,7 +136,6 @@ export const TimeCapsuleSection = () => {
                   alt={item.title}
                   className="time-capsule-item-image"
                 />
-                <h4 className="time-capsule-item-year">{item.year}</h4>
                 <h5 className="time-capsule-item-title">{item.title}</h5>
                 <p className="time-capsule-item-description">{item.description}</p>
               </div>

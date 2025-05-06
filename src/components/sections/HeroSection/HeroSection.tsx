@@ -261,7 +261,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
       <div className="hero-pin-container">
         {/* Left side - Scrollable content */}
         <div className="hero-content-wrap" ref={contentWrapRef}>
-         
+
           {/* First content section - Initial view with title and register button */}
           <div className="hero-content-section first-section">
             <div className="hero-text-container">
@@ -298,10 +298,10 @@ export const HeroSection = (_props: HeroSectionProps) => {
 
               <button type="button" className="register-button">
                 Register Now
-                <span className="register-arrow">→</span>
+                <div className="register-arrow">→</div>
               </button>
 
-             
+
             </div>
           </div>
 
@@ -321,7 +321,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
                 <img src="/images/hb-logo.png" alt="DSU Campus" className="section-image" />
               </div>
 
-             
+
             </div>
           </div>
 
@@ -347,6 +347,14 @@ export const HeroSection = (_props: HeroSectionProps) => {
 
         {/* Right side - Pinned keyboard grid */}
         <div id="pin-keyboard" className="keyboard-wrap" ref={keyboardWrapRef}>
+          {/* University information */}
+          <div className="university-info">
+            <img src="/images/dsu.png" alt="DSU Logo" className="university-logo" />
+            <div className="university-text">
+              <h3 className="university-name">Dayananda Sagar University</h3>
+              <p className="university-school">School of Engineering, Harohalli</p>
+            </div>
+          </div>
           <div className="keyboard-grid">
             {keyboardLetters.map((letter, index) => (
               <div
