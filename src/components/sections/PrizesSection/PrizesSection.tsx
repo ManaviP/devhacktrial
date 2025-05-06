@@ -101,8 +101,8 @@ export const PrizesSection = () => {
       logoUrl: "/sponsors/xyz-white-logo.svg"
     },
     {
-      provider: "DSU DevHacks",
-      description: "All participants will get DSU DevHacks certificates and more benefits coming soon!",
+      provider: "DSU DEVHACK",
+      description: "All participants will get DSU DEVHACK certificates and more benefits coming soon!",
       eligibility: "Participants",
       logoUrl: "/images/images/hb-logo."
     }

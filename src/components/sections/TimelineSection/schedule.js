@@ -51,7 +51,7 @@ const items = [
     key: 8,
     title: "September (Tentative)",
     cardTitle: "Closing Ceremony",
-    cardDetailedText: "Join us for the closing ceremony of DevHacks as we announce the winners and celebrate the achievements of all participants.",
+    cardDetailedText: "Join us for the closing ceremony of DEVHACK as we announce the winners and celebrate the achievements of all participants.",
   },
 ];
 

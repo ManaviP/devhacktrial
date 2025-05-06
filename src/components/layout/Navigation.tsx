@@ -79,7 +79,7 @@ export const Navigation = () => {
 
         <div className="bg-[#001529] text-white flex justify-between items-center px-4 py-3 border-b border-gray-800">
           <Link to="/" className="text-white font-bold text-xl">
-            DevHacks '25
+            DEVHACK '25
           </Link>
 
           <div className="flex items-center">

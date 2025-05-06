@@ -9,9 +9,9 @@ export const Handbook = () => {
         
         <div className="max-w-3xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Welcome to DevHacks 2025</h2>
+            <h2 className="text-2xl font-bold mb-4">Welcome to DEVHACK 2025</h2>
             <p className="text-gray-300 mb-4">
-              This handbook contains everything you need to know as a participant in the DevHacks hackathon.
+              This handbook contains everything you need to know as a participant in the DEVHACK hackathon.
               Please read through this guide carefully as it contains important information about rules,
               expectations, and resources available to you throughout the event.
             </p>
@@ -79,7 +79,7 @@ export const Handbook = () => {
             <h2 className="text-2xl font-bold mb-4">Support Channels</h2>
             <ul className="list-disc pl-6 space-y-2 text-gray-300">
               <li><strong>Discord</strong> - Primary communication channel for questions and networking</li>
-              <li><strong>Email</strong> - For private inquiries: support@devhacks2025.io</li>
+              <li><strong>Email</strong> - For private inquiries: support@DEVHACK2025.io</li>
               <li><strong>Office Hours</strong> - Weekly sessions for direct technical help</li>
               <li><strong>Track-Specific Channels</strong> - Dedicated support for each hackathon track</li>
             </ul>

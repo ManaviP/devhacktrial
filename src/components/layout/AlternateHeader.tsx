@@ -6,7 +6,7 @@ export const AlternateHeader = () => {
       {/* White header with title on left and date on right */}
       <div className="bg-white flex justify-between items-center px-4 py-3 border-b border-gray-200">
         <div className="text-black font-bold text-xl">
-          DevHacks '25
+          DEVHACK '25
         </div>
 
         <div className="bg-[#001529] text-white px-4 py-2">

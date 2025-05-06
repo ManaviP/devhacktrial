@@ -7,7 +7,7 @@ export const Insights = () => {
   const insights = [
     {
       title: "Record Participation",
-      description: "Over 5,000 developers from 120 countries participated in DevHacks 2024, making it one of the largest virtual hackathons ever held.",
+      description: "Over 5,000 developers from 120 countries participated in DEVHACK 2024, making it one of the largest virtual hackathons ever held.",
       image: "public/lovable-uploads/94cb9b56-8151-44e7-8b21-b3da14be0424.png",
       stats: [
         { value: "5,000+", label: "Participants" },
@@ -27,7 +27,7 @@ export const Insights = () => {
     },
     {
       title: "Community Impact",
-      description: "DevHacks projects have made a significant difference in various communities worldwide, from healthcare solutions to educational tools.",
+      description: "DEVHACK projects have made a significant difference in various communities worldwide, from healthcare solutions to educational tools.",
       image: "https://placehold.co/600x400/EEE/31343C?text=Community+Impact",
       stats: [
         { value: "50+", label: "Countries Impacted" },
@@ -37,7 +37,7 @@ export const Insights = () => {
     },
     {
       title: "Technology Trends",
-      description: "The most popular technologies and frameworks used in DevHacks 2024 revealed interesting insights about current developer preferences.",
+      description: "The most popular technologies and frameworks used in DEVHACK 2024 revealed interesting insights about current developer preferences.",
       image: "https://placehold.co/600x400/EEE/31343C?text=Tech+Trends",
       stats: [
         { value: "65%", label: "Used React" },
@@ -73,7 +73,7 @@ export const Insights = () => {
             className="flex items-center justify-center mb-4"
           >
             <LayoutDashboard className="w-8 h-8 text-blue-400 mr-3" />
-            <h1 className="text-4xl md:text-6xl font-bold">DevHacks 2024 Insights</h1>
+            <h1 className="text-4xl md:text-6xl font-bold">DEVHACK 2024 Insights</h1>
           </motion.div>
           <motion.p 
             className="text-xl text-gray-300 max-w-2xl mx-auto"

@@ -38,7 +38,7 @@ export const Discord = () => {
             </div>
             
             <a 
-              href="https://discord.gg/devhacks2025" 
+              href="https://discord.gg/DEVHACK2025" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-8 rounded-md font-medium transition-colors"
@@ -57,7 +57,7 @@ export const Discord = () => {
                 },
                 {
                   name: "# general",
-                  description: "General discussion about DevHacks and blockchain technology"
+                  description: "General discussion about DEVHACK and blockchain technology"
                 },
                 {
                   name: "# team-formation",

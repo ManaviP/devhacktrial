@@ -61,7 +61,7 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} DevHacks. All rights reserved.
+          &copy; {new Date().getFullYear()} DEVHACK. All rights reserved.
         </div>
       </div>
     </footer>

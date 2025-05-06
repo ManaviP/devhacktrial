@@ -269,13 +269,13 @@ export const HeroSection = (_props: HeroSectionProps) => {
           {/* First content section - Initial view with title and register button */}
           <div className="hero-content-section first-section">
             <div className="hero-text-container">
-             
+
 
               <div className="logo-title-container">
                 <img src="/images/hb-logo.png" alt="DSU DevHack Logo" className="hero-logo" />
                 <div className="title-container">
                   <h1 className="hero-title">DSU</h1>
-                  <h1 className="hero-title hero-title-gradient">DEVHACKS</h1>
+                  <h1 className="hero-title hero-title-gradient">DEVHACK 2.0</h1>
                 </div>
               </div>
               <p className="hero-subtitle">National-level hybrid hackathon for undergraduate engineering students</p>
@@ -320,7 +320,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
                 <div className="section-text-content">
                   <h2 className="hero-section-title">About DSU DEVHACK 2025</h2>
                   <p className="hero-section-text">
-                    DSU DEVHACK 2025 is a national-level hackathon pushing the boundaries of innovation in AI, ML, IoT, Blockchain, Cybersecurity, and Cloud Computing at DSU Harohalli, Banglore, Karnataka. 🛠️
+                    DSU DEVHACK 2025 is a national-level hackathon pushing the boundaries of innovation in AI, ML, IoT, Blockchain, Cybersecurity, and Cloud at DSU Harohalli, Banglore, Karnataka. 🛠️
                   </p>
                   <p className="hero-section-text">
                     This event gathers brilliant minds nationwide to create revolutionary solutions. It provides a platform for developers, designers, and enthusiasts to transform ideas, showcase skills, and network. 🤝
@@ -416,7 +416,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
             <div className="hero-text-container">
               <h2 className="hero-section-title">About DSU DEVHACK 2025</h2>
               <p className="hero-section-text">
-                DSU DEVHACK 2025 is a national-level hackathon pushing the boundaries of innovation in AI, ML, IoT, Blockchain, Cybersecurity, and Cloud Computing.
+                DSU DEVHACK 2025 is a national-level hackathon pushing the boundaries of innovation in AI, ML, IoT, Blockchain, Cybersecurity, and Cloud.
               </p>
             </div>
           </div>

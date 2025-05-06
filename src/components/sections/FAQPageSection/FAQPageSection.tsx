@@ -11,12 +11,12 @@ export const FAQPageSection = () => {
 
   const faqItems: FAQItem[] = [
     {
-      question: "What is DSU Dev Hacks 2024?",
-      answer: "DSU Dev Hacks is a national-level hackathon initiative of a private university in India to help various departments and private organizations find solutions to their pressing problems through students. Participants will have the chance to build innovative projects while competing for prizes, mentorship, and exclusive developer opportunities."
+      question: "What is DSU DEVHACK 2024?",
+      answer: "DSU DEVHACK is a national-level hackathon initiative of a private university in India to help various departments and private organizations find solutions to their pressing problems through students. Participants will have the chance to build innovative projects while competing for prizes, mentorship, and exclusive developer opportunities."
     },
     {
       question: "At which level is this hackathon conducted?",
-      answer: "The DSU Dev Hacks Hackathon is conducted at the national level."
+      answer: "The DSU DEVHACK Hackathon is conducted at the national level."
     },
     {
       question: "How many members can participate in a team?",
@@ -32,7 +32,7 @@ export const FAQPageSection = () => {
     },
     {
       question: "What is the participation fee?",
-      answer: "The participation in DSU Dev Hacks 2024 is completely free!"
+      answer: "The participation in DSU DEVHACK 2024 is completely free!"
     },
     {
       question: "Is this online hackathon or offline hackathon?",
@@ -66,7 +66,7 @@ export const FAQPageSection = () => {
       {/* Header bar */}
       <div className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 py-3 z-50">
         <div className="container mx-auto flex justify-between items-center px-4">
-          <div className="text-gray-900 dark:text-white font-medium">DSU Dev Hacks 2024</div>
+          <div className="text-gray-900 dark:text-white font-medium">DSU DEVHACK 2024</div>
           <div className="text-blue-500 dark:text-blue-400">
             <span className="text-blue-500 dark:text-blue-400">&lt;date&gt;</span> March-April, 2024 <span className="text-blue-500 dark:text-blue-400">&lt;/date&gt;</span>
           </div>

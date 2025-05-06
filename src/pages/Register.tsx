@@ -16,7 +16,7 @@ export const Register = () => {
   return (
     <MainLayout>
       <div className="container px-6 py-12">
-        <h1 className="text-4xl md:text-6xl font-bold mb-12">Register for DevHacks 2025</h1>
+        <h1 className="text-4xl md:text-6xl font-bold mb-12">Register for DEVHACK 2025</h1>
         
         <div className="max-w-3xl mx-auto">
           {formSubmitted ? (
@@ -26,7 +26,7 @@ export const Register = () => {
               </div>
               <h2 className="text-2xl font-bold mb-4">Registration Successful!</h2>
               <p className="text-gray-300 mb-6">
-                Thank you for registering for DevHacks 2025! You should receive a confirmation email shortly with more details about the hackathon.
+                Thank you for registering for DEVHACK 2025! You should receive a confirmation email shortly with more details about the hackathon.
               </p>
               <p className="text-gray-300">
                 Don't forget to join our Discord community to start connecting with other participants and get access to resources.
@@ -98,7 +98,7 @@ export const Register = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-gray-300 mb-2">How did you hear about DevHacks 2025?</label>
+                  <label className="block text-gray-300 mb-2">How did you hear about DEVHACK 2025?</label>
                   <select className="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-2 text-white">
                     <option value="">Select</option>
                     <option value="social">Social Media</option>

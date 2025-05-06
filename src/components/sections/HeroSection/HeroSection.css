@@ -64,9 +64,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   scroll-snap-align: start;
-  margin-bottom: 5rem; /* Increased margin to ensure separation between cards */
+  margin-bottom: 2rem; /* Reduced margin between cards */
   position: relative; /* Ensure proper stacking */
 }
 
@@ -78,7 +78,7 @@
 
 /* Make the about and why sections shorter to ensure they're visible */
 .about-section, .why-section {
-  min-height: 70vh;
+  min-height: 60vh; /* Reduced height */
   opacity: 1; /* Ensure visibility */
   visibility: visible; /* Explicitly set visibility */
 }
@@ -87,7 +87,7 @@
 .hero-content-wrap {
   scroll-snap-type: y mandatory; /* Changed to mandatory for better card snapping */
   scroll-behavior: smooth;
-  padding-bottom: 5rem; /* Increased padding at the bottom to ensure last card is fully visible */
+  padding-bottom: 2rem; /* Reduced padding at the bottom */
   overscroll-behavior: contain; /* Prevent scroll chaining */
 }
 
@@ -124,7 +124,7 @@
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(123, 97, 255, 0.2);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem; /* Further reduced margin */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;

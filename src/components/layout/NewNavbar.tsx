@@ -7,12 +7,12 @@ export const NewNavbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Overview', path: '/', sectionId: 'overview' },
-    { name: 'Prizes', path: '/', sectionId: 'tracks' },
+    { name: 'Prizes', path: '/', sectionId: 'prizes' },
+    { name: 'Themes', path: '/', sectionId: 'themes' },
+    { name: 'Timeline', path: '/', sectionId: 'timeline' },
     { name: 'Sponsors', path: '/', sectionId: 'sponsors' },
-    { name: 'Brochure', path: '/', sectionId: 'events' },
-    { name: 'FAQ', path: '/', sectionId: 'faq' },
     { name: 'Archives', path: 'https://dsudevhack.tech/', sectionId: 'archives' },
+    { name: 'FAQ', path: '/', sectionId: 'faq' },
     { name: 'Discord', path: '/discord', sectionId: 'discord' }
   ];
 
@@ -50,7 +50,7 @@ export const NewNavbar = () => {
             <img src="/images/hb-logo.png" alt="DSU Logo" />
           </div>
           <div className="mobile-header-title">
-            <span>DSU DEVHACK</span>
+            <span>DSU DEVHACK 2.0</span>
           </div>
           <div
             className={`mobile-menu-dots ${mobileMenuOpen ? 'mobile-menu-dots-active' : ''}`}
@@ -84,27 +84,27 @@ export const NewNavbar = () => {
             <div className="mobile-menu-backdrop" onClick={toggleMobileMenu}></div>
             <div className="mobile-menu-grid">
               <div className="mobile-menu-row">
-                <Link to="/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'overview' })}>
-                  Overview
+                <Link to="/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'prizes' })}>
+                  Prizes
                 </Link>
-                <Link to="/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'tracks' })}>
-                Prizes
+                <Link to="/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'themes' })}>
+                  Themes
                 </Link>
               </div>
               <div className="mobile-menu-row">
+                <Link to="/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'timeline' })}>
+                  Timeline
+                </Link>
                 <Link to="/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'sponsors' })}>
                   Sponsors
                 </Link>
-                <Link to="/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'events' })}>
-                  Brochure
-                </Link>
               </div>
               <div className="mobile-menu-row">
-                <Link to="https://dsudevhack.tech/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'faq' })}>
-                  FAQ
-                </Link>
-                <Link to="https://dsudevhack.tech/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/archives', sectionId: 'archives' })}>
+                <Link to="https://dsudevhack.tech/" className="mobile-menu-item" onClick={() => handleNavClick({ path: 'https://dsudevhack.tech/', sectionId: 'archives' })}>
                   Archives
+                </Link>
+                <Link to="/" className="mobile-menu-item" onClick={() => handleNavClick({ path: '/', sectionId: 'faq' })}>
+                  FAQ
                 </Link>
               </div>
               <div className="mobile-menu-row">
@@ -126,7 +126,7 @@ export const NewNavbar = () => {
               <img src="/images/hb-logo.png" alt="DSU Logo" />
             </div>
             <div className="desktop-navbar-left">
-              <span className="desktop-title">DSU DEVHACK</span>
+              <span className="desktop-title">DSU DEVHACK 2.0</span>
             </div>
             <div className="desktop-navbar-right">
               <span className="desktop-date-tag">&lt;date&gt;</span>

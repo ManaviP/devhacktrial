@@ -20,7 +20,7 @@ export const OverviewSection = ({ theme }: OverviewSectionProps) => {
             This event gathers brilliant minds nationwide to create revolutionary solutions. It provides a platform for developers, designers, and enthusiasts to transform ideas, showcase skills, and network. 🤝
           </p>
           <p className="overview-text">
-            Your keyboard is your sword, your idea is your challenge, code is your vision, and DSU DevHacks is your stage! 🚨See you all in the hackathon!🔍💻  
+            Your keyboard is your sword, your idea is your challenge, code is your vision, and DSU DEVHACK is your stage! 🚨See you all in the hackathon!🔍💻  
           </p>
         </div>
       </div>
