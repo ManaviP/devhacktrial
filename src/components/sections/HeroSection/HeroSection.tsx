@@ -261,11 +261,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
       <div className="hero-pin-container">
         {/* Left side - Scrollable content */}
         <div className="hero-content-wrap" ref={contentWrapRef}>
-          {/* Main scroll indicator */}
-          <div className="scroll-indicator">
-            <span className="scroll-text">Scroll for more</span>
-            <div className="scroll-arrow"></div>
-          </div>
+         
           {/* First content section - Initial view with title and register button */}
           <div className="hero-content-section first-section">
             <div className="hero-text-container">
@@ -305,11 +301,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
                 <span className="register-arrow">→</span>
               </button>
 
-              {/* Second scroll indicator at bottom of first card */}
-              <div className="scroll-indicator-bottom">
-                <span className="scroll-text">More content below</span>
-                <div className="scroll-arrow"></div>
-              </div>
+             
             </div>
           </div>
 
@@ -329,11 +321,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
                 <img src="/images/hb-logo.png" alt="DSU Campus" className="section-image" />
               </div>
 
-              {/* Third scroll indicator at bottom of second card */}
-              <div className="scroll-indicator-bottom">
-                <span className="scroll-text">One more section</span>
-                <div className="scroll-arrow"></div>
-              </div>
+             
             </div>
           </div>
 
