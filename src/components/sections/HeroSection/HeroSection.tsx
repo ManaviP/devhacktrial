@@ -263,7 +263,6 @@ export const HeroSection = (_props: HeroSectionProps) => {
         <div className="hero-content-wrap" ref={contentWrapRef}>
           {/* Main scroll indicator */}
           <div className="scroll-indicator">
-            <span className="scroll-text">Scroll for more</span>
             <div className="scroll-arrow"></div>
           </div>
           {/* First content section - Initial view with title and register button */}
@@ -305,11 +304,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
                 <span className="register-arrow">→</span>
               </button>
 
-              {/* Second scroll indicator at bottom of first card */}
-              <div className="scroll-indicator-bottom">
-                <span className="scroll-text">More content below</span>
-                <div className="scroll-arrow"></div>
-              </div>
+              
             </div>
           </div>
 
@@ -329,11 +324,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
                 <img src="/images/hb-logo.png" alt="DSU Campus" className="section-image" />
               </div>
 
-              {/* Third scroll indicator at bottom of second card */}
-              <div className="scroll-indicator-bottom">
-                <span className="scroll-text">One more section</span>
-                <div className="scroll-arrow"></div>
-              </div>
+            
             </div>
           </div>
 
@@ -358,6 +349,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
         </div>
 
         {/* Right side - Pinned keyboard grid */}
+        <div className='flex justify-center'>
         <div id="pin-keyboard" className="keyboard-wrap" ref={keyboardWrapRef}>
           <div className="keyboard-grid">
             {keyboardLetters.map((letter, index) => (
@@ -408,18 +400,11 @@ export const HeroSection = (_props: HeroSectionProps) => {
             </div>
           </div>
         </div>
+        </div>
 
         {/* Additional content sections - Will appear after keyboard in mobile view only */}
         <div className="hero-content-additional">
-          {/* Mobile-only content - duplicated from above for mobile layout */}
-          <div className="hero-content-section mobile-about-section">
-            <div className="hero-text-container">
-              <h2 className="hero-section-title">About DSU DEVHACK 2025</h2>
-              <p className="hero-section-text">
-                DSU DEVHACK 2025 is a national-level hackathon pushing the boundaries of innovation in AI, ML, IoT, Blockchain, Cybersecurity, and Cloud.
-              </p>
-            </div>
-          </div>
+         
         </div>
       </div>
     </section>

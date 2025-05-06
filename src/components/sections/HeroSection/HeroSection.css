@@ -119,12 +119,8 @@
 /* Left side text container */
 .hero-text-container {
   max-width: 600px;
-  padding: 1.5rem; /* Reduced padding */
-  background-color: rgba(255, 255, 255, 0.95);
+  padding: 1.1rem; /* Reduced padding */
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(123, 97, 255, 0.2);
-  margin-bottom: 1rem; /* Further reduced margin */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -138,23 +134,14 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #7B61FF, #00D2FF);
   z-index: 1;
 }
 
 .hero-text-container:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Different colors for different sections */
-.about-section .hero-text-container::before {
-  background: linear-gradient(90deg, #FF6B00, #FFD600);
-}
 
-.why-section .hero-text-container::before {
-  background: linear-gradient(90deg, #00D2FF, #7B61FF);
-}
 
 .dark .hero-text-container {
   background-color: rgba(30, 41, 59, 0.95);
@@ -228,8 +215,6 @@
   width: 180px;
   height: 180px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
@@ -621,7 +606,7 @@
 /* Responsive styles */
 @media (max-width: 1200px) {
   .keyboard-key {
-    transform: scale(0.8);
+    transform: scale(0.4);
   }
 
   .keyboard-key-0 { /* D */
@@ -821,7 +806,7 @@
   /* Adjust key positions for mobile - moved left */
   .keyboard-key-0 { /* D */
     top: 80px;
-    left: 150px;
+    left: 560px;
   }
 
   .keyboard-key-1 { /* E */
@@ -852,6 +837,15 @@
   .keyboard-key-6 { /* K */
     top: 280px;
     left: 510px;
+  }
+  .keyboard-wrap {
+    align-items: right;
+    justify-content: right;/* Adjust height for mobile */
+  }
+  #pin-keyboard.keyboard-wrap{
+    display: flex;
+    justify-content: center;
+    margin: auto;
   }
 }
 

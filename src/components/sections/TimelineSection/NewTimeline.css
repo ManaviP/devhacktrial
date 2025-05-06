@@ -339,7 +339,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 767px) {
+@media (max-width: 960px) {
   .new-timeline-grid {
     flex-direction: column;
   }
@@ -355,6 +355,7 @@
 
   .timeline-column {
     width: 100%;
+    padding: 1.1rem;
     margin-bottom: 2rem;
   }
 
@@ -384,8 +385,13 @@
   }
 
   .timeline-date {
-    text-align: left;
+    text-align: center;
+    width: 100%;
     margin-top: 0.5rem;
     margin-left: 1rem;
+  }
+  .timeline-label{
+    width:100%;
+    text-align: center;
   }
 }
