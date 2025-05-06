@@ -104,7 +104,7 @@ export const PrizesSection = () => {
       provider: "DSU DEVHACK",
       description: "All participants will get DSU DEVHACK certificates and more benefits coming soon!",
       eligibility: "Participants",
-      logoUrl: "/images/images/hb-logo."
+      logoUrl: "/images/images/hb-logo.png"
     }
   ];
 
@@ -121,7 +121,7 @@ export const PrizesSection = () => {
       </div>
 
       <section id="prizes" className="prizes-section">
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="container mx-auto px-4 md:px-8 lg:px-4 xl:px-2 max-w-full">
           <h1 className="prizes-heading">
             Prizes
           </h1>
@@ -260,7 +260,7 @@ export const PrizesSection = () => {
         </div>
       </section>
 
-      
+
     </>
   );
 };

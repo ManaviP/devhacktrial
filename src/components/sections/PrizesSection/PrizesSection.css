@@ -401,7 +401,7 @@
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -681,17 +681,34 @@
 .track-prizes-screenshot-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 0;
+    gap: 1px;
     margin-bottom: 2rem;
-    border: none;
+    border: 1px solid #e5e7eb;
     border-radius: 0;
-    overflow: hidden;
-    background: #f8f9fa;
+    overflow: visible;
+    background: #e5e7eb; /* This creates the gap effect between cards */
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 1280px) {
+    .track-prizes-screenshot-grid {
+        grid-template-columns: repeat(5, 1fr);
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 1024px) {
     .track-prizes-screenshot-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .track-prize-label-text {
+        font-size: 0.9rem;
+    }
+
+    .track-prize-desc {
+        font-size: 0.9rem;
     }
 }
 
@@ -705,27 +722,31 @@
     display: flex;
     flex-direction: column;
     background: #f8f9fa;
-    min-height: 340px;
+    min-height: 320px;
+    max-height: 320px;
     box-shadow: none;
     border-radius: 0;
     margin: 0;
     padding: 0;
     border: none;
-    border-bottom: 1.5px solid #e5e7eb;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .track-prize-rect-top {
     background-color: transparent;
     background-image: none;
-    padding: 1.2rem 1.2rem 0.5rem 1.2rem;
+    padding: 1rem 1rem 0.5rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: 240px;
+    height: 220px;
     position: relative;
     border: 1.5px solid #111827;
     border-bottom: 1.5px solid #111827;
     overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .track-prize-label-tilechain {
@@ -755,49 +776,59 @@
 .track-prize-label-text {
     color: #222;
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     z-index: 2;
     position: relative;
     font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .track-prize-rect-bottom {
     background: #f8f9fa;
-    padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+    padding: 1rem 1rem 1rem 1rem;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     border-top: none;
-    min-height: 120px;
-    height: 50%;
+    min-height: 100px;
+    height: 40%;
     margin: 0;
     border: 1.5px solid #111827;
     border-top: none;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .track-prize-desc {
     color: #222;
-    font-size: 1.05rem;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    line-height: 1.4;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
 }
 
 .track-prize-svg-placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 165px;
+    height: 140px;
+    width: 100%;
 }
 
 .track-prize-svg-placeholder img {
-    max-width: 305px;
-    max-height: 165px;
+    max-width: 85%;
+    max-height: 130px;
     width: auto;
     height: auto;
     object-fit: contain;
     display: block;
-    transform: translateY(-10px);
 }
 
 .benefit-bg-green::before {
