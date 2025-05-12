@@ -1,5 +1,5 @@
+
 import { useEffect, useRef, useState } from 'react';
-import './HeroSection.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -254,125 +254,151 @@ export const HeroSection = (_props: HeroSectionProps) => {
   };
 
   // Create keyboard keys for DEVHACK
-  const keyboardLetters = ['D', 'E', 'V', 'A', 'H', 'C', 'K'];
+  const keyboardLetters = ['D', 'E', 'V', 'C', 'A', 'H', 'K'];
 
   return (
-    <section id="hero" className="hero-section" ref={sectionRef}>
-      <div className="hero-pin-container">
+    <section 
+      id="hero" 
+      ref={sectionRef}
+      className="relative min-h-[60vh] w-full overflow-hidden bg-white"
+    >
+      <div className="flex flex-col-reverse items-center lg:justify-between lg:flex-row relative w-full justify-center">
         {/* Left side - Scrollable content */}
-        <div className="hero-content-wrap" ref={contentWrapRef}>
-
-          {/* First content section - Initial view with title and register button */}
-          <div className="hero-content-section first-section">
-            <div className="hero-text-container">
-
-
-              <div className="logo-title-container">
-                <img src="/images/hb-logo.png" alt="DSU DevHack Logo" className="hero-logo" />
-                <div className="title-container">
-                  <h1 className="hero-title">DSU</h1>
-                  <h1 className="hero-title hero-title-gradient">DEVHACK 2.0</h1>
+        <div 
+          ref={contentWrapRef}
+          className="relative w-full py-4 px-auto items-center h-screen max-h-screen overflow-y-auto scrollbar-none scroll-p-8 -z-1"
+        >
+          {/* First content section */}
+          <div className="min-h-[80vh] flex flex-col justify-center py-6 scroll-snap-start mb-8 relative">
+            <div className="max-w-full w-[600px] p-6 bg-white/95 rounded-xl mb-4 transition-transform duration-300 hover:-translate-y-1 relative overflow-visible">
+              <div className="flex flex-col items-center mb-3 max-w-full overflow-visible">
+                <img 
+                  src="/images/hb-logo.png" 
+                  alt="DSU DevHack Logo" 
+                  className="w-32 h-32 mb-4 object-contain filter drop-shadow-md transition-transform duration-300 hover:rotate-12"
+                />
+                <div className="flex flex-col items-center max-w-full overflow-hidden">
+                  <h1 className="text-5xl font-extrabold leading-tight m-0 text-black text-center max-w-full">DSU</h1>
+                  <h1 className="text-5xl font-extrabold leading-tight m-0 text-transparent bg-clip-text bg-gradient-to-r from-[#7B61FF] to-[#00D2FF] text-center max-w-full">DEVHACK 2.0</h1>
                 </div>
               </div>
-              <p className="hero-subtitle">National-level hybrid hackathon for undergraduate engineering students</p>
+              <p className="text-xl mb-6 text-[#333333] leading-relaxed text-center">National-level hybrid hackathon for undergraduate engineering students</p>
 
               {/* Countdown timer */}
-              <div className="countdown-timer">
-                <div className="countdown-item">
-                  <span className="countdown-value">{timeLeft.days}</span>
-                  <span className="countdown-label">Days</span>
+              <div className="flex justify-between mb-6 max-w-[400px] mx-auto">
+                <div className="flex flex-col items-center rounded-lg p-2 min-w-[75px] text-[#333] shadow-sm bg-[#84b7f2]">
+                  <span className="text-2xl font-bold mb-1">{timeLeft.days}</span>
+                  <span className="text-sm uppercase tracking-wider">Days</span>
                 </div>
-                <div className="countdown-item">
-                  <span className="countdown-value">{timeLeft.hours}</span>
-                  <span className="countdown-label">Hours</span>
+                <div className="flex flex-col items-center rounded-lg p-2 min-w-[75px] text-[#333] shadow-sm bg-[#84b7f2]">
+                  <span className="text-2xl font-bold mb-1">{timeLeft.hours}</span>
+                  <span className="text-sm uppercase tracking-wider">Hours</span>
                 </div>
-                <div className="countdown-item">
-                  <span className="countdown-value">{timeLeft.minutes}</span>
-                  <span className="countdown-label">Mins</span>
+                <div className="flex flex-col items-center rounded-lg p-2 min-w-[75px] text-[#333] shadow-sm bg-[#84b7f2]">
+                  <span className="text-2xl font-bold mb-1">{timeLeft.minutes}</span>
+                  <span className="text-sm uppercase tracking-wider">Mins</span>
                 </div>
-                <div className="countdown-item">
-                  <span className="countdown-value">{timeLeft.seconds}</span>
-                  <span className="countdown-label">Secs</span>
+                <div className="flex flex-col items-center rounded-lg p-2 min-w-[75px] text-[#333] shadow-sm bg-[#84b7f2]">
+                  <span className="text-2xl font-bold mb-1">{timeLeft.seconds}</span>
+                  <span className="text-sm uppercase tracking-wider">Secs</span>
                 </div>
               </div>
 
-              <button type="button" className="register-button">
+              <button 
+                type="button" 
+                className="px-8 py-4 bg-[#000f1d] text-[#f2f3f5] font-medium text-lg border-2 border-black rounded-none cursor-pointer flex items-center justify-center transition-all duration-300 relative overflow-hidden mx-auto z-[1] pr-[60px] max-w-[250px] w-full group"
+              >
                 Register Now
-                <div className="register-arrow">→</div>
+                <div className="flex items-center justify-center bg-[#4da2ff] h-full w-[50px] absolute transition-all duration-300 z-[2] right-0 top-0 bottom-0 text-xl group-hover:bg-[#3b82f6] group-hover:right-auto group-hover:left-0 group-hover:rotate-0">
+                  →
+                </div>
               </button>
-
-
             </div>
           </div>
 
-          {/* About section - Visible on desktop in scrollable area */}
-          <div className="hero-content-section about-section">
-            <div className="hero-text-container">
-              <div className="section-content-with-image">
-                <div className="section-text-content">
-                  <h2 className="hero-section-title">About DSU DEVHACK 2025</h2>
-                  <p className="hero-section-text">
-                    DSU DEVHACK 2025 is a national-level hackathon pushing the boundaries of innovation in AI, ML, IoT, Blockchain, Cybersecurity, and Cloud at DSU Harohalli, Banglore, Karnataka. 🛠️
+          {/* About section */}
+          <div className="min-h-[60vh] flex flex-col justify-center py-6 scroll-snap-start mb-8 relative opacity-100 visible">
+            <div className="max-w-full w-[600px] p-6 bg-white/95 rounded-xl mb-4 transition-transform duration-300 hover:-translate-y-1 relative overflow-visible">
+              <div className="flex lg:items-start lg:flex-row flex-col-reverse items-center gap-6">
+                <div className="flex-1">
+                  <h2 className="text-4xl font-bold mb-6 text-black">About DSU DEVHACK 2025</h2>
+                  <p className="text-lg leading-relaxed mb-6 text-[#333333]">
+                    DSU DEVHACK 2025 is a national-level hackathon pushing the boundaries of innovation in AI, ML, IoT, Blockchain, Cybersecurity, and Cloud at DSU Harohalli, Banglore, Karnataka. 🛠
                   </p>
-                  <p className="hero-section-text">
+                  <p className="text-lg leading-relaxed mb-6 text-[#333333]">
                     This event gathers brilliant minds nationwide to create revolutionary solutions. It provides a platform for developers, designers, and enthusiasts to transform ideas, showcase skills, and network. 🤝
                   </p>
                 </div>
-                <img src="/images/hb-logo.png" alt="DSU Campus" className="section-image" />
+                <img 
+                  src="/images/hb-logo.png" 
+                  alt="DSU Campus" 
+                  className="w-48 h-48 object-cover transition-transform duration-300 hover:scale-105"
+                />
               </div>
-
-
             </div>
           </div>
 
-          {/* Why Participate section - Visible on desktop in scrollable area */}
-          <div className="hero-content-section why-section">
-            <div className="hero-text-container">
-              <div className="section-content-with-image">
-                <div className="section-text-content">
-                  <h2 className="hero-section-title">Why Participate?</h2>
-                  <ul className="hero-section-list">
-                    <li>Showcase your technical skills and creativity</li>
-                    <li>Network with industry professionals and peers</li>
-                    <li>Win exciting prizes and recognition</li>
-                    <li>Learn new technologies and methodologies</li>
-                    <li>Build solutions that address real-world challenges</li>
-                  </ul>
+          {/* Why Participate section */}
+          <div className="min-h-[60vh] flex flex-col justify-center py-6 scroll-snap-start mb-8 relative opacity-100 visible">
+            <div className="max-w-full w-[600px] p-6 bg-white/95 rounded-xl mb-4 transition-transform duration-300 hover:-translate-y-1 relative overflow-visible">
+              <div className="flex items-center lg:items-start  lg:flex-row flex-col-reverse gap-6">
+                <div className="flex-1">
+                  <h2 className="text-4xl font-bold mb-6 text-black">Why Participate?</h2>
+                  <div className="text-lg leading-relaxed mb-6 text-[#333333] space-y-3">
+                    <p>Showcase your technical skills and creativity</p>
+                    <p>Network with industry professionals and peers</p>
+                    <p>Win exciting prizes and recognition</p>
+                    <p>Learn new technologies and methodologies</p>
+                    <p>Build solutions that address real-world challenges</p>
+                  </div>
                 </div>
-                <img src="/images/hb-logo.png" alt="DSU Campus" className="section-image" />
+                <img 
+                  src="/images/hb-logo.png" 
+                  alt="DSU Campus" 
+                  className="w-48 h-48 object-cover transition-transform duration-300 hover:scale-105"
+                />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right side - Pinned keyboard grid */}
-        <div id="pin-keyboard" className="keyboard-wrap" ref={keyboardWrapRef}>
-          {/* University information */}
-          <div className="university-info">
-            <img src="/images/dsu.png" alt="DSU Logo" className="university-logo" />
-            <div className="university-text">
-              <h3 className="university-name">Dayananda Sagar University</h3>
-              <p className="university-school">School of Engineering, Harohalli</p>
+        {/* Right side - Keyboard */}
+        <div 
+          ref={keyboardWrapRef}
+          className="relative w-full h-screen flex flex-col justify-center items-center pl-8 overflow-hidden"
+        >
+          {/* University info */}
+          <div className="absolute top-5 z-[5] max-w-[400px] flex items-center p-4">
+            <img 
+              src="/images/dsu.png" 
+              alt="DSU Logo" 
+              className="w-16 h-16 object-contain mr-4"
+            />
+            <div className="flex flex-col">
+              <h3 className="text-xl font-semibold m-0 text-black">Dayananda Sagar University</h3>
+              <p className="text-sm mt-1 mb-0 text-[#333]">School of Engineering, Harohalli</p>
             </div>
           </div>
-          <div className="keyboard-grid">
+
+          {/* Keyboard grid */}
+          <div className="relative lg:w-full lg:h-[600px] flex justify-start items-center z-[1]">
             {keyboardLetters.map((letter, index) => (
               <div
                 key={index}
                 ref={el => keysRef.current[index] = el}
-                className={`keyboard-key keyboard-key-${index}`}
+                className={`absolute w-[150px] h-[150px] rounded-2xl flex justify-center items-center shadow-[0_8px_0_rgba(0,0,0,0.4)] origin-bottom transition-transform duration-200 cursor-pointer z-[2] border border-black/10 ${getKeyPositionClass(index)}`}
                 onMouseEnter={() => handleKeyHover(index, true)}
                 onMouseLeave={() => handleKeyHover(index, false)}
               >
-                <span className="key-letter">{letter}</span>
-                <div className="key-shadow"></div>
+                <span className="text-6xl font-bold text-black text-center select-none text-shadow-sm">{letter}</span>
+                <div className="absolute bottom-[-6px] left-0 w-full h-[6px] bg-black/30 rounded-b-2xl z-[-1]"></div>
               </div>
             ))}
 
             {/* Cursor SVG */}
             <svg
               ref={cursorRef}
-              className="cursor-svg"
+              className="absolute top-[20%] left-[25%] -translate-x-1/2 -translate-y-1/2 z-10 filter drop-shadow-md pointer-events-none will-change-transform opacity-95"
               width="64"
               height="64"
               viewBox="0 0 24.00 24.00"
@@ -389,7 +415,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
             </svg>
 
             {/* Message Box */}
-            <div className="message-circle">
+            <div className="absolute bottom-[90px] right-[150px] z-[5] pointer-events-none">
               <svg width="80" height="80" viewBox="0 0 80 80">
                 <circle cx="40" cy="40" r="35" fill="#FFFFFF" stroke="#000000" strokeWidth="1" />
                 <g ref={messageBoxRef}>
@@ -404,20 +430,21 @@ export const HeroSection = (_props: HeroSectionProps) => {
             </div>
           </div>
         </div>
-
-        {/* Additional content sections - Will appear after keyboard in mobile view only */}
-        <div className="hero-content-additional">
-          {/* Mobile-only content - duplicated from above for mobile layout */}
-          <div className="hero-content-section mobile-about-section">
-            <div className="hero-text-container">
-              <h2 className="hero-section-title">About DSU DEVHACK 2025</h2>
-              <p className="hero-section-text">
-                DSU DEVHACK 2025 is a national-level hackathon pushing the boundaries of innovation in AI, ML, IoT, Blockchain, Cybersecurity, and Cloud.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
+};
+
+// Helper function for keyboard key positions
+const getKeyPositionClass = (index: number): string => {
+  const positions = [
+    'top-[120px] left-[150px] -rotate-12 bg-[#FF6B00]', // D
+    'top-[180px] left-[250px] rotate-6 bg-[#7B61FF]', // E
+    'top-[120px] left-[400px] -rotate-6 bg-[#E5CBFF]', // V
+    'top-[280px] left-[400px] rotate-12 bg-[#FFD600]', // H
+    'top-[350px] left-[250px] -rotate-6 bg-[#FF6B00]', // A
+    'top-[200px] left-[550px] rotate-6 bg-[#00D2FF]', // C
+    'top-[350px] left-[550px] -rotate-6 bg-[#E5CBFF]', // K
+  ];
+  return positions[index];
 };
