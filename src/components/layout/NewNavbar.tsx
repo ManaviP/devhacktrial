@@ -130,7 +130,7 @@ export const NewNavbar = () => {
             </div>
             <div className="desktop-navbar-right">
               <span className="desktop-date-tag">&lt;date&gt;</span>
-              <span className="desktop-date">August-September, 2025</span>
+              <span className="desktop-date">September, 2025</span>
               <span className="desktop-date-tag">&lt;/date&gt;</span>
             </div>
           </div>

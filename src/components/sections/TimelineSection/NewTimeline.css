@@ -355,53 +355,38 @@
 
   .new-timeline-grid {
     flex-direction: column;
-    padding: 0 30px;
+    padding: 0 15px; /* Reduced side padding */
     max-width: 100%;
     overflow-x: visible;
   }
 
-  /* Maintain terrace effect on mobile */
-  .new-timeline-grid:nth-child(3) {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
+  /* Remove terrace effect on mobile */
+  .new-timeline-grid:nth-child(3),
   .new-timeline-grid:nth-child(4) {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 15px; /* Reduced side padding */
+    padding-right: 15px; /* Reduced side padding */
   }
 
   .timeline-column {
     width: 100%;
-    padding: 1.1rem;
-    margin-bottom: 2rem;
+    padding: 1rem 0.75rem; /* Reduced padding */
+    margin-bottom: 1.5rem;
     opacity: 1 !important; /* Force visibility */
     transform: translateY(0) !important; /* Reset any transform */
+    box-sizing: border-box;
   }
 
-  /* Maintain terrace step effect within rows on mobile */
-  .new-timeline-grid .timeline-column:nth-child(1) {
-    margin-left: 0;
-  }
-
-  .new-timeline-grid .timeline-column:nth-child(2) {
-    margin-left: 0;
-    margin-top: 0;
-  }
-
-  .new-timeline-grid .timeline-column:nth-child(3) {
-    margin-left: 0;
-    margin-top: 0;
-  }
-
-  .new-timeline-grid .timeline-column:nth-child(4) {
-    margin-left: 0;
-    margin-top: 0;
+  /* Remove all margin for mobile columns */
+  .new-timeline-grid .timeline-column {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
   }
 
   .timeline-item {
     flex-direction: column;
     align-items: flex-start;
+    padding: 0; /* Remove padding */
   }
 
   .timeline-date {
@@ -409,22 +394,59 @@
     width: 100%;
     margin-top: 0.5rem;
     margin-left: 0;
-    padding: 0.75rem 0.5rem;
+    padding: 0.75rem 0.25rem; /* Reduced padding */
   }
 
   .timeline-label {
     width: 100%;
     text-align: center;
-    padding: 0.75rem 0.5rem;
+    padding: 0.75rem 0.25rem; /* Reduced padding */
   }
 
   .timeline-title {
-    margin-left: 50px;
-    width: calc(100% - 55px);
+    margin-left: 40px; /* Reduced margin */
+    width: calc(100% - 45px);
   }
 
   .timeline-arrow {
-    right: calc(100% - 55px);
+    right: calc(100% - 45px); /* Adjusted to match title margin */
+  }
+
+  /* Adjust ID position */
+  .timeline-id {
+    left: 10px; /* Reduced left position */
+  }
+}
+
+/* Small mobile specific adjustments */
+@media (max-width: 480px) {
+  .new-timeline-grid {
+    padding: 0 10px; /* Further reduced padding for very small screens */
+  }
+
+  .new-timeline-grid:nth-child(3),
+  .new-timeline-grid:nth-child(4) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .timeline-column {
+    padding: 0.75rem 0.5rem; /* Further reduced padding */
+  }
+
+  .timeline-title {
+    margin-left: 35px; /* Further reduced margin */
+    width: calc(100% - 40px);
+    font-size: 0.95rem; /* Slightly smaller font */
+  }
+
+  .timeline-arrow {
+    right: calc(100% - 40px);
+  }
+
+  .timeline-id {
+    left: 8px;
+    font-size: 0.9rem; /* Smaller font size */
   }
 }
 
@@ -436,13 +458,53 @@
   }
 
   .new-timeline-grid {
-    padding: 0 30px;
+    padding: 0 20px; /* Reduced padding */
+    flex-direction: row !important; /* Force row direction */
+    flex-wrap: wrap !important; /* Allow wrapping */
+    justify-content: center;
+    gap: 20px;
   }
 
   .timeline-column {
-    width: 90%;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    width: calc(50% - 20px) !important; /* Two columns with gap */
+    margin: 0 !important; /* Remove margins */
+    padding: 1.25rem 1rem; /* Adjusted padding */
+    min-height: 220px; /* Ensure consistent height */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Restore some spacing for tablet */
+  .timeline-title {
+    margin-left: 45px;
+    width: calc(100% - 50px);
+  }
+
+  .timeline-arrow {
+    right: calc(100% - 50px);
+  }
+
+  .timeline-id {
+    left: 12px;
+  }
+
+  /* Ensure items fill the space */
+  .timeline-items {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-item {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Adjust spacing for the grid layout */
+  .new-timeline-grid + .new-timeline-grid {
+    margin-top: 0 !important;
   }
 }
 
@@ -464,15 +526,35 @@
   }
 
   .timeline-column {
-    width: 45%;
+    width: calc(50% - 1.5rem) !important; /* Two columns with gap */
     min-width: 280px;
     opacity: 1 !important;
     transform: translateY(0) !important;
     margin: 0 !important;
+    min-height: 220px; /* Ensure consistent height */
   }
 
   .new-timeline-heading {
     text-align: center;
     margin-bottom: 1.5rem;
+  }
+
+  /* Ensure items fill the space */
+  .timeline-items {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-item {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Adjust spacing for the grid layout */
+  .new-timeline-grid + .new-timeline-grid {
+    margin-top: 1rem !important;
   }
 }
