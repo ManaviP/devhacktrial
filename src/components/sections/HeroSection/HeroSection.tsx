@@ -392,20 +392,22 @@ const keyboardLetters = isMobile ? mobileOrder : desktopOrder;
               </svg>
             }
 
-            {/* Message Box, shrink size for mobile, reposition */}
-            <div className={`${isMobile ? 'absolute bottom-[-60px] left-1/2 -translate-x-1/2' : 'absolute bottom-[90px] right-[150px]'} z-[5] pointer-events-none`}>
-              <svg width={isMobile ? 48 : 80} height={isMobile ? 48 : 80} viewBox="0 0 80 80">
-                <circle cx="40" cy="40" r="35" fill="#FFFFFF" stroke="#000000" strokeWidth="1" />
-                <g ref={messageBoxRef}>
-                  <rect x="20" y="30" width="40" height="20" rx="4" fill="#FFFFFF" stroke="#000000" strokeWidth="1" />
-                  <g className="message-dots">
-                    <circle className="dot dot-1" cx="30" cy="40" r="2.5" fill="#000000" />
-                    <circle className="dot dot-2" cx="40" cy="40" r="2.5" fill="#000000" />
-                    <circle className="dot dot-3" cx="50" cy="40" r="2.5" fill="#000000" />
+            {/* Message Box - only show on desktop */}
+            {!isMobile && (
+              <div className="absolute bottom-[90px] right-[150px] z-[5] pointer-events-none">
+                <svg width={80} height={80} viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="35" fill="#FFFFFF" stroke="#000000" strokeWidth="1" />
+                  <g ref={messageBoxRef}>
+                    <rect x="20" y="30" width="40" height="20" rx="4" fill="#FFFFFF" stroke="#000000" strokeWidth="1" />
+                    <g className="message-dots">
+                      <circle className="dot dot-1" cx="30" cy="40" r="2.5" fill="#000000" />
+                      <circle className="dot dot-2" cx="40" cy="40" r="2.5" fill="#000000" />
+                      <circle className="dot dot-3" cx="50" cy="40" r="2.5" fill="#000000" />
+                    </g>
                   </g>
-                </g>
-              </svg>
-            </div>
+                </svg>
+              </div>
+            )}
           </div>
         </div>
       </div>
