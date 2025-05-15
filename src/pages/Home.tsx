@@ -27,7 +27,7 @@ export const Home = () => {
         
         <TimeCapsuleSection />
         <PrizesSection />
-        <Themes />
+        <TracksSection />
         <TimelineSection />
         <NewSponsorsSection />
         <FAQPageSection />

@@ -340,23 +340,43 @@
 
 /* Responsive adjustments */
 @media (max-width: 960px) {
+  .timeline-section-bg,
+  .new-timeline-container {
+    padding: 3rem 0;
+    overflow-x: hidden;
+  }
+
+  .new-timeline-heading {
+    font-size: 2rem;
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: 2rem;
+  }
+
   .new-timeline-grid {
     flex-direction: column;
+    padding: 0 30px;
+    max-width: 100%;
+    overflow-x: visible;
   }
 
   /* Maintain terrace effect on mobile */
   .new-timeline-grid:nth-child(3) {
-    padding-left: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .new-timeline-grid:nth-child(4) {
-    padding-left: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .timeline-column {
     width: 100%;
     padding: 1.1rem;
     margin-bottom: 2rem;
+    opacity: 1 !important; /* Force visibility */
+    transform: translateY(0) !important; /* Reset any transform */
   }
 
   /* Maintain terrace step effect within rows on mobile */
@@ -365,17 +385,17 @@
   }
 
   .new-timeline-grid .timeline-column:nth-child(2) {
-    margin-left: 20px;
+    margin-left: 0;
     margin-top: 0;
   }
 
   .new-timeline-grid .timeline-column:nth-child(3) {
-    margin-left: 40px;
+    margin-left: 0;
     margin-top: 0;
   }
 
   .new-timeline-grid .timeline-column:nth-child(4) {
-    margin-left: 60px;
+    margin-left: 0;
     margin-top: 0;
   }
 
@@ -388,10 +408,71 @@
     text-align: center;
     width: 100%;
     margin-top: 0.5rem;
-    margin-left: 1rem;
+    margin-left: 0;
+    padding: 0.75rem 0.5rem;
   }
-  .timeline-label{
-    width:100%;
+
+  .timeline-label {
+    width: 100%;
     text-align: center;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .timeline-title {
+    margin-left: 50px;
+    width: calc(100% - 55px);
+  }
+
+  .timeline-arrow {
+    right: calc(100% - 55px);
+  }
+}
+
+/* Tablet specific adjustments */
+@media (min-width: 768px) and (max-width: 960px) {
+  .timeline-section-bg,
+  .new-timeline-container {
+    padding: 3rem 1rem;
+  }
+
+  .new-timeline-grid {
+    padding: 0 30px;
+  }
+
+  .timeline-column {
+    width: 90%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Specific fix for 1024x621 and similar resolutions */
+@media (min-width: 961px) and (max-width: 1100px),
+       (min-height: 600px) and (max-height: 700px) {
+  .timeline-section-bg,
+  .new-timeline-container {
+    padding: 2rem 1rem;
+    overflow-x: hidden;
+  }
+
+  .new-timeline-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0 30px;
+  }
+
+  .timeline-column {
+    width: 45%;
+    min-width: 280px;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    margin: 0 !important;
+  }
+
+  .new-timeline-heading {
+    text-align: center;
+    margin-bottom: 1.5rem;
   }
 }

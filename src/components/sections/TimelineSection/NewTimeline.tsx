@@ -15,6 +15,18 @@ export const NewTimeline: React.FC = () => {
     // Get all timeline columns
     const columns = timelineRef.current.querySelectorAll('.timeline-column');
 
+    // Check if we're in a problematic resolution range (1024x621 or similar)
+    const isProblematicResolution =
+      (window.innerWidth >= 961 && window.innerWidth <= 1100) ||
+      (window.innerHeight >= 600 && window.innerHeight <= 700);
+
+    // If we're in a problematic resolution, make sure all columns are visible
+    if (isProblematicResolution) {
+      columns.forEach((column) => {
+        gsap.set(column, { opacity: 1, y: 0 });
+      });
+    }
+
     // Add pulse animation to arrows
     const arrows = timelineRef.current.querySelectorAll('.timeline-arrow');
     arrows.forEach((arrow) => {
@@ -28,31 +40,35 @@ export const NewTimeline: React.FC = () => {
       });
     });
 
-    // Simple scroll animation for columns
-    columns.forEach((column, i) => {
-      // Simple fade-in and slide-up animation on scroll
-      gsap.fromTo(
-        column,
-        {
-          y: 30,
-          opacity: 0
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: 'power1.out',
-          scrollTrigger: {
-            trigger: column,
-            start: 'top 85%',
-            end: 'bottom 15%',
-            toggleActions: 'play none none reverse',
+    // Simple scroll animation for columns - only if not in problematic resolution
+    if (!isProblematicResolution) {
+      columns.forEach((column, i) => {
+        // Simple fade-in and slide-up animation on scroll
+        gsap.fromTo(
+          column,
+          {
+            y: 30,
+            opacity: 0
           },
-          delay: i * 0.1 // Slight stagger effect
-        }
-      );
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: 'power1.out',
+            scrollTrigger: {
+              trigger: column,
+              start: 'top 85%',
+              end: 'bottom 15%',
+              toggleActions: 'play none none reverse',
+            },
+            delay: i * 0.1 // Slight stagger effect
+          }
+        );
+      });
+    }
 
-      // Simple hover animations for text elements
+    // Add hover effects to all columns regardless of resolution
+    columns.forEach((column) => {
       const title = column.querySelector('.timeline-title h3');
       const arrow = column.querySelector('.timeline-arrow');
       const icon = column.querySelector('.timeline-icon');
@@ -188,11 +204,22 @@ export const NewTimeline: React.FC = () => {
       // Kill any running GSAP animations
       columns.forEach((column) => {
         gsap.killTweensOf(column);
-        gsap.killTweensOf(column.querySelector('.timeline-title h3'));
-        gsap.killTweensOf(column.querySelector('.timeline-arrow'));
-        gsap.killTweensOf(column.querySelector('.timeline-icon'));
-        gsap.killTweensOf(column.querySelector('.timeline-label'));
-        gsap.killTweensOf(column.querySelector('.timeline-date'));
+
+        // Safely kill tweens for child elements that might not exist
+        const titleElement = column.querySelector('.timeline-title h3');
+        if (titleElement) gsap.killTweensOf(titleElement);
+
+        const arrowElement = column.querySelector('.timeline-arrow');
+        if (arrowElement) gsap.killTweensOf(arrowElement);
+
+        const iconElement = column.querySelector('.timeline-icon');
+        if (iconElement) gsap.killTweensOf(iconElement);
+
+        const labelElement = column.querySelector('.timeline-label');
+        if (labelElement) gsap.killTweensOf(labelElement);
+
+        const dateElement = column.querySelector('.timeline-date');
+        if (dateElement) gsap.killTweensOf(dateElement);
       });
 
       // Kill arrow pulse animations
