@@ -386,7 +386,7 @@ export const HeroSection = (_props: HeroSectionProps) => {
               <div
                 key={index}
                 ref={el => keysRef.current[index] = el}
-                className={absolute w-[150px] h-[150px] rounded-2xl flex justify-center items-center shadow-[0_8px_0_rgba(0,0,0,0.4)] origin-bottom transition-transform duration-200 cursor-pointer z-[2] border border-black/10 ${getKeyPositionClass(index)}}
+                className={`absolute w-[150px] h-[150px] rounded-2xl flex justify-center items-center shadow-[0_8px_0_rgba(0,0,0,0.4)] origin-bottom transition-transform duration-200 cursor-pointer z-[2] border border-black/10 ${getKeyPositionClass(index)}`}
                 onMouseEnter={() => handleKeyHover(index, true)}
                 onMouseLeave={() => handleKeyHover(index, false)}
               >
