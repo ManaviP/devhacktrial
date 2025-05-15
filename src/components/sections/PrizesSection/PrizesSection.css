@@ -709,26 +709,34 @@
 .track-prizes-screenshot-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1px;
+    gap: 1rem;
     margin: 4rem 0;
     border: 2px solid #111827;
     border-radius: 8px;
-    overflow-x: auto;
-    background: #e5e7eb;
     width: 100%;
     max-width: 100%;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    background: #f8f9fa;
+    position: relative;
+    overflow: visible;
+    transform: none;
+    backface-visibility: visible;
+    perspective: none;
+    will-change: auto;
 }
 
 @media (max-width: 1280px) {
     .track-prizes-screenshot-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
     }
 }
 
 @media (max-width: 1024px) {
     .track-prizes-screenshot-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
     .track-prize-label-text {
@@ -743,8 +751,9 @@
 @media (max-width: 640px) {
     .track-prizes-screenshot-grid {
         grid-template-columns: 1fr;
-        overflow-x: auto;
+        gap: 1rem;
         margin: 3rem 0;
+        padding: 0.5rem;
     }
 }
 
@@ -752,15 +761,35 @@
     display: flex;
     flex-direction: column;
     background: #f8f9fa;
-    min-height: 320px;
-    max-height: 320px;
-    box-shadow: none;
-    border-radius: 0;
+    height: 320px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     margin: 0;
     padding: 0;
-    border: none;
+    border: 1px solid #e5e7eb;
     width: 100%;
     box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transform: none;
+    backface-visibility: visible;
+    will-change: auto;
+}
+
+.track-prize-screenshot-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark .track-prize-screenshot-card {
+    background: #1f2937;
+    border-color: #374151;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark .track-prize-screenshot-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .track-prize-rect-top {
@@ -774,9 +803,40 @@
     position: relative;
     border: 1.5px solid #111827;
     border-bottom: 1.5px solid #111827;
-    overflow: hidden;
     width: 100%;
     box-sizing: border-box;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    overflow: visible;
+}
+
+.dark .track-prize-rect-top {
+    border-color: #374151;
+}
+
+.track-prize-rect-bottom {
+    background: #f8f9fa;
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-top: none;
+    min-height: 100px;
+    height: 40%;
+    margin: 0;
+    border: 1.5px solid #111827;
+    border-top: none;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
+}
+
+.dark .track-prize-rect-bottom {
+    background: #1f2937;
+    border-color: #374151;
 }
 
 .track-prize-label-tilechain {
@@ -790,6 +850,7 @@
     box-sizing: border-box;
     border-radius: 0;
     margin-bottom: 14px;
+    z-index: 2;
 }
 
 .track-prize-label-tilebox {
@@ -800,7 +861,7 @@
     border: none;
     box-sizing: border-box;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .track-prize-label-text {
@@ -810,27 +871,10 @@
     z-index: 2;
     position: relative;
     font-family: monospace;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
     max-width: 100%;
-}
-
-.track-prize-rect-bottom {
-    background: #f8f9fa;
-    padding: 1rem 1rem 1rem 1rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    border-top: none;
-    min-height: 100px;
-    height: 40%;
-    margin: 0;
-    border: 1.5px solid #111827;
-    border-top: none;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .track-prize-desc {
@@ -850,6 +894,9 @@
     align-items: center;
     height: 140px;
     width: 100%;
+    position: relative;
+    overflow: visible;
+    margin-top: auto;
 }
 
 .track-prize-svg-placeholder img {
@@ -859,6 +906,7 @@
     height: auto;
     object-fit: contain;
     display: block;
+    position: relative;
 }
 
 .benefit-bg-green::before {
@@ -928,4 +976,18 @@
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
+}
+
+/* Fix for scrolling issues */
+.track-prizes-screenshot-grid {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform;
+}
+
+.track-prize-screenshot-card {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
 }
