@@ -42,7 +42,7 @@ export const NewNavbar = () => {
         {/* Mobile header - only visible on small screens */}
         <div className="mobile-date-bar">
           <span className="code">&lt;date&gt;</span>
-          <span className="date-text">August-September, 2025</span>
+          <span className="date-text">September, 2025</span>
           <span className="code">&lt;/date&gt;</span>
         </div>
         <div className="mobile-header-main">
