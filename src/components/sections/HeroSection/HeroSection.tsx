@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -417,7 +416,7 @@ const keyboardLetters = isMobile ? mobileOrder : desktopOrder;
 const getKeyPositionClass = (index: number): string => {
   // Only use on desktop
   const positions = [
-    'top-[40px] left-[30px] -rotate-12 bg-[#FF6B00]', // D - adjusted top/left for desktop and responsive scaling
+    'top-[40px] left-[30px] -rotate-12 bg-[#FF6B00]', // D 
     'top-[115px] left-[105px] rotate-6 bg-[#7B61FF]', // E
     'top-[40px] left-[200px] -rotate-6 bg-[#E5CBFF]', // V
     'top-[190px] left-[210px] rotate-12 bg-[#FFD600]', // H
