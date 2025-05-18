@@ -459,6 +459,7 @@
     box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.04);
     width: 100%;
     max-width: 100%;
+    transition: all 0.3s ease;
 }
 
 .benefit-card::before {
@@ -539,6 +540,25 @@
     color: #111;
 }
 
+/* Add hover effects */
+.benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-logo {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.1));
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover .benefit-logo {
+    filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.2));
+    transform: scale(1.05);
+}
+
 .benefit-provider {
     font-size: clamp(1rem, 3vw, 1.25rem);
     font-weight: 700;
@@ -546,6 +566,19 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     text-align: center;
     color: #fff;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover .benefit-provider {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.dark .benefit-card:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.dark .benefit-card:hover .benefit-logo {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
 }
 
 .benefit-description {
@@ -592,7 +625,7 @@
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.1));
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .benefit-provider,
@@ -769,7 +802,7 @@
     border: 1px solid #e5e7eb;
     width: 100%;
     box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     transform: none;
@@ -779,17 +812,35 @@
 
 .track-prize-screenshot-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
 
-.dark .track-prize-screenshot-card {
-    background: #1f2937;
-    border-color: #374151;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.track-prize-label-text {
+    color: #222;
+    font-weight: 600;
+    font-size: 0.95rem;
+    z-index: 2;
+    position: relative;
+    font-family: monospace;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    max-width: 100%;
+    transition: all 0.3s ease;
+}
+
+.track-prize-screenshot-card:hover .track-prize-label-text {
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    color: #000;
 }
 
 .dark .track-prize-screenshot-card:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.dark .track-prize-screenshot-card:hover .track-prize-label-text {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    color: #fff;
 }
 
 .track-prize-rect-top {
@@ -864,19 +915,6 @@
     z-index: 2;
 }
 
-.track-prize-label-text {
-    color: #222;
-    font-weight: 600;
-    font-size: 0.95rem;
-    z-index: 2;
-    position: relative;
-    font-family: monospace;
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    max-width: 100%;
-}
-
 .track-prize-desc {
     color: #222;
     font-size: 0.95rem;
@@ -907,6 +945,16 @@
     object-fit: contain;
     display: block;
     position: relative;
+    transition: all 0.3s ease;
+}
+
+.track-prize-screenshot-card:hover .track-prize-svg-placeholder img {
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+    transform: scale(1.05);
+}
+
+.dark .track-prize-screenshot-card:hover .track-prize-svg-placeholder img {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
 }
 
 .benefit-bg-green::before {
