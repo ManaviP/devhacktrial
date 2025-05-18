@@ -10,7 +10,7 @@
 .tracks-title {
   composes: section-title;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
   color: #111;
@@ -43,6 +43,16 @@
   position: relative;
   padding: 0;
   color: #111;
+  transition: all 0.3s ease;
+}
+
+.track-card:hover .track-arrow {
+  box-shadow: 0 0 8px currentColor;
+  transform: scale(1.02);
+}
+
+.track-card:hover .track-name {
+  text-shadow: 0 0 2px currentColor;
 }
 
 /* Grid background pattern - more visible */
@@ -91,12 +101,49 @@
   flex-shrink: 0;
   font-weight: 700;
   padding: 0;
+  transition: all 0.3s ease;
 }
 
 .track-name {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #111;
+  color: #111 !important;
+  transition: all 0.3s ease;
+}
+
+/* Remove any default color styles */
+.sustainability-bg .track-name,
+.healthcare-bg .track-name,
+.aiml-bg .track-name,
+.web3-bg .track-name,
+.iot-bg .track-name,
+.open-bg .track-name {
+  color: #111 !important;
+}
+
+/* Track name colors - only on hover */
+.sustainability-bg:hover .track-name {
+  color: #2e7d32 !important;
+}
+
+.healthcare-bg:hover .track-name {
+  color: #c62828 !important;
+}
+
+.aiml-bg:hover .track-name {
+  color: #4527a0 !important;
+}
+
+.web3-bg:hover .track-name {
+  color: #1565c0 !important;
+}
+
+.iot-bg:hover .track-name {
+  color: #00897b !important;
+}
+
+.open-bg:hover .track-name {
+  color: #ef6c00 !important;
 }
 
 /* White box around icon, description, and sponsor */
@@ -122,6 +169,11 @@
   margin: 0 0 1.5rem 0;
   z-index: 1;
   color: #111;
+  transition: all 0.3s ease;
+}
+
+.track-card:hover .track-icon {
+  transform: scale(1.15);
 }
 
 .track-desc {
@@ -132,26 +184,6 @@
   margin-bottom: 1rem;
   z-index: 1;
   text-align: center;
-}
-
-.track-sponsor {
-  font-size: 1rem;
-  background: #111;
-  color: #fff;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  margin-top: 1rem;
-  width: 100%;
-  border-radius: 0;
-  font-weight: 500;
-  text-align: center;
-  padding: 0.5em 0;
-  box-sizing: border-box;
-  align-self: stretch;
-}
-
-.sponsor-name {
-  font-weight: 700;
-  color: inherit;
 }
 
 /* Specific backgrounds for each card */
@@ -253,26 +285,32 @@
 
 .arrow-sustainability-bg {
   background: #b6e2c6;
+  color: #2e7d32;
 }
 
 .arrow-healthcare-bg {
   background: #ffd6d6;
+  color: #c62828;
 }
 
 .arrow-aiml-bg {
   background: #d6c6ff;
+  color: #4527a0;
 }
 
 .arrow-web3-bg {
   background: #b6d6ff;
+  color: #1565c0;
 }
 
 .arrow-iot-bg {
   background: #b6fff2;
+  color: #00897b;
 }
 
 .arrow-open-bg {
   background: #ffe2b6;
+  color: #ef6c00;
 }
 
 @media (max-width: 900px) {

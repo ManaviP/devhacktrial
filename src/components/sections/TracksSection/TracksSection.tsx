@@ -29,7 +29,6 @@ const TrackCard = ({ track, index }: { track: Track; index: number }) => {
       <div className="track-content-box">
         <div className="track-icon">{track.icon}</div>
         {track.description && <div className="track-desc">{track.description}</div>}
-        <div className="track-sponsor">Track sponsor: <span className="sponsor-name">{track.sponsor}</span></div>
       </div>
     </motion.div>
   );
