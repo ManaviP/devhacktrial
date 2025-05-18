@@ -81,7 +81,10 @@
   z-index: 1;
   color: #111;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
-  height: 3.25rem;
+  height: auto;
+  min-height: 3.25rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .track-arrow {
@@ -109,6 +112,9 @@
   font-weight: 700;
   color: #111 !important;
   transition: all 0.3s ease;
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
 }
 
 /* Remove any default color styles */
@@ -317,5 +323,23 @@
   .tracks-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .track-header {
+    font-size: 1.75rem;
+    padding: 0.5rem 1rem;
+    margin: 1rem 1rem 0.5rem 1rem;
+  }
+
+  .track-arrow {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.25rem;
+    margin-left: -1rem;
+    margin-right: 0.75rem;
+  }
+
+  .track-name {
+    font-size: 1.25rem;
   }
 }
