@@ -100,7 +100,7 @@ export const PrizesSection = () => {
       place: "1st place",
       amount: "₹1,00,000",
       color: "yellow",
-      image: "/images/prizes/1st.png"
+      image: "https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a0e_prize-1-diamond.svg"
     },
     {
       place: "2nd place",
@@ -162,11 +162,102 @@ export const PrizesSection = () => {
                     </span>
                   </div>
                   <div className="prize-content">
-                    <img
-                      src={prize.image}
-                      alt={prize.place}
-                      className="prize-image"
-                    />
+                    {prize.place === "1st place" ? (
+                      <div className="prizes-image">
+                        <div className="cover-img u--abs u--center">
+                          <img src={prize.image} loading="lazy" alt="" className="cover" />
+                          <div className="star size-3 prize-1-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                          </div>
+                          <div className="star size-1 prize-1-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="cover-img u--abs">
+                          <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a07_prize-1-coin-bottom.svg" loading="lazy" alt="" className="cover" />
+                        </div>
+                        <div className="cover-img u--abs u--center">
+                          <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a0a_prize-1-coin-top.svg" loading="lazy" alt="" className="cover" />
+                          <div className="star size-2 prize-1-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                          </div>
+                          <div className="star size-1 prize-1-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="cover-img u--abs">
+                          <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a0c_prize-1-bills.svg" loading="lazy" alt="" className="cover" />
+                        </div>
+                      </div>
+                    ) : prize.place === "2nd place" ? (
+                      <div className="prizes-image">
+                        <div className="cover-img u--abs">
+                          <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a0b_prize-3-bottom.svg" loading="lazy" alt="" className="cover" />
+                        </div>
+                        <div className="cover-img u--abs u--center">
+                          <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a1e_prize-30-middle.svg" loading="lazy" alt="" className="cover" />
+                          <div className="star size-2 prize-3-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="cover-img u--abs u--center">
+                          <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a0d_prize-3-top.svg" loading="lazy" alt="" className="cover" />
+                          <div className="star size-3 prize-3-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                          </div>
+                          <div className="star size-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    ) : prize.place === "3rd place" ? (
+                      <div className="prizes-image">
+                        <div className="cover-img u--abs">
+                          <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a1f_prize-4-bottom.svg" loading="lazy" alt="" className="cover" />
+                        </div>
+                        <div className="cover-img u--abs u--center">
+                          <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a1c_prize-4-middle.svg" loading="lazy" alt="" className="cover" />
+                          <div className="star size-3 prize-4-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                          </div>
+                          <div className="star size-1 prize-4-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="cover-img u--abs u--center">
+                          <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a20_prize-4-top.svg" loading="lazy" alt="" className="cover" />
+                          <div className="star size-1 prize-4-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <img
+                        src={prize.image}
+                        alt={prize.place}
+                        className="prize-image"
+                      />
+                    )}
                   </div>
                   <div className="prize-footer">
                     <div className="prize-amount">{prize.amount}</div>
