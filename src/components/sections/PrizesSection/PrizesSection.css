@@ -336,8 +336,15 @@
 .star {
     position: absolute;
     animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite;
-    color: #ffd700;
-    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.6));
+    /* color and filter handled by image */
+}
+
+.star-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Add filter for glow if needed on the image */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
 }
 
 .star.size-1 {

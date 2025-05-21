@@ -167,14 +167,10 @@ export const PrizesSection = () => {
                         <div className="cover-img u--abs u--center">
                           <img src={prize.image} loading="lazy" alt="" className="cover" />
                           <div className="star size-3 prize-1-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            </svg>
+                            <img src="/images/starry.png" alt="star glow" className="star-image" />
                           </div>
                           <div className="star size-1 prize-1-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            </svg>
+                            <img src="/images/starry.png" alt="star glow" className="star-image" />
                           </div>
                         </div>
                         <div className="cover-img u--abs">
@@ -183,14 +179,10 @@ export const PrizesSection = () => {
                         <div className="cover-img u--abs u--center">
                           <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a0a_prize-1-coin-top.svg" loading="lazy" alt="" className="cover" />
                           <div className="star size-2 prize-1-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            </svg>
+                            <img src="/images/starry.png" alt="star glow" className="star-image" />
                           </div>
                           <div className="star size-1 prize-1-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            </svg>
+                            <img src="/images/starry.png" alt="star glow" className="star-image" />
                           </div>
                         </div>
                         <div className="cover-img u--abs">
@@ -205,22 +197,16 @@ export const PrizesSection = () => {
                         <div className="cover-img u--abs u--center">
                           <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a1e_prize-30-middle.svg" loading="lazy" alt="" className="cover" />
                           <div className="star size-2 prize-3-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            </svg>
+                            <img src="/images/starry.png" alt="star glow" className="star-image" />
                           </div>
                         </div>
                         <div className="cover-img u--abs u--center">
                           <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a0d_prize-3-top.svg" loading="lazy" alt="" className="cover" />
                           <div className="star size-3 prize-3-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            </svg>
+                            <img src="/images/starry.png" alt="star glow" className="star-image" />
                           </div>
                           <div className="star size-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            </svg>
+                            <img src="/images/starry.png" alt="star glow" className="star-image" />
                           </div>
                         </div>
                       </div>
@@ -232,22 +218,16 @@ export const PrizesSection = () => {
                         <div className="cover-img u--abs u--center">
                           <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a1c_prize-4-middle.svg" loading="lazy" alt="" className="cover" />
                           <div className="star size-3 prize-4-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            </svg>
+                            <img src="/images/starry.png" alt="star glow" className="star-image" />
                           </div>
                           <div className="star size-1 prize-4-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            </svg>
+                            <img src="/images/starry.png" alt="star glow" className="star-image" />
                           </div>
                         </div>
                         <div className="cover-img u--abs u--center">
                           <img src="https://cdn.prod.website-files.com/67acdc4f394bcf4f3e3669b6/67acdc4f394bcf4f3e366a20_prize-4-top.svg" loading="lazy" alt="" className="cover" />
                           <div className="star size-1 prize-4-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                              <path fill="currentColor" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            </svg>
+                            <img src="/images/starry.png" alt="star glow" className="star-image" />
                           </div>
                         </div>
                       </div>
