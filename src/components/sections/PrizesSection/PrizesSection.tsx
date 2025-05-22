@@ -148,7 +148,7 @@ export const PrizesSection = () => {
               return (
                 <motion.div
                   ref={ref}
-                  className={`prize-card`}
+                  className={`prize-card ${placeClass}`}
                   initial={{ opacity: 0, y: 60 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
                   transition={{ duration: 0.8, delay: index * 0.08, ease: 'easeOut' }}
